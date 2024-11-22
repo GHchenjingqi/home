@@ -11,7 +11,7 @@ const init = async ({ THREE, scene, controls, transControls, camera, renderer })
   // 创建 Three.js 几何体和材质
   const sphereGeometry = new THREE.SphereGeometry(1);
   const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load("/public/images/lq.gif");
+  const texture = textureLoader.load(import.meta.env.VITE_BASE_URL+"/public/images/lq.gif");
   const sphereMaterial = new THREE.MeshPhongMaterial({ color: 0xc96802, map: texture});
   sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
   sphereMesh.position.y = 15;

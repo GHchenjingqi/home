@@ -14,8 +14,8 @@ const init = async ({ THREE, scene, controls, transControls, camera, renderer })
   // 地球
   const earthGroup = new THREE.Group();
   let textureLoader = new THREE.TextureLoader();
-  let texture = textureLoader.load('/public/images/world.jpg');
-  let textureat = textureLoader.load('/public/images/atearth.webp');
+  let texture = textureLoader.load(import.meta.env.VITE_BASE_URL+'/public/images/world.jpg');
+  let textureat = textureLoader.load(import.meta.env.VITE_BASE_URL+'/public/images/atearth.webp');
   let geometry = new THREE.SphereGeometry(2, 40, 40);
   let material = new THREE.MeshLambertMaterial({
     map: texture,
@@ -26,7 +26,7 @@ const init = async ({ THREE, scene, controls, transControls, camera, renderer })
   mesh.name = 'earth';
   earthGroup.add(mesh);
 
-  let texture1 = textureLoader.load('/public/images/cloud.png');
+  let texture1 = textureLoader.load( import.meta.env.VITE_BASE_URL+'/public/images/cloud.png');
   let mesh1 = new THREE.Mesh(
     new THREE.SphereGeometry(2.2, 40, 40),
     new THREE.MeshLambertMaterial({

@@ -4,12 +4,13 @@ import Loading from '../../components/Loading.vue';
 
 const meshfn = ({ THREE, scene, cube })=>{
     // 环境贴图：左右、上下、前后
-    const cubeTexture = new THREE.CubeTextureLoader().setPath("/public/images/").load(["1.jpg", "2.jpg", "3.jpg", "4.jpg", "6.jpg", "5.jpg"]);
+
+    const cubeTexture = new THREE.CubeTextureLoader().setPath( import.meta.env.VITE_BASE_URL+"/public/images/").load(["1.jpg", "2.jpg", "3.jpg", "4.jpg", "6.jpg", "5.jpg"]);
     scene.background = cubeTexture;
 
     // 贴图
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load("/public/images/all.jpg");
+    const texture = textureLoader.load(import.meta.env.VITE_BASE_URL+"/public/images/all.jpg");
     const geometry2 = new THREE.SphereGeometry(0.5, 36, 18);
     // 材质
     const material2 = new THREE.MeshBasicMaterial({
@@ -19,7 +20,7 @@ const meshfn = ({ THREE, scene, cube })=>{
     cube = new THREE.Mesh(geometry2, material2);
     scene.add(cube);
 }
- 
+
 
 const { loading, pregress } = useThree({
     el: '#canvas', // 元素
@@ -37,7 +38,7 @@ const { loading, pregress } = useThree({
   <Loading :loading="loading" :pregress="pregress">
     <canvas id="canvas"></canvas>
   </Loading>
-</template>   
+</template>
 <style scoped>
 #canvas {
   width: 100%;

@@ -17,7 +17,7 @@ const init = ({ THREE, scene, controls,camera, renderer})=>{
   renderer.shadowMap.type = THREE.PCFSoftShadowMap; // 默认的是，没有设置的这个清晰 THREE.PCFShadowMap
 
   const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load("/public/images/bj.webp");
+  const texture = textureLoader.load(import.meta.env.VITE_BASE_URL+"/public/images/bj.webp");
   scene.background = texture;
 
 

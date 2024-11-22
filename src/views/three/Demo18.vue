@@ -60,7 +60,7 @@ const init = async ({ THREE, scene, controls, transControls, camera, renderer })
 
   const planeGeometry = new THREE.PlaneGeometry(500, 500);
   const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load("/public/images/grass.png");
+  const texture = textureLoader.load(import.meta.env.VITE_BASE_URL+"/public/images/grass.png");
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set(1000, 1000)
@@ -83,7 +83,7 @@ const init = async ({ THREE, scene, controls, transControls, camera, renderer })
           radius 管道的半径-默认值为1 ，决定面的宽度
           radialSegments 横截面的分段数目-默认值为8，越多管道越圆，最少是2个分段形成一个面
           closed  两端是否闭合-默认值为false
-    ) 
+    )
   */
   // 面1
   const tubeGeometry = new THREE.TubeGeometry(curve, 120, 0.8, 2, false);

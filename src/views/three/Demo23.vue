@@ -91,8 +91,8 @@ const init = async ({ THREE, scene, controls, canvas, camera, renderer, clock })
 
   // 加载贴图
   const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load('/public/images/earth2.jpg');
-  const glowTexture = textureLoader.load('/public/images/glow.png'); // 加载大气层纹理
+  const texture = textureLoader.load(import.meta.env.VITE_BASE_URL+'/public/images/earth2.jpg');
+  const glowTexture = textureLoader.load(import.meta.env.VITE_BASE_URL+'/public/images/glow.png'); // 加载大气层纹理
 
   // 创建地球几何体
   const earth_geometry = new THREE.SphereGeometry(4, 50, 50);
@@ -185,7 +185,6 @@ const init = async ({ THREE, scene, controls, canvas, camera, renderer, clock })
       "void main(){",
       "	vVertexNormal	= normalize(normalMatrix * normal);", //将法线转换到视图坐标系中
       "	vVertexWorldPosition	= (modelMatrix * vec4(position, 1.0)).xyz;", //将顶点转换到世界坐标系中
-      "	// set gl_Position",
       "	gl_Position	= projectionMatrix * modelViewMatrix * vec4(position, 1.0);",
       "}",
     ].join("\n");
