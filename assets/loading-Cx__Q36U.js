@@ -1,0 +1,1 @@
+import{C as a}from"./index-BO75H3X_.js";const o=a("loading",{state:()=>({loadingStatus:!1}),getters:{getLoadingStatus:t=>t.loadingStatus},actions:{setLoadingStatus(t){this.loadingStatus=t}}});export{o as u};
