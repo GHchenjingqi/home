@@ -1,0 +1,1 @@
+import{C as a}from"./index-CAQZDU1Q.js";const o=a("loading",{state:()=>({loadingStatus:!1}),getters:{getLoadingStatus:t=>t.loadingStatus},actions:{setLoadingStatus(t){this.loadingStatus=t}}});export{o as u};

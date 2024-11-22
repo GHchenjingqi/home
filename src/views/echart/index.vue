@@ -7,7 +7,15 @@ const router = useRouter()
 const menus = ref([])
 const menusHandle=()=>{
   const threeMenus = config.menus.find(item => item.name == 'echart')
-  menus.value = threeMenus.children.filter(item => item.path !== '/')
+  menus.value = threeMenus.children.filter(item =>{
+      if (item.path !== '/'){
+          const {img,...rest} = item
+          return {
+              img: import.meta.env.VITE_BASE_URL + img,
+              ...rest
+          }
+      }
+  })
 }
 
 const go = (path,index) => {
