@@ -7,13 +7,12 @@ const router = useRouter()
 const menus = ref([])
 const menusHandle=()=>{
   const threeMenus = config.menus.find(item => item.name == 'echart')
-  menus.value = threeMenus.children.filter(item =>{
-      if (item.path !== '/'){
-          const {img,...rest} = item
-          return {
-              img: import.meta.env.VITE_BASE_URL + img,
-              ...rest
-          }
+  let list = threeMenus.children.filter(item => item.path !== '/')
+  menus.value = list.map(item =>{
+      const {img,...rest} = item
+      return {
+          img: import.meta.env.VITE_BASE_URL + img,
+          ...rest
       }
   })
 }
@@ -40,14 +39,14 @@ onMounted(() => {
       <img src="/public/images/echart.jpg" alt="">
       <div class="file-content">
         <h1>Echarts <a href="https://echarts.apache.org/zh/index.html" target="_blank" rel="noopener noreferrer">官方案例</a></h1>
-        <p>基于 JavaScript 的开源可视化图表库</p>
+        <p>基于JavaScript 的开源可视化图表库</p>
       </div>
     </div>
     <div class="box">
         <h3>Demo常见案例</h3>
         <ul class="list">
           <li v-for="(item,index) in menus" :key="index" @click="go(item.path,index)">
-            <img :src="item.img" alt="">
+            <img :src="item.img" :alt="item.name">
             <h5>{{ item.name }}</h5>
           </li>
         </ul>
