@@ -106,7 +106,7 @@ const init = async ({THREE, scene, transControls, renderer, camera, gridHelper, 
   const MaxHeight = 1.0, MaxWidth = 1.5
 
   staticImg.forEach(item => {
-    textureLoader.load(item.url, (texture) => {
+    textureLoader.load(import.meta.env.VITE_BASE_URL+item.url, (texture) => {
       const {width, height} = texture.image
       if (texture.image.width > MaxWidth) {
         item.width = MaxWidth;
