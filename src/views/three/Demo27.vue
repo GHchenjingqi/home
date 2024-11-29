@@ -207,7 +207,7 @@ const init = async ({THREE, scene, transControls, renderer, camera, gridHelper, 
         cameraControls.setLookAt(pt.x, pt.y, pt.z, x, y, z, true)
       }
       if(selectobj?.orginData){
-        Zoomtastic.show(selectobj?.orginData.url);
+        Zoomtastic.show( import.meta.env.VITE_BASE_URL+selectobj?.orginData.url);
       }
     }
   })
