@@ -10,45 +10,45 @@ const meshfn = ({ THREE, scene, renderer}) => {
   // 真实渲染
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 0.5;
-
   scene.background = new THREE.Color( 0xdef6ff );
+  try {
+      // 水
+      const waterGeometry = new THREE.PlaneGeometry( 10000, 10000 );
+      water = new Water(
+          waterGeometry,
+          {
+              textureWidth: 512,
+              textureHeight: 512,
+              waterNormals: new THREE.TextureLoader().load( import.meta.env.VITE_BASE_URL+'/public/images/waternormals.jpg', function ( texture ) {
+                  texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+              } ),
+              sunDirection: new THREE.Vector3(),
+              sunColor: 0xffffff,
+              waterColor: 0x001e0f,
+              distortionScale: 3.7,
+              fog: scene.fog !== undefined
+          }
+      );
+      water.rotation.x = - Math.PI / 2;
+      scene.add( water );
 
-  // 水
-  const waterGeometry = new THREE.PlaneGeometry( 10000, 10000 );
-  water = new Water(
-    waterGeometry,
-    {
-      textureWidth: 512,
-      textureHeight: 512,
-      waterNormals: new THREE.TextureLoader().load( import.meta.env.VITE_BASE_URL+'/public/images/waternormals.jpg', function ( texture ) {
-        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-      } ),
-      sunDirection: new THREE.Vector3(),
-      sunColor: 0xffffff,
-      waterColor: 0x001e0f,
-      distortionScale: 3.7,
-      fog: scene.fog !== undefined
-    }
-  );
-  water.rotation.x = - Math.PI / 2;
-  scene.add( water );
+      // 灯光
+      let light = creatLightMesh({type: 'point', color: 0xffffff, intensity: 600, position: [2, 4, -3],})
+      scene.add(light)
 
-  // 灯光
-  let light = creatLightMesh({type: 'point', color: 0xffffff, intensity: 600, position: [2, 4, -3],})
-  scene.add(light)
+      boat = findMesh(scene.children,'boat')
+      boat.position.y = 0.5
+      boat.position.z = 12
+      boat.rotation.y = Math.PI
 
-  boat = findMesh(scene.children,'boat')
-  boat.position.y = 0.5
-  boat.position.z = 12
-  boat.rotation.y = Math.PI
-
-  let lighthouse = findMesh(scene.children,'lighthouse')
-  lighthouse.scale.set(50,50,60)
-  lighthouse.position.set(-28,9,-200)
-  lighthouse.rotation.y = Math.PI / 2
-
+      let lighthouse = findMesh(scene.children,'lighthouse')
+      lighthouse.scale.set(50,50,60)
+      lighthouse.position.set(-28,9,-200)
+      lighthouse.rotation.y = Math.PI / 2
+  }catch (e) {
+      alert("加载模型异常，请刷新页面")
+  }
 }
-
 
 // 回调动画
 const animation = ({ scene, camera, renderer, controls, stats,  }) => {
@@ -64,7 +64,7 @@ const animation = ({ scene, camera, renderer, controls, stats,  }) => {
 
   controls.update();
   renderer.render(scene, camera);
-  stats.update();
+  stats?.update();
 }
 
 const { loading, pregress } = useThree({

@@ -13,12 +13,12 @@ const init = async ({ THREE, scene, controls, transControls, camera, renderer })
   // 圆锥体（参数：大小，高度，棱边数）
   const coneGeometry = new THREE.ConeGeometry(1,3,3);
   // 胶囊体（参数：半径大小，高度，圆角，棱边数）
-  const capsule = new THREE.CapsuleGeometry( 1, 1, 4, 8 ); 
+  const capsule = new THREE.CapsuleGeometry( 1, 1, 4, 8 );
   // 平面体（参数：宽、高, 宽细分，高细分）
-  const plane = new THREE.PlaneGeometry( 2, 6); 
+  const plane = new THREE.PlaneGeometry( 2, 6);
 
   // 添加到场景
-  const material = new THREE.MeshPhongMaterial({ color: 0xff0000 }); //材质 
+  const material = new THREE.MeshPhongMaterial({ color: 0xff0000 }); //材质
   const box = new THREE.Mesh(boxGeometry, material);
   const box1 = new THREE.Mesh(boxGeometry1, material);
   box1.position.x = 3
@@ -36,6 +36,12 @@ const init = async ({ THREE, scene, controls, transControls, camera, renderer })
   const planes = new THREE.Mesh(plane, material);
   planes.position.z = -6
   planes.position.x = -4
+
+  // 圆形平面
+  const Rgeometry = new THREE.CircleGeometry(2, 32 );
+  const Rplanes = new THREE.Mesh(Rgeometry, material);
+  Rplanes.position.set(0,2,-6)
+  scene.add(Rplanes)
   scene.add(box)
   scene.add(box1)
   scene.add(geo)

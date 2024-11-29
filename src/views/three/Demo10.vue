@@ -101,27 +101,39 @@ const init = ({ THREE, scene, camera, renderer }) => {
   scene.add(circleMesh);
 
 
-  // 相机视角控制器 
+  // 相机视角控制器
   cameraControls = new PointerLockControls(camera, renderer.domElement);
-  scene.add(cameraControls.getObject());
+  scene.add(cameraControls.object);
 
   const blocker = document.getElementById('box');
-
-  blocker.addEventListener('click', function () {
+  const clickHandle = function () {
     cameraControls.lock();
-  });
+  }
+  blocker.addEventListener('click', clickHandle);
 
+  document.addEventListener('pointerlockchange', function () {
+    if (document.pointerLockElement === canvas) {
+      console.log('Pointer locked');
+    } else {
+      console.log('Pointer unlocked');
+    }
+  }, false);
+
+  document.addEventListener('pointerlockerror', function () {
+    console.error('Pointer lock failed');
+  });
   cameraControls.addEventListener('lock', function () {
     blocker.style.display = 'none';
+    blocker.removeEventListener('click',clickHandle)
   });
 
   cameraControls.addEventListener('unlock', function () {
     blocker.style.display = 'block';
+    blocker.addEventListener('click', clickHandle);
   });
 
   document.addEventListener('keydown', onKeyDown);
   document.addEventListener('keyup', onKeyUp);
-
 }
 
 
@@ -169,7 +181,7 @@ const onKeyUp = function (event) {
 
 
 // 回调动画
-const animation = ({ THREE, scene, camera, renderer, controls, stats, }) => {
+const animation = ({ THREE, scene, camera, renderer , stats, }) => {
   // 控制相机移动
   const speed = 0.1;
   if (cameraControls.isLocked) {
@@ -196,6 +208,24 @@ const animation = ({ THREE, scene, camera, renderer, controls, stats, }) => {
   // 飞线运动
   if (index <= 99) {
     index += 1
+      if (bufferGeometry1) {
+          bufferGeometry1.dispose();
+      }
+      if (bufferGeometry2) {
+          bufferGeometry2.dispose();
+      }
+      if (bufferGeometry3) {
+          bufferGeometry3.dispose();
+      }
+      if (bufferGeometry4) {
+          bufferGeometry4.dispose();
+      }
+
+      // 创建新的几何图形对象并设置数据点
+      bufferGeometry1 = new THREE.BufferGeometry();
+      bufferGeometry2 = new THREE.BufferGeometry();
+      bufferGeometry3 = new THREE.BufferGeometry();
+      bufferGeometry4 = new THREE.BufferGeometry();
     bufferGeometry1.setFromPoints(new THREE.CatmullRomCurve3(points1.slice(index, index + num)).getSpacedPoints(100));
     bufferGeometry2.setFromPoints(new THREE.CatmullRomCurve3(points2.slice(index, index + num)).getSpacedPoints(100));
     bufferGeometry3.setFromPoints(new THREE.CatmullRomCurve3(points3.slice(index, index + num)).getSpacedPoints(100));
@@ -220,8 +250,6 @@ const animation = ({ THREE, scene, camera, renderer, controls, stats, }) => {
     });
   }
 
-
-  controls.update();
   renderer.render(scene, camera);
   stats.update();
 }
@@ -230,7 +258,7 @@ const { loading, pregress } = useThree({
   el: '#canvas', // 元素
   background: '#333333',
   cameraPosition: [0, 4, 10], // 摄像机位置
-  controlAuto: true,  // 自动旋转
+  control:false, // 关闭OrbitControls
   helper: false, // 辅佐线
   light: true, // 灯光
   creatMesh: init,  // 回调
@@ -240,6 +268,10 @@ const { loading, pregress } = useThree({
 
 onUnmounted(() => {
   cameraControls = null
+  bufferGeometry1.dispose()
+  bufferGeometry2.dispose()
+  bufferGeometry3.dispose()
+  bufferGeometry4.dispose()
   bufferGeometry1 = points1 = bufferGeometry2 = points2 = bufferGeometry3 = points3 = bufferGeometry4 = points4 = null
   document.removeEventListener('keydown', onKeyDown);
   document.removeEventListener('keyup', onKeyUp);
@@ -251,7 +283,7 @@ onUnmounted(() => {
     <div id="box">
       <div class="box">
         <p><b>开始体验</b></p>
-        <p>请按键盘： W/A/S/D</p>
+        <p>请按键盘： W/A/S/D，配合鼠标控制方向哦！</p>
         <p>ESC 退出</p>
       </div>
     </div>

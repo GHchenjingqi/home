@@ -127,7 +127,7 @@ const creatLineHandler = (center, positions, THREE) => {
   const [x, y, z] = positions;
   const [cx, cy, cz] = center;
   const start = new THREE.Vector3(x, y, z);
-  // 计算中间点 
+  // 计算中间点
   const mindle = new THREE.Vector3((x + cx) / 2, (y + cy) / 2, 20);
   const end = new THREE.Vector3(cx, cy, cz);
   return { lineArr: [start, mindle, end], startColor: 0x00ff00, endColor: 0x009fff }
@@ -207,6 +207,10 @@ const animation = ({ scene, camera, renderer, controls, stats, THREE }) => {
       // 飞线运动
       if (item.flyindex <= 99) {
         item.flyindex += 1 + Math.random() * 0.5;
+        if(item.bufferGeometry){
+          item.bufferGeometry.dispose();
+          item.bufferGeometry = new THREE.BufferGeometry();
+        }
         item.bufferGeometry.setFromPoints(new THREE.CatmullRomCurve3(item.points.slice(item.flyindex, item.flyindex + item.flynum)).getSpacedPoints(100));
       } else {
         item.flyindex = 0

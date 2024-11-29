@@ -127,12 +127,12 @@ const init = ({ THREE, scene, controls,camera, renderer})=>{
 }
 
 const animation = ({ scene, camera, renderer, controls, stats, }) => {
-  if (moveobj && moveobj.moveListener) {
+  if (moveobj && moveobj?.moveListener) {
     moveobj.mesh.rotation.y += 0.01
   }
-  controls.update();
+  controls?.update();
   renderer.render(scene, camera);
-  stats.update();
+  stats?.update();
 }
 const {loading, pregress} =  useThree({
     el: '#canvas', // 元素

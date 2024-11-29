@@ -10,17 +10,16 @@ let selectobj =null,clickListener = null;
 
 const meshfn = ({ THREE, scene,transControls, camera,renderer,}) => {
   group = new THREE.Group()
-  const box = creatBoxMesh({  color: 0xffffff, position: [0, 0, 0], size: [1, 1, 1] })
-  // 默认控制第一个
-  transControls.attach(box);
-
+  const box =  creatBoxMesh({  color: 0xffffff, position: [0, 0, 0], size: [1, 1, 1] })
   const box2 = creatBoxMesh({ color: 0xffff00, position: [-2, -2, 0], size: [1, 1, 1] })
   const box3 = creatBoxMesh({ color: 0x00ff00, position: [2, 2,6], size: [1, 1, 1] })
   group.add(box)
   group.add(box2)
   group.add(box3)
   scene.add(group)
-  
+  // 默认控制第一个
+  transControls.attach(box);
+
   clickListener = async (event) => {
     let rayObject = await useRay({ el: "#canvas",camera,group, event})
     if (rayObject?.object) {
@@ -41,6 +40,7 @@ const { loading, pregress } = useThree({
   el: '#canvas', // 元素
   background: '#333333',
   cameraPosition: [0, 4, 10], // 摄像机位置
+  control:true,
   controlAuto: false,  // 自动旋转
   helper: true, // 辅佐线
   light: true, // 灯光

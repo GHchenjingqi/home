@@ -246,7 +246,7 @@ const { loading } = useThree({
   el: '#canvas', // 元素
   background: '#d3e3f3', // 背景色
   cameraPosition: [-10, 2, 0], // 摄像机位置
-  control: true, // 是否开启控制器
+  control: false, // 是否开启控制器
   controlAutoSpeed: false, // 是否开启自动旋转
   helper: false, // 辅佐线
   light: true, // 灯光

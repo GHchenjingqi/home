@@ -120,8 +120,10 @@ const init = async ({ THREE, scene, controls, canvas, camera, renderer }) => {
         rayObject.object.material.color = new THREE.Color(0.5, 0.5, 0.5)
         // rayObject.object.visible = false
         outlinePass.selectedObjects = [rayObject.object]
+        // 获取相机和物体中间的位置
+        const middle = new THREE.Vector3().copy(rayObject.object.position).add(camera.position).multiplyScalar(0.5)
         // 相机看向选中物体
-        lookAtWithTransition(camera, rayObject.object.position, 2.0)
+        lookAtWithTransition(camera, middle, 2.0)
         activeIntersects.push(rayObject)
       }
     }

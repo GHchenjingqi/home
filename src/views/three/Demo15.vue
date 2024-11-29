@@ -21,12 +21,6 @@ const init = async ({ THREE, scene, controls, transControls, camera, renderer })
   scene.add(textGroup);
   camera.lookAt(textGroup.position);
 
-  // 世界中心添加一个立方体
-  const points = creatBoxMesh({ size: [1, 1, 1], color: 0x00ff00, position: [0, 0, 0], type: "basic" })
-  scene.add(points);
-
-
-  // 空格开灯
   document.addEventListener('keydown', onKeyDown);
 }
 
@@ -46,8 +40,8 @@ const onKeyDown = function (event) {
 let isMovingToZ15 = true;
 let isRotatingAroundY = false;
 const animation = ({ THREE, scene, controls, transControls, camera, renderer, stats }) => {
-  stats.update();
-  controls.update();
+  stats?.update();
+  controls?.update();
   renderer.render(scene, camera);
 
   if (stop.value) {
@@ -79,15 +73,13 @@ const animation = ({ THREE, scene, controls, transControls, camera, renderer, st
       scene.rotation.z = 0;
     }
   }
-  // console.log(camera.position.z);
 }
 
 const { loading } = useThree({
   el: '#canvas', // 元素
   background: '#111', // 背景色
   cameraPosition: [0, 0, 5], // 摄像机位置
-  control: true, // 是否开启控制器
-  controlAutoSpeed: false, // 是否开启自动旋转
+  control: false, // 是否开启控制器
   helper: false, // 辅佐线
   light: true, // 灯光
   creatMesh: init,

@@ -54,7 +54,7 @@ const init = async ({ THREE, scene, controls, transControls, camera, renderer })
           radius 管道的半径-默认值为1 ，决定面的宽度
           radialSegments 横截面的分段数目-默认值为8，越多管道越圆，最少是2个分段形成一个面
           closed  两端是否闭合-默认值为false
-    ) 
+    )
   */
   // 面1
   const tubeGeometry = new THREE.TubeGeometry(curve, 120, 0.8, 2, false);
@@ -139,7 +139,7 @@ const { loading } = useThree({
   el: '#canvas', // 元素
   background: '#111', // 背景色
   cameraPosition: [-19, 2, 0], // 摄像机位置
-  control: true, // 是否开启控制器
+  control: false, // 是否开启控制器
   controlAutoSpeed: false, // 是否开启自动旋转
   helper: true, // 辅佐线
   light: true, // 灯光
