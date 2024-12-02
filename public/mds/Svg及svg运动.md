@@ -39,13 +39,14 @@ svg基础形状有6种：circle | rect | ellipse | line | polyline | path
 
 <font style="color:rgb(77, 77, 77);">svg元素运动可以使用以下标签完成：</font>
 
-1. <font style="color:rgb(51, 51, 51);"><set></font>
-2. <font style="color:rgb(51, 51, 51);"><animate></font>
-3. <font style="color:rgb(51, 51, 51);"><animateColor></font>
-4. <font style="color:rgb(51, 51, 51);"><animateTransform></font>
-5. <font style="color:rgb(51, 51, 51);"><animateMotion></font>
+```text
+1. <set>
+2. <animate>
+3. <animateColor>
+4. <animateTransform>
+5. <animateMotion>
+```
 
-<font style="color:rgb(77, 77, 77);"></font>
 
 ### <font style="color:rgb(77, 77, 77);">1.利用</font><font style="color:rgb(77, 77, 77);">svg中的</font><font style="color:rgb(77, 77, 77);"> <set>标签实现</font>
 
