@@ -3,18 +3,19 @@ import {onBeforeUnmount, ref} from 'vue'
 import {useThree} from '../../mixin/useThree.js';
 import Loading from '../../components/Loading.vue';
 import {staticImg} from "@/utils/staticImg.js";
-import {findMesh, creatCirclePlane, creatBoxMesh} from '../../utils/creatMesh.js'
+import {findMesh, creatCirclePlane, creatPointsMesh} from '../../utils/creatMesh.js'
 import {useRay} from '../../mixin/useRay'
 import {useKey} from '@/mixin/useKey.js';
 import {KEYCODE} from '@/utils/keyCodes.js'
 import CameraControls from "camera-controls";
 import Zoomtastic from 'zoomtastic';
+import {Water} from "three/addons/objects/Water.js";
 
 let cameraControls = null
 // 调试模式
 const debug = false
 // 变量定义
-let placeLev = -1, clickListener = null, selectobj = null, clearKeysHandle = null
+let placeLev = -1, clickListener = null, selectobj = null, clearKeysHandle = null , water =null, michelle = null
 // 初始化
 const init = async ({THREE, scene, transControls, renderer, camera, gridHelper, axesHelper}) => {
   CameraControls.install({THREE: THREE});
@@ -26,7 +27,13 @@ const init = async ({THREE, scene, transControls, renderer, camera, gridHelper, 
   // 相机初始看的物体坐标
   let lookPotion = staticImg[0].position
   // 基础配置
-  const plane = creatCirclePlane({size: [100, 100], position: [0, 0, 0], shadow: true, type: 'standard'})
+  const plane = creatCirclePlane({
+    size: [10, 64],
+    position: [0, 0, 0],
+    shadow: true,
+    type: 'standard',
+    color: 0xcf9d69,
+  })
   plane.rotation.x = -Math.PI / 2
   plane.position.y = placeLev - 0.05
   plane.name = 'plane'
@@ -37,6 +44,14 @@ const init = async ({THREE, scene, transControls, renderer, camera, gridHelper, 
   home.scale.set(15, 15, 15)
   home.position.set(0, 2.8, -4)
 
+  const tree = findMesh(scene.children, 'tree')
+  tree.scale.set(15, 15, 15)
+  tree.position.set(5.55, 2.707, -2.471)
+
+  michelle = findMesh(scene.children, 'michelle')
+  michelle.scale.set(1.2, 1.2, 1.2)
+  michelle.position.set(3.8736, -1.00, 4.935)
+
   const lightGroup = new THREE.Group()
   const lightMesh = findMesh(scene.children, 'light')
   lightMesh.scale.set(3, 3, 3)
@@ -46,6 +61,61 @@ const init = async ({THREE, scene, transControls, renderer, camera, gridHelper, 
   pointLight.position.set(0, placeLev, 0.7);
   pointLight.lookAt(0, -3, 0.7);
   pointLight.castShadow = true;
+
+  // 球体
+  const geometry = new THREE.SphereGeometry(20, 32, 32);
+  const material = new THREE.MeshStandardMaterial({
+    color: 0xe6a23c, // 白色
+    emissive: 0xe6a23c, // 自发光颜色
+    emissiveIntensity: 1000.0, // 自发光强度
+    roughness: 0.5, // 粗糙度
+    metalness: 0.0 // 金属度
+  });
+  const moon = new THREE.Mesh(geometry, material);
+  moon.position.set(0,250,1000)
+  scene.background = new THREE.Color(0x040e34);
+  scene.add(moon);
+  // 环境光
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+  scene.add(ambientLight);
+  // 星星
+  let starList = [
+    { nubmer: 1850, color: 0xffffff, size: 1.5 ,scalar: 1,multiple:1000}
+  ]
+
+  for (let index = 0; index < starList.length; index++) {
+    const stars = creatPointsMesh(starList[index]) ;
+    stars.rotation.x = Math.random() * 6;
+    stars.rotation.y = Math.random() * 6;
+    stars.rotation.z = Math.random() * 6;
+
+    stars.matrixAutoUpdate = false;
+    stars.updateMatrix();
+    stars.position.set(0, 0, 0);
+    scene.add(stars);
+  }
+
+
+  // 海水
+  const waterGeometry = new THREE.PlaneGeometry( 1000, 1000 );
+  water = new Water(
+      waterGeometry,
+      {
+        textureWidth: 512,
+        textureHeight: 512,
+        waterNormals: new THREE.TextureLoader().load( import.meta.env.VITE_BASE_URL+'/public/images/waternormals.jpg', function ( texture ) {
+          texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+        } ),
+        sunDirection: new THREE.Vector3(),
+        sunColor: 0xffffff,
+        waterColor: 0x001e0f,
+        distortionScale: 3.7,
+        fog: scene.fog !== undefined
+      }
+  );
+  water.rotation.x = - Math.PI / 2;
+  water.position.y = placeLev - 0.25;
+  scene.add( water );
 
 
   // 相机控制器
@@ -214,10 +284,16 @@ const init = async ({THREE, scene, transControls, renderer, camera, gridHelper, 
 }
 
 
-const animation = ({renderer, scene, clock, camera, stats,}) => {
+const animation = ({renderer, scene, clock, camera, stats,mixer}) => {
   const delta = clock.getDelta();
   const updated = cameraControls?.update(delta);
   stats?.update();
+  if (water) {
+    water.material.uniforms[ 'time' ].value += 1.0 / 60.0;
+  }
+  if (mixer) {
+    mixer.update(delta);
+  }
   // 自动旋转
   // cameraControls.azimuthAngle += 2 * delta * THREE.MathUtils.DEG2RAD;
   renderer.render(scene, camera);
@@ -227,12 +303,12 @@ const {loading, pregress} = useThree({
   el: '#canvas', // 元素
   background: '#111111', // 背景色
   cameraPosition: [0, 1.5, 1], // 摄像机位置
-  modelPath: ['public/glbs/home.glb', 'public/glbs/light2.glb'], // 模型
-  modelName: ['home', 'light'], // 模型名称
+  modelPath: ['home.glb', 'light2.glb','tree.glb','michelle.glb'], // 模型
+  modelName: ['home', 'light','tree','michelle'], // 模型名称
   control: false, // 是否开启控制器
   transformControls: debug, // 位置控制器
   helper: debug, // 辅佐线
-  light: false, // 灯光
+  light:false,
   showStats: false,
   creatMesh: init,
   animation: animation // 动画回调

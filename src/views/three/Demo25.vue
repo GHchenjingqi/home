@@ -84,7 +84,7 @@ const { loading, pregress } = useThree({
   el: '#canvas', // 元素
   background: '#fff', // 背景色
   cameraPosition: [0, 0, 8], // 摄像机位置
-  modelPath:  ['public/glbs/heart.glb','public/glbs/star.glb'], // 模型
+  modelPath:  ['heart.glb','star.glb'], // 模型
   modelName: ['heart','star'], // 模型名称
   modelScale:[1,1,1],
   control: false, // 是否开启控制器

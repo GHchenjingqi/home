@@ -138,7 +138,7 @@ const {loading, pregress} =  useThree({
     el: '#canvas', // 元素
     background:'#111',
     cameraPosition: [0, .6, 1.5], // 摄像机位置
-    modelPath: ['public/glbs/compute.glb','public/glbs/table.glb','public/glbs/cute_bird.glb','public/glbs/chair.glb','public/glbs/home.fbx','public/glbs/light.glb'], // 模型
+    modelPath: ['compute.glb','table.glb','cute_bird.glb','chair.glb','home.fbx','light.glb'], // 模型
     modelName: ['compute','table','bird','chair','home','lamp'], // 模型名称
     modelScale:[0,0,0], // 模型缩放
     control: true, // 是否开启控制器

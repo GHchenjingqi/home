@@ -70,7 +70,7 @@ const animation = ({ scene, camera, renderer, controls, stats,  }) => {
 const { loading, pregress } = useThree({
   el: '#canvas', // 元素
   background: '#333333',
-  modelPath:  ['public/glbs/boat.glb','public/glbs/lighthouse.glb'], // 模型
+  modelPath:  ['boat.glb','lighthouse.glb'], // 模型
   modelName: ['boat','lighthouse'], // 模型名称
   modelScale:[10,10,10], // 模型缩放
   cameraPosition: [0, 4, 10], // 摄像机位置

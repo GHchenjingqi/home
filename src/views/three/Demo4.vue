@@ -6,7 +6,7 @@ const {loading, pregress} = useThree({
     el: '#canvas', // 元素
     background:'#ffeeee',
     cameraPosition: [0, 4, 6], // 摄像机位置
-    modelPath: 'public/glbs/demo4.glb', // 模型
+    modelPath: 'demo4.glb', // 模型
     modelScale:[.6,.6,.6], // 模型缩放
     controlAuto: false,  // 自动旋转
     helper: false, // 辅佐线
