@@ -1,6 +1,6 @@
 <script setup>
 import { onBeforeUnmount, ref } from 'vue'
-import { useThree } from '../../mixin/useThree.js';
+import { useThree } from '@/mixin/useThree.js';
 import Loading from '../../components/Loading.vue';
 import GUI from 'three/examples/jsm/libs/lil-gui.module.min.js'
 // gui 控制参数
@@ -8,9 +8,8 @@ const gui = new GUI()
 gui.domElement.style.top = '2rem'
 gui.domElement.style.right = '2rem'
 
-let clocks = null,uniforms3 = null
-const init = async ({ THREE, scene, controls, canvas, camera, renderer,clock }) => {
-    clocks = clock
+let uniforms3 = null
+const init = async ({ THREE, scene, controls, canvas, camera, renderer }) => {
     let uniforms = {
         vTime: { value:0},
         vColor: { value: new THREE.Color(0x00ff00) },
@@ -136,11 +135,11 @@ const init = async ({ THREE, scene, controls, canvas, camera, renderer,clock }) 
     })
 }
 
-const animation = ({ THREE, scene, camera, renderer, controls})=>{
+const animation = ({ THREE, scene, camera, renderer, controls,clock})=>{
     if (controls) {
         controls.update();
     }
-    const time = clocks.getElapsedTime();
+    const time = clock.getElapsedTime();
     uniforms3.vTime.value += 0.01;
     renderer.render(scene, camera);
 }
