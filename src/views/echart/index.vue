@@ -40,6 +40,7 @@ onMounted(() => {
       <div class="file-content">
         <h1>Echarts <a href="https://echarts.apache.org/zh/index.html" target="_blank" rel="noopener noreferrer">官方案例</a></h1>
         <p>基于JavaScript 的开源可视化图表库</p>
+        <p>Echarts-gl文档地址：<a href="https://echarts.apache.org/zh/option-gl.html#globe"  target="_blank" rel="noopener noreferrer">前往</a></p>
       </div>
     </div>
     <div class="box">

@@ -1,11 +1,7 @@
 官方地址：[https://echarts.apache.org/zh/index.html](https://echarts.apache.org/zh/index.html)
 
 ## Vue3环境安装echart
-
-
 1.main.js全局引入
-
-
 
 ```javascript
 import * as echarts from 'echarts'
@@ -15,8 +11,6 @@ app.config.globalProperties.$echarts = echarts
 
 
 2.组件内使用 getCurrentInstance 获取当前vue实例
-
-
 
 ```javascript
 import { ref, onMounted, getCurrentInstance } from 'vue'
@@ -28,180 +22,159 @@ myChart.setOption({});
 
 
 ## echarts使用技巧
-
-
-1.开启深色模式，init方法第二个参数传“dark”
-
-
-
+### 1.开启深色模式，init方法第二个参数传“dark”
 ```javascript
 echarts.init(myRef,'dark');
 ```
 
-
-
-2.echarts图标背景色改为透明，backgroundColor设置为空
-
-
-
+### 2.echarts图标背景色改为透明，backgroundColor设置为空
 ```javascript
 myChart.setOption({
     backgroundColor: '',
 });
 ```
 
-
-
-3.echart主参数
-
-
+### 3.echart常见参数
+主要属性参数：
 
 ```javascript
 {
-// 主标题
-title: {},
-// 默认色板，图表会依次取值给每一项数据
-color:{},
-// 背景色
-backgroundColor:"",
-// 图标图例说明
-legend:{},
-// 横轴标尺
-xAxis:{},
-// 纵轴标尺
-yAxis:{},
-// 图标离容器的距离
-grid:{},
-// 工具箱
-toolbox:{},
-// 提示
-tooltip:{},
-// 数据
-series:[],
-// 区域缩放控制器
-dataZoom:{},
-animation：图表的动画效果设置
-animationThreshold: 2000,    //是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画
-animationDuration: 1000,     //初始动画时长
-animationEasing: 'cubicOut',    //初始动画缓动效果
-animationDelay: 0,   //初始动画的延迟，毫秒，支持回调函数
-animationDurationUpdate: 300,   //数据更新动画的时长，毫秒，支持回调函数
-animationEasingUpdate: 'cubicInOut',  //数据更新动画的缓动效果
-animationDelayUpdate: 0,    //数据更新动画的延迟，毫秒，支持回调函数
-}
+  // 主标题
+  title: {},
+  // 默认色板，图表会依次取值给每一项数据
+  color:{},
+  // 背景色
+  backgroundColor:"",
+  // 图标图例说明
+  legend:{},
+  // 横轴标尺
+  xAxis:{},
+  // 纵轴标尺
+  yAxis:{},
+  // 图标离容器的距离
+  grid:{},
+  // 工具箱
+  toolbox:{},
+  // 提示
+  tooltip:{},
+  // 数据
+  series:[],
+    // 区域缩放控制器
+    dataZoom:{},
+  animation：图表的动画效果设置
+  animationThreshold: 2000,    //是否开启动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画
+    animationDuration: 1000,     //初始动画时长
+    animationEasing: 'cubicOut',    //初始动画缓动效果
+    animationDelay: 0,   //初始动画的延迟，毫秒，支持回调函数
+    animationDurationUpdate: 300,   //数据更新动画的时长，毫秒，支持回调函数
+    animationEasingUpdate: 'cubicInOut',  //数据更新动画的缓动效果
+    animationDelayUpdate: 0,    //数据更新动画的延迟，毫秒，支持回调函数
+    }
 ```
 
 
 
-4.title-标题设置
-
-
-
+### 4.title-标题设置
 ```javascript
 title: {
-// 是否显示标题组件,（true/false）
-show: true,// 主标题
-text: "近7日出入库统计",
-//1.标题居中：left的值为'left','center','right'
-left: "center",
-// 主副标题间隔
-itemGap: 20,
-// 主标题样式
-textStyle：{
-// 文字颜色
-color: "#FFF",
-// 字体大小
-fontSize: 12,
-// 行高
-lineHeight: 14,
-// 字体粗细:'normal,'bold,'bolder','lighter','100|200|300|400...'
-fontWeight: "bold",
-//字体系列
-fontFamily:'sans-serif',
-//字体风格 'normal','italic','oblique'
-fontStyle:'normal',
-// 文字水平对齐方式（left/right）
-align:'center',
-// 文字垂直对齐方式（top/bottom）
-verticalAlign:'middle',
-},
-// 标题边框颜色
-borderColor: '',// 边框宽度（默认单位px）
-borderWidth: 1,// 副标题
-subtext:"",
-// 副标题文本样式
-subtextStyle:{},
+  // 是否显示标题组件,（true/false）
+  show: true,// 主标题
+    text: "近7日出入库统计",
+    //1.标题居中：left的值为'left','center','right'
+    left: "center",
+    // 主副标题间隔
+    itemGap: 20,
+    // 主标题样式
+    textStyle：{
+    // 文字颜色
+    color: "#FFF",
+      // 字体大小
+      fontSize: 12,
+      // 行高
+      lineHeight: 14,
+      // 字体粗细:'normal,'bold,'bolder','lighter','100|200|300|400...'
+      fontWeight: "bold",
+      //字体系列
+      fontFamily:'sans-serif',
+      //字体风格 'normal','italic','oblique'
+      fontStyle:'normal',
+      // 文字水平对齐方式（left/right）
+      align:'center',
+      // 文字垂直对齐方式（top/bottom）
+      verticalAlign:'middle',
+      },
+  // 标题边框颜色
+  borderColor: '',// 边框宽度（默认单位px）
+    borderWidth: 1,// 副标题
+    subtext:"",
+    // 副标题文本样式
+    subtextStyle:{},
 }
 ```
 
-
-
-5.xAxis 和 yAxis 参数
-
-
+### 5.xAxis 和 yAxis 参数
+坐标轴，刻度等属性
 
 ```javascript
 {
-// 坐标轴类型，通常为 'category'（类目轴）或 'value'（数值轴）
-type: 'category',
-// 坐标轴两边留白大小：true-自动计算，false-不留白，具体的百分比数值-留白大小
-boundaryGap: false,
-// 类目轴的数据，在柱状图、折线图等中表示每个类目的名称
-data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-// 坐标轴标签的样式设置，包括字体、颜色、旋转角度等。
-axisLabel：{}
-// 坐标轴轴线的样式设置，包括颜色、线型、宽度等。
-axisLine：{}
-// 坐标轴刻度线的样式设置，包括显示与否、长度等。
-axisTick：{}
+  // 坐标轴类型，通常为 'category'（类目轴）或 'value'（数值轴）
+  type: 'category',
+  // 坐标轴两边留白大小：true-自动计算，false-不留白，具体的百分比数值-留白大小
+  boundaryGap: false,
+  // 类目轴的数据，在柱状图、折线图等中表示每个类目的名称
+  data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+  // 坐标轴标签的样式设置，包括字体、颜色、旋转角度等。
+  axisLabel：{},
+  // 坐标轴轴线的样式设置，包括颜色、线型、宽度等。
+  axisLine：{},
+  // 坐标轴刻度线的样式设置，包括显示与否、长度等。
+  axisTick：{},
 }
 ```
 
 
 
-6.legend 图例参数
-
-
+### 6.legend 图例参数
+分类图例样式，可以修改位置及样式类型
 
 ```javascript
 {
-// 图例类型，默认为'plain'，当图例很多时可使用'scroll'
-type:"plain",
-// 垂直位置-距离顶部距离，相对容器位置，top\bottom\left\right
-top: '5%',
-// 水平位置
-left: 'center'，
-// 可设定图例[距上方距离，距右方距离，距下方距离，距左方距离]
-padding:[0,50,0,0],
-// 图例内容样式
-textStyle：{
-  color: '#ccc', // 所有图例的字体颜色
-  backgroundColor:'black',	// 所有图例的字体背景色
-},
-// 图例提示框，默认不显示
-tooltip: {
-  show: true,
-  color: 'red'
-},
-// 图例数据
-data: [
-  // 单个图例内容
-  {
-   name: '销量', // 对应数据中的name
-   icon: 'circle', // 图例的外框样式
-   textStyle: {
-   color: '#000' // 图例的颜色
-    // backgroundColor:'skyblue',// 图例文字的背景色
-  }
-}]
+  // 图例类型，默认为'plain'，当图例很多时可使用'scroll'
+  type:"plain",
+    // 垂直位置-距离顶部距离，相对容器位置，top\bottom\left\right
+  top: '5%',
+    // 水平位置
+  left: 'center'，
+  // 可设定图例[距上方距离，距右方距离，距下方距离，距左方距离]
+  padding:[0,50,0,0],
+    // 图例内容样式
+  textStyle：{
+    color: '#ccc', // 所有图例的字体颜色
+      backgroundColor:'black',	// 所有图例的字体背景色
+  },
+  // 图例提示框，默认不显示
+  tooltip: {
+    show: true,
+      color: 'red'
+  },
+  // 图例数据
+  data: [
+    // 单个图例内容
+    {
+      name: '销量', // 对应数据中的name
+      icon: 'circle', // 图例的外框样式
+      textStyle: {
+        color: '#000' // 图例的颜色
+        // backgroundColor:'skyblue',// 图例文字的背景色
+      }
+    }]
 }
 ```
 
 
 
-7.工具栏配置 toolbox
-
-
+### 7.工具栏配置 toolbox
+用于展示下载、导出等功能图标
 
 ```javascript
 {
@@ -487,97 +460,94 @@ data: [
     }
 ```
 
-
-
-8.tooltip 提示组件
-
-
+### 8.tooltip 提示组件
+<font style="color:#080808;background-color:#ffffff;">鼠标经过显示的提示信息</font>
 
 ```javascript
 {
-show:true,                // 是否显示提示组件
-trigger:'item',           // 提示组件触发类型
-// 坐标指示器配置 头
-axisPointer:{
-type:'line',          // 指示器类型
-axis:'auto',          // 指示器的坐标轴
-snap:true,            // 坐标轴指示器是否吸附到具体的数值点上
-z:1,                  // 坐标轴指示器的 z 值，图形层级// 指示器文本标签配置  头
-label:{
-show:true,                // 是否显示文本标签
-precision:2,              // 文本标签中数值的精度，当前保留两位小数点
-formatter:'{value}单位',  // 文本标签格式器，可以使用方法
-margin:10,                // 文本标签距离轴的距离
-color:'red',              // 文字颜色
-fontStyle:'normal',       // 字体的风格
-fontWeight:'normal',      // 字体粗细
-fontFamily:'serif',       // 字体系列
-fontSize:15,              // 字体大小
-lineHeight:15,            // 行高
-width:100,                // 文本显示宽度
-height:100,               // 文本显示高度
-textBorderColor:'red',    // 文字描边颜色
-textBorderWidth:20,       // 文字描边宽度
-textBorderType:'solid',   // 文字描边类型
-textBorderDashOffset:2,   // 文字描边为虚线时，虚线的偏移量
-textShadowColor:'red',    // 文字阴影
-textShadowBlur:10,        // 文字阴影长度
-textShadowOffsetX:10,     // 文字阴影水平偏移量
-textShadowOffsetY:10,     // 文字阴影竖直偏移量
-overflow:'truncate',      // 文字超出宽度是否截断或者换行
-ellipsis:'···',           // 文字超出宽度设置为 truncate 时，末尾显示内容
-padding:[5,5,5,5],        // 文本标签的内边距
-backgroundColr:'red',     // 文本标签的背景颜色
-borderColor:'red',        // 文本标签边框颜色
-borderWidth:10,           // 文本标签的边框宽度
-shadowBlur:3,             // 文本标签阴影
-shadowColor:'red',        // 文本标签阴影颜色
-shadowOffsetX:10,         // 文本标签阴影水平偏移量
-shadowOffsetY:10,         // 文本标签阴影竖直偏移量
-},
-// 指示器文本标签配置  尾// 直线指示器的样式, type 为 line 生效， 头
-lineStyle:{
-color:'red',              // 线的颜色
-width:2,                  // 线的宽度
-type:'solid',             // 线的类型
-dashOffset:10,            // 线的类型为虚线时，虚线的偏移量
-cap:'butt',               // 线段末端形状
-join:'bevel',             // 两个线段连接部分的形状
-miterLimit:10,            // join 为 miter 时,斜接面比例
-shadowBlur:10,            // 线的阴影
-shadowColor:'red',        // 线的阴影颜色
-shadowOffsetX:10,         // 阴影水平偏移量
-shadowOffsetY:10,         // 阴影竖直偏移量
-opacity:0.8,              // 线的透明度
-},
-// 直线指示器的样式, type 为 line 生效， 尾// 阴影指示器图形样式, type 为 shadow 生效， 头
-shadowStyle:{
-color:'red',              // 图形填充颜色
-shadowBlur:10,            // 图形阴影大小
-shadowColor:'red',        // 图形阴影颜色
-shadowOffsetX:'red',      // 图形阴影水平偏移量
-shadowOffsetY:'red',      // 图形阴影竖直偏移量
-opacity:0.8,              // 图形透明度
-},
-// 阴影指示器图形样式, type 为 shadow 生效， 尾// 十字准星指示器样式,type 为 cross 生效，头
-crossStyle:{
-color:'red',              // 线的颜色
-width:2,                  // 线的宽度
-type:'dashed',            // 线的类型
-dashOffset:10,            // 线的类型为虚线时，虚线的偏移量
-cap:'butt',               // 指定线段末端的图形
-join:'bevel',             // 两个线段连接处的形状
-miterLimit:10,            // join 为 miter 时，斜接面比例
-shadowBlur:10,            // 线的阴影程度
-shadowColor:'red',        // 线的阴影颜色
-shadowOffsetX:10,         // 线阴影的水平偏移量
-shadowOffsetY:10,         // 线阴影的竖直偏移量
-opacity:0.8,              // 线的透明度}
-// 十字准星指示器样式,type 为 cross 生效 尾
-animation:true,                 // 是否开启动画
-animationThreshold:100,         // 动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。
-animationDuration:100,          // 初始动画时长
-animationEasing:'cubicIn',      // 初始动画的缓动效果
+  show:true,                // 是否显示提示组件
+    trigger:'item',           // 提示组件触发类型
+    // 坐标指示器配置 头
+    axisPointer:{
+    type:'line',          // 指示器类型
+      axis:'auto',          // 指示器的坐标轴
+      snap:true,            // 坐标轴指示器是否吸附到具体的数值点上
+      z:1,                  // 坐标轴指示器的 z 值，图形层级// 指示器文本标签配置  头
+    label:{
+      show:true,                // 是否显示文本标签
+        precision:2,              // 文本标签中数值的精度，当前保留两位小数点
+        formatter:'{value}单位',  // 文本标签格式器，可以使用方法
+        margin:10,                // 文本标签距离轴的距离
+        color:'red',              // 文字颜色
+        fontStyle:'normal',       // 字体的风格
+        fontWeight:'normal',      // 字体粗细
+        fontFamily:'serif',       // 字体系列
+        fontSize:15,              // 字体大小
+        lineHeight:15,            // 行高
+      width:100,                // 文本显示宽度
+        height:100,               // 文本显示高度
+        textBorderColor:'red',    // 文字描边颜色
+        textBorderWidth:20,       // 文字描边宽度
+        textBorderType:'solid',   // 文字描边类型
+        textBorderDashOffset:2,   // 文字描边为虚线时，虚线的偏移量
+        textShadowColor:'red',    // 文字阴影
+        textShadowBlur:10,        // 文字阴影长度
+        textShadowOffsetX:10,     // 文字阴影水平偏移量
+      textShadowOffsetY:10,     // 文字阴影竖直偏移量
+        overflow:'truncate',      // 文字超出宽度是否截断或者换行
+        ellipsis:'···',           // 文字超出宽度设置为 truncate 时，末尾显示内容
+        padding:[5,5,5,5],        // 文本标签的内边距
+        backgroundColr:'red',     // 文本标签的背景颜色
+        borderColor:'red',        // 文本标签边框颜色
+        borderWidth:10,           // 文本标签的边框宽度
+        shadowBlur:3,             // 文本标签阴影
+      shadowColor:'red',        // 文本标签阴影颜色
+        shadowOffsetX:10,         // 文本标签阴影水平偏移量
+        shadowOffsetY:10,         // 文本标签阴影竖直偏移量
+        },
+        // 指示器文本标签配置  尾// 直线指示器的样式, type 为 line 生效， 头
+        lineStyle:{
+        color:'red',              // 线的颜色
+          width:2,                  // 线的宽度
+          type:'solid',             // 线的类型
+          dashOffset:10,            // 线的类型为虚线时，虚线的偏移量
+          cap:'butt',               // 线段末端形状
+          join:'bevel',             // 两个线段连接部分的形状
+          miterLimit:10,            // join 为 miter 时,斜接面比例
+          shadowBlur:10,            // 线的阴影
+        shadowColor:'red',        // 线的阴影颜色
+          shadowOffsetX:10,         // 阴影水平偏移量
+          shadowOffsetY:10,         // 阴影竖直偏移量
+        opacity:0.8,              // 线的透明度
+          },
+      // 直线指示器的样式, type 为 line 生效， 尾// 阴影指示器图形样式, type 为 shadow 生效， 头
+      shadowStyle:{
+        color:'red',              // 图形填充颜色
+          shadowBlur:10,            // 图形阴影大小
+          shadowColor:'red',        // 图形阴影颜色
+          shadowOffsetX:'red',      // 图形阴影水平偏移量
+          shadowOffsetY:'red',      // 图形阴影竖直偏移量
+          opacity:0.8,              // 图形透明度
+          },
+          // 阴影指示器图形样式, type 为 shadow 生效， 尾// 十字准星指示器样式,type 为 cross 生效，头
+          crossStyle:{
+          color:'red',              // 线的颜色
+            width:2,                  // 线的宽度
+            type:'dashed',            // 线的类型
+            dashOffset:10,            // 线的类型为虚线时，虚线的偏移量
+            cap:'butt',               // 指定线段末端的图形
+            join:'bevel',             // 两个线段连接处的形状
+            miterLimit:10,            // join 为 miter 时，斜接面比例
+            shadowBlur:10,            // 线的阴影程度
+          shadowColor:'red',        // 线的阴影颜色
+            shadowOffsetX:10,         // 线阴影的水平偏移量
+            shadowOffsetY:10,         // 线阴影的竖直偏移量
+          opacity:0.8,              // 线的透明度}
+            // 十字准星指示器样式,type 为 cross 生效 尾
+            animation:true,                 // 是否开启动画
+            animationThreshold:100,         // 动画的阈值，当单个系列显示的图形数量大于这个阈值时会关闭动画。
+          animationDuration:100,          // 初始动画时长
+            animationEasing:'cubicIn',      // 初始动画的缓动效果
 animationDelay:100,             // 初始动画的延迟
 animationDurationUpdate:200,    // 数据更新动画时长
 animationEasingUpdate:'linear', // 数据更新缓动效果
@@ -625,22 +595,19 @@ extraCssText:'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);',       // 额外附加到
 
 
 
-9.dataRange 值域 - 常用于展现地域数据时选择值域范围
-
-
-
+### 9.dataRange 值域 - 常用于展现地域数据时选择值域范围
 ```javascript
 {
-    orient: ‘vertical’, // 布局方式，默认为垂直布局，可选为：
-                        // ‘horizontal’ ¦ ‘vertical’
-    x: ‘left’,          // 水平安放位置，默认为全图左对齐，可选为：
-                        // ‘center’ ¦ ‘left’ ¦ ‘right’
+    orient: 'vertical', // 布局方式，默认为垂直布局，可选为：
+                        // 'horizontal' ¦ 'vertical'
+    x: 'left',          // 水平安放位置，默认为全图左对齐，可选为：
+                        // 'center' ¦ 'left' ¦ 'right'
                         // ¦ {number}（x坐标，单位px）
-    y: ‘bottom’,        // 垂直安放位置，默认为全图底部，可选为：
-                        // ‘top’ ¦ ‘bottom’ ¦ ‘center’
+    y: 'bottom',        // 垂直安放位置，默认为全图底部，可选为：
+                        // 'top' ¦ 'bottom' ¦ 'center'
                         // ¦ {number}（y坐标，单位px）
-    backgroundColor: ‘rgba(0,0,0,0)’,
-    borderColor: ‘#ccc’,   // 值域边框颜色
+    backgroundColor: 'rgba(0,0,0,0)',
+    borderColor: '#ccc',   // 值域边框颜色
     borderWidth: 0,        // 值域边框线宽，单位px，默认为0（无边框）
     padding: 5,            // 值域内边距，单位px，默认各方向内边距为5，
                            // 接受数组分别设定上右下左边距，同css
@@ -649,89 +616,144 @@ extraCssText:'box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);',       // 额外附加到
     itemWidth: 20,             // 值域图形宽度，线性渐变水平布局宽度为该值  10
     itemHeight: 14,            // 值域图形高度，线性渐变垂直布局高度为该值  10
     splitNumber: 5,            // 分割段数，默认为5，为0时为线性渐变
-    color:[’#1e90ff’,’#f0ffff’],// 颜色(值域的颜色渐变范围)
-    //text:[‘高’,‘低’],         // 文本，默认为数值文本
+    color:['#1e90ff','#f0ffff'],// 颜色(值域的颜色渐变范围)
+    //text:['高','低'],         // 文本，默认为数值文本
     textStyle: {
-        color: ‘#333’           // 值域文字颜色
+        color: '#333'           // 值域文字颜色
     }
 }
 ```
 
-
-
-10.series 存放数据的大数组
-
-
-
+### 10.series 存放数据的大数组
 ```javascript
 {
-// series的类型，line表示折线图   bar表示柱状图   pie表示饼图   scatter表示散点图
-type: 'line',
-// series的名称，用于tooltip的显示，legend的图例筛选等
-name: '数据系列1',
-// series的数据，可以是数组，也可以是函数，详见下面的data配置项
-data: [1, 2, 3, 4, 5],
-// series的样式配置，如颜色、线条粗细、图形类型等
-itemStyle: {
-color: '#ff4c4c', // 线条颜色
-borderWidth: 2, // 线条粗细
-borderType: 'solid', // 线条类型
-borderColor: '#fff', // 线条颜色
-lineStyle: {
-type: 'solid', // 线条类型
-width: 2, // 线条粗细
-color: '#ff4c4c' // 线条颜色
-},
-areaStyle: {
-color: '#ff4c4c' // 填充颜色
-},
-symbol: 'circle', // 点的形状
-symbolSize: 10 // 点的大小
-},
-// series的标签配置，如显示文本、文本位置、文本样式等
-label: {
-show: true, // 是否显示标签
-position: 'top', // 标签位置，如'top'、'bottom'、'left'、'right'等
-formatter: '{c}', // 标签文本格式化字符串，支持'{a}'、'{b}'、'{c}'等变量
-color: '#666', // 标签颜色
-fontWeight: 'bold', // 标签字体粗细
-fontFamily: 'Arial', // 标签字体
-fontSize: 16 // 标签字号
-},
-// series的标记配置，如显示点、点的样式、点的大小等
-markPoint: {
-data: [
-{ type: 'max', name: '最大值' },
-{ type: 'min', name: '最小值' }
-],
-symbol: 'circle', // 点的形状
-symbolSize: 10, // 点的大小
-label: {
-show: true, // 是否显示标签
-color: '#666', // 标签颜色
-fontWeight: 'bold', // 标签字体粗细
-fontFamily: 'Arial', // 标签字体
-fontSize: 16 // 标签字号
-}
-},
-// series的动画配置，如动画类型、动画时长、动画延迟等
-animation: {
-type: 'scale', // 动画类型，如'scale'、'fadeIn'、'explode'等
-duration: 1000, // 动画时长，单位为ms
-delay: 0, // 动画延迟，单位为ms
-easing: 'cubicOut' // 动画缓动函数，如'linear'、'easeIn'、'cubicOut'等
-},
-// series的其他配置，如是否开启平滑曲线、是否开启渐变色等
-smooth: false, // 是否开启平滑曲线
-gradient: { // 是否开启渐变色
-type: 'linear', // 渐变类型，如'linear'、'radial'等
-colorStops: [{ offset: 0, color: '#ff4c4c' }, { offset: 1, color: '#fff' }], // 渐变颜色
-global: false // 是否全局开启渐变色
-}
+  // series的类型，line表示折线图   bar表示柱状图   pie表示饼图   scatter表示散点图
+  type: 'line',
+    // series的名称，用于tooltip的显示，legend的图例筛选等
+    name: '数据系列1',
+    // series的数据，可以是数组，也可以是函数，详见下面的data配置项
+    data: [1, 2, 3, 4, 5],
+    // series的样式配置，如颜色、线条粗细、图形类型等
+    itemStyle: {
+    color: '#ff4c4c', // 线条颜色
+      borderWidth: 2, // 线条粗细
+      borderType: 'solid', // 线条类型
+      borderColor: '#fff', // 线条颜色
+      lineStyle: {
+      type: 'solid', // 线条类型
+        width: 2, // 线条粗细
+        color: '#ff4c4c' // 线条颜色
+    },
+    areaStyle: {
+      color: '#ff4c4c' // 填充颜色
+    },
+    symbol: 'circle', // 点的形状
+      symbolSize: 10 // 点的大小
+  },
+  // series的标签配置，如显示文本、文本位置、文本样式等
+  label: {
+    show: true, // 是否显示标签
+      position: 'top', // 标签位置，如'top'、'bottom'、'left'、'right'等
+      formatter: '{c}', // 标签文本格式化字符串，支持'{a}'、'{b}'、'{c}'等变量
+      color: '#666', // 标签颜色
+      fontWeight: 'bold', // 标签字体粗细
+      fontFamily: 'Arial', // 标签字体
+      fontSize: 16 // 标签字号
+  },
+  // series的标记配置，如显示点、点的样式、点的大小等
+  markPoint: {
+    data: [
+      { type: 'max', name: '最大值' },
+      { type: 'min', name: '最小值' }
+    ],
+      symbol: 'circle', // 点的形状
+      symbolSize: 10, // 点的大小
+      label: {
+      show: true, // 是否显示标签
+        color: '#666', // 标签颜色
+        fontWeight: 'bold', // 标签字体粗细
+        fontFamily: 'Arial', // 标签字体
+        fontSize: 16 // 标签字号
+    }
+  },
+  // series的动画配置，如动画类型、动画时长、动画延迟等
+  animation: {
+    type: 'scale', // 动画类型，如'scale'、'fadeIn'、'explode'等
+      duration: 1000, // 动画时长，单位为ms
+      delay: 0, // 动画延迟，单位为ms
+      easing: 'cubicOut' // 动画缓动函数，如'linear'、'easeIn'、'cubicOut'等
+  },
+  // series的其他配置，如是否开启平滑曲线、是否开启渐变色等
+  smooth: false, // 是否开启平滑曲线
+    gradient: { // 是否开启渐变色
+    type: 'linear', // 渐变类型，如'linear'、'radial'等
+      colorStops: [{ offset: 0, color: '#ff4c4c' }, { offset: 1, color: '#fff' }], // 渐变颜色
+      global: false // 是否全局开启渐变色
+  }
 }
 ```
 
+### 11.formatter 用法
+<font style="color:rgb(44, 44, 54);">在 ECharts 中，</font>`<font style="color:rgb(44, 44, 54);">formatter</font>`<font style="color:rgb(44, 44, 54);"> 是一个非常强大的选项，用于自定义图表中的文本显示格式，特别是在 </font>`<font style="color:rgb(44, 44, 54);">tooltip</font>`<font style="color:rgb(44, 44, 54);">（提示框）、</font>`<font style="color:rgb(44, 44, 54);">label</font>`<font style="color:rgb(44, 44, 54);">（标签）和 </font>`<font style="color:rgb(44, 44, 54);">axisLabel</font>`<font style="color:rgb(44, 44, 54);">（坐标轴标签）等地方。</font>`<font style="color:rgb(44, 44, 54);">formatter</font>`<font style="color:rgb(44, 44, 54);"> 可以是一个字符串模板或一个回调函数，允许你灵活地控制显示的文本内容。</font>
 
++ {a} (name): 代表数据项的名称。对于不同类型的图表，{a} 的含义可能有所不同：
+
+对于饼图、散点图、柱状图等，{a} 通常表示数据项的名称（如类别名、标签名等）。
+
+对于地图，{a} 表示区域的名称（如国家、省份、城市等）。
+
+对于时间序列图表，{a} 可能表示时间点的名称或标签。
+
++ `**<font style="color:rgb(44, 44, 54);">{b}</font>**`**<font style="color:rgb(44, 44, 54);"> (seriesName)</font>**<font style="color:rgb(44, 44, 54);">: 代表系列名称（即图例项的名称）。如果你有多个系列，</font>`<font style="color:rgb(44, 44, 54);">{b}</font>`<font style="color:rgb(44, 44, 54);"> 会显示当前数据点所属的系列名称。</font>
++ `**<font style="color:rgb(44, 44, 54);">{c}</font>**`<font style="color:rgb(44, 44, 54);">: 代表数据值。对于数值型数据，</font>`<font style="color:rgb(44, 44, 54);">{c}</font>`<font style="color:rgb(44, 44, 54);"> 会显示具体的数值；对于非数值型数据，</font>`<font style="color:rgb(44, 44, 54);">{c}</font>`<font style="color:rgb(44, 44, 54);"> 会显示数据项的原始值。</font>
++ `**<font style="color:rgb(44, 44, 54);">{d}</font>**`<font style="color:rgb(44, 44, 54);">: 代表百分比（仅适用于某些图表类型，如饼图）。它会显示当前数据项占总和的百分比。</font>
++ `**<font style="color:rgb(44, 44, 54);">{@xxx}</font>**`<font style="color:rgb(44, 44, 54);">:用于访问数据项中的特定字段。xxx 是数据项对象中的字段名。例如，如果你的数据项包含一个名为 value 的字段，你可以使用 {@value} 来引用它。</font>
+
+<font style="color:rgb(44, 44, 54);"></font>
+
+<font style="color:rgb(44, 44, 54);">案例一：在这个例子中，</font>`<font style="color:rgb(44, 44, 54);">{b}</font>`<font style="color:rgb(44, 44, 54);"> 会显示系列名称（如 "Series A"），</font>`<font style="color:rgb(44, 44, 54);">{a}</font>`<font style="color:rgb(44, 44, 54);"> 会显示数据项的名称（如 "Category 1"），而 </font>`<font style="color:rgb(44, 44, 54);">{c}</font>`<font style="color:rgb(44, 44, 54);"> 会显示数据值（如 "335"）。</font>
+
+```javascript
+option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {a} - {c}'
+    },
+    series: [
+        {
+            name: 'Series A',
+            type: 'pie',
+            data: [
+                { value: 335, name: 'Category 1' },
+                { value: 310, name: 'Category 2' },
+                { value: 234, name: 'Category 3' }
+            ]
+        }
+    ]
+};
+```
+
+案例二：<font style="color:rgb(44, 44, 54);">数据项中包含额外的字段，比如 </font>`<font style="color:rgb(44, 44, 54);">population</font>`<font style="color:rgb(44, 44, 54);">，你可以使用 </font>`<font style="color:rgb(44, 44, 54);">{@population}</font>`<font style="color:rgb(44, 44, 54);"> 来引用它</font>
+
+```javascript
+option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: '{b}: {a} - Population: {@population}'
+    },
+    series: [
+        {
+            name: 'Series A',
+            type: 'pie',
+            data: [
+                { value: 335, name: 'Category 1', population: 1000000 },
+                { value: 310, name: 'Category 2', population: 2000000 },
+                { value: 234, name: 'Category 3', population: 1500000 }
+            ]
+        }
+    ]
+};
+```
 
 ## 可视化大屏如何实现炫酷的动态边框？
 
