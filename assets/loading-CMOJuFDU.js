@@ -1,0 +1,1 @@
+import{D as a}from"./index-CyIOnBVb.js";const o=a("loading",{state:()=>({loadingStatus:!1}),getters:{getLoadingStatus:t=>t.loadingStatus},actions:{setLoadingStatus(t){this.loadingStatus=t}}});export{o as u};
