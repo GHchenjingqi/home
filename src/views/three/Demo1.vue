@@ -4,7 +4,6 @@ import Loading from '../../components/Loading.vue';
 
 const meshfn = ({ THREE, scene, cube })=>{
     // 环境贴图：左右、上下、前后
-
     const cubeTexture = new THREE.CubeTextureLoader().setPath( import.meta.env.VITE_BASE_URL+"/public/images/").load(["1.jpg", "2.jpg", "3.jpg", "4.jpg", "6.jpg", "5.jpg"]);
     scene.background = cubeTexture;
 
