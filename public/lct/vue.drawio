@@ -1,0 +1,248 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36" version="25.0.3">
+  <diagram name="第 1 页" id="n9KcLoLgKcAyCg83ssA9">
+    <mxGraphModel dx="1434" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-87" value="" style="group;dashed=1;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="270" y="230" width="370" height="930" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-85" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;dashed=1;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-87">
+          <mxGeometry width="370" height="930" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-90" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;dashed=1;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-87">
+          <mxGeometry x="78" y="110" width="272" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-87" source="cx1SvLgtJIp-GV2GSjiD-30" target="cx1SvLgtJIp-GV2GSjiD-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-30" value="渲染遇到组件" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-87">
+          <mxGeometry x="214" y="30" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-61" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-87" source="cx1SvLgtJIp-GV2GSjiD-31" target="cx1SvLgtJIp-GV2GSjiD-60">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-31" value="beforeCreate" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-87">
+          <mxGeometry x="214" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-64" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-87" source="cx1SvLgtJIp-GV2GSjiD-60" target="cx1SvLgtJIp-GV2GSjiD-63">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-60" value="created" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-87">
+          <mxGeometry x="214" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-67" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-87" source="cx1SvLgtJIp-GV2GSjiD-62" target="cx1SvLgtJIp-GV2GSjiD-66">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-62" value="beforeMount" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-87">
+          <mxGeometry x="214" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-65" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-87" source="cx1SvLgtJIp-GV2GSjiD-63" target="cx1SvLgtJIp-GV2GSjiD-62">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-63" value="编译template模板" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-87">
+          <mxGeometry x="234" y="300" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-69" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-87" source="cx1SvLgtJIp-GV2GSjiD-66" target="cx1SvLgtJIp-GV2GSjiD-68">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-66" value="mounted" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-87">
+          <mxGeometry x="214" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-81" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-87" source="cx1SvLgtJIp-GV2GSjiD-68" target="cx1SvLgtJIp-GV2GSjiD-80">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-68" value="页面" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-87">
+          <mxGeometry x="234" y="601" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-74" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-87" source="cx1SvLgtJIp-GV2GSjiD-70" target="cx1SvLgtJIp-GV2GSjiD-73">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-70" value="beforeUpdate" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-87">
+          <mxGeometry x="30" y="550" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=1.003;entryY=0.436;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-87" source="cx1SvLgtJIp-GV2GSjiD-68" target="cx1SvLgtJIp-GV2GSjiD-70">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-72" value="数据更新" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="cx1SvLgtJIp-GV2GSjiD-71">
+          <mxGeometry x="-0.3115" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-87" source="cx1SvLgtJIp-GV2GSjiD-73" target="cx1SvLgtJIp-GV2GSjiD-68">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-73" value="updated" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-87">
+          <mxGeometry x="30" y="640" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-83" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-87" source="cx1SvLgtJIp-GV2GSjiD-80" target="cx1SvLgtJIp-GV2GSjiD-82">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-80" value="beforeDestroy" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-87">
+          <mxGeometry x="214" y="710" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-82" value="destroyed" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-87">
+          <mxGeometry x="214" y="810" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-86" value="Vue2生命周期" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-87">
+          <mxGeometry x="20" y="45" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-92" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-87" source="cx1SvLgtJIp-GV2GSjiD-89" target="cx1SvLgtJIp-GV2GSjiD-62">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-89" value="el指定并挂载" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-87">
+          <mxGeometry x="100" y="425" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-96" value="data初始化&lt;br&gt;及&lt;br&gt;&lt;span style=&quot;color: rgb(5, 7, 59); font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei UI&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, &amp;quot;Source Han Sans CN&amp;quot;, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; text-align: start; background-color: rgb(253, 253, 254);&quot;&gt;响应式转换&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-87">
+          <mxGeometry x="90" y="170" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="IaJ7Ir05MvnVuPeo0m3I-124" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="1110" y="10" width="410.5" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="IaJ7Ir05MvnVuPeo0m3I-118" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="IaJ7Ir05MvnVuPeo0m3I-124" source="IaJ7Ir05MvnVuPeo0m3I-116" target="IaJ7Ir05MvnVuPeo0m3I-117" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IaJ7Ir05MvnVuPeo0m3I-116" value="nextTick原理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="IaJ7Ir05MvnVuPeo0m3I-124" vertex="1">
+          <mxGeometry y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IaJ7Ir05MvnVuPeo0m3I-120" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="IaJ7Ir05MvnVuPeo0m3I-124" source="IaJ7Ir05MvnVuPeo0m3I-117" target="IaJ7Ir05MvnVuPeo0m3I-119" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IaJ7Ir05MvnVuPeo0m3I-122" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="IaJ7Ir05MvnVuPeo0m3I-124" source="IaJ7Ir05MvnVuPeo0m3I-117" target="IaJ7Ir05MvnVuPeo0m3I-121" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IaJ7Ir05MvnVuPeo0m3I-117" value="&lt;font&gt;&lt;span style=&quot;color: rgb(44, 44, 54); font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; letter-spacing: 0.08px; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot;&gt;工作原理主要依赖于 JavaScript 的异步机制和事件循环。&lt;/span&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0.85); font-family: Inter, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;SF Pro SC&amp;quot;, &amp;quot;SF Pro Display&amp;quot;, &amp;quot;SF Pro Icons&amp;quot;, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; background-color: rgb(255, 255, 255);&quot;&gt;利用浏览器的异步任务队列机制，&lt;/span&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0.85); font-family: Inter, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;SF Pro SC&amp;quot;, &amp;quot;SF Pro Display&amp;quot;, &amp;quot;SF Pro Icons&amp;quot;, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; background-color: rgb(255, 255, 255);&quot;&gt;在 DOM 更新后执行回调函数。&lt;/span&gt;&lt;/font&gt;&lt;div&gt;&lt;font&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0.85); font-family: Inter, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;SF Pro SC&amp;quot;, &amp;quot;SF Pro Display&amp;quot;, &amp;quot;SF Pro Icons&amp;quot;, &amp;quot;PingFang SC&amp;quot;, &amp;quot;Hiragino Sans GB&amp;quot;, &amp;quot;Microsoft YaHei&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, Helvetica, Arial, sans-serif; background-color: rgb(255, 255, 255);&quot;&gt;将DOM更新后的回调函数放到下一次执行队列中，当前事件循环结束后，执行这个回调函数所在的队列。&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;fontSize=10;align=left;" parent="IaJ7Ir05MvnVuPeo0m3I-124" vertex="1">
+          <mxGeometry x="170" y="80" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="IaJ7Ir05MvnVuPeo0m3I-119" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;vue2&lt;/span&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0.85); background-color: rgb(255, 255, 255);&quot;&gt;依赖于&lt;/span&gt;&lt;code style=&quot;background: var(--color-inline-code-background); color: initial; -webkit-font-smoothing: antialiased; box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border-radius: 4px; margin: 0px 2px; padding: 2px 4px; overflow-anchor: auto;&quot;&gt;MutationObserver&lt;/code&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0.85); background-color: rgb(255, 255, 255);&quot;&gt;、&lt;/span&gt;&lt;code style=&quot;background: var(--color-inline-code-background); color: initial; -webkit-font-smoothing: antialiased; box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border-radius: 4px; margin: 0px 2px; padding: 2px 4px; overflow-anchor: auto;&quot;&gt;setImmediate&lt;/code&gt;&lt;span style=&quot;color: rgba(0, 0, 0, 0.85); background-color: rgb(255, 255, 255);&quot;&gt;和&lt;/span&gt;&lt;code style=&quot;background: var(--color-inline-code-background); color: initial; -webkit-font-smoothing: antialiased; box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); border-radius: 4px; margin: 0px 2px; padding: 2px 4px; overflow-anchor: auto;&quot;&gt;setTimeout&lt;/code&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;fontSize=10;align=left;rounded=1;fontFamily=Verdana;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="IaJ7Ir05MvnVuPeo0m3I-124" vertex="1">
+          <mxGeometry x="170.5" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IaJ7Ir05MvnVuPeo0m3I-121" value="vue3优先使用Promise.then（微任务）、如果浏览器不支持Promise.then，也会使用MutationObserver、setImmediate和setTimeout（和 Vue 2 类似的降级策略）。" style="whiteSpace=wrap;html=1;fontSize=10;align=left;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="IaJ7Ir05MvnVuPeo0m3I-124" vertex="1">
+          <mxGeometry x="171" y="220" width="239" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-28" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="660" y="230" width="410" height="930" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-27" value="" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-28">
+          <mxGeometry width="380" height="930" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-28" source="cx1SvLgtJIp-GV2GSjiD-1" target="cx1SvLgtJIp-GV2GSjiD-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-1" value="渲染遇到组件" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-28">
+          <mxGeometry x="40" y="30" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-28" source="cx1SvLgtJIp-GV2GSjiD-2" target="cx1SvLgtJIp-GV2GSjiD-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-2" value="setup" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-28">
+          <mxGeometry x="40" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-28" source="cx1SvLgtJIp-GV2GSjiD-4" target="cx1SvLgtJIp-GV2GSjiD-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-4" value="beforeCreate" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-28">
+          <mxGeometry x="40" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-28" source="cx1SvLgtJIp-GV2GSjiD-6" target="cx1SvLgtJIp-GV2GSjiD-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-6" value="created" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-28">
+          <mxGeometry x="40" y="295" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-28" source="cx1SvLgtJIp-GV2GSjiD-8" target="cx1SvLgtJIp-GV2GSjiD-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-8" value="beforeMount" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-28">
+          <mxGeometry x="40" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-28" source="cx1SvLgtJIp-GV2GSjiD-10" target="cx1SvLgtJIp-GV2GSjiD-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-10" value="mounted" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-28">
+          <mxGeometry x="40" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-28" source="cx1SvLgtJIp-GV2GSjiD-12" target="cx1SvLgtJIp-GV2GSjiD-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="140" y="610" />
+              <mxPoint x="200" y="610" />
+              <mxPoint x="200" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-18" value="数据变化" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="cx1SvLgtJIp-GV2GSjiD-17">
+          <mxGeometry x="-0.0816" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-28" source="cx1SvLgtJIp-GV2GSjiD-12" target="cx1SvLgtJIp-GV2GSjiD-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-12" value="页面" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-28">
+          <mxGeometry x="60" y="601" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-28" source="cx1SvLgtJIp-GV2GSjiD-16" target="cx1SvLgtJIp-GV2GSjiD-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-16" value="beforeUpdate" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-28">
+          <mxGeometry x="220" y="550" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-28" source="cx1SvLgtJIp-GV2GSjiD-19" target="cx1SvLgtJIp-GV2GSjiD-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-19" value="updated" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-28">
+          <mxGeometry x="220" y="640" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-21" value="更新渲染" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-28">
+          <mxGeometry x="270" y="610" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-28" source="cx1SvLgtJIp-GV2GSjiD-23" target="cx1SvLgtJIp-GV2GSjiD-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-23" value="beforeUnmount" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-28">
+          <mxGeometry x="40" y="720" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-25" value="unmounted" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-28">
+          <mxGeometry x="40" y="820" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-29" value="Vue3生命周期" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-28">
+          <mxGeometry x="210" y="40" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-77" value="编译template模板" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-28">
+          <mxGeometry x="33" y="357" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-106" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="274" y="110" width="760" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-100" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-106" source="cx1SvLgtJIp-GV2GSjiD-98" target="cx1SvLgtJIp-GV2GSjiD-99">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-103" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cx1SvLgtJIp-GV2GSjiD-106" source="cx1SvLgtJIp-GV2GSjiD-98" target="cx1SvLgtJIp-GV2GSjiD-102">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-98" value="响应式原理" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-106">
+          <mxGeometry x="310" y="15" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-99" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;基于Proxy拦截整个对象的数据，&lt;br&gt;&lt;span style=&quot;color: rgb(44, 44, 54); font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; letter-spacing: 0.08px; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;实现更高效、更全面的数据响应机制&lt;/span&gt;。&lt;br&gt;支持新增删除属性，不用再创建getter和setter函数。&lt;br&gt;支持拦截数组的方法变更，不用再重写函数。&lt;/font&gt;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-106">
+          <mxGeometry x="510" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-101" value="vue3" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-106">
+          <mxGeometry x="445" y="23" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-102" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;基于Object.defineProperty，劫持对象属性的get和set方法，&lt;span style=&quot;color: rgb(44, 44, 54); font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; letter-spacing: 0.08px; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;以此来追踪依赖和触发视图更新。&lt;/span&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;color: rgb(44, 44, 54); font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; letter-spacing: 0.08px; text-align: left; background-color: rgb(255, 255, 255);&quot;&gt;新增删除属性，响应式失效，需要通过$set处理。&lt;br&gt;通过重写数组的操作方法，确保视图数据更新。&lt;br&gt;逐个属性劫持，初始化时间久，性能消耗大。&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-106">
+          <mxGeometry width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-105" value="vue2" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="cx1SvLgtJIp-GV2GSjiD-106">
+          <mxGeometry x="260" y="23" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-107" value="setup语法糖" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="450" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cx1SvLgtJIp-GV2GSjiD-108" value="onBeforeCreat" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="450" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
