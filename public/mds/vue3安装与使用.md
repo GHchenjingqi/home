@@ -284,3 +284,25 @@ const { count, increment } = useCounter();
 </script>
 ```
 
+### 11.vue3 父调子方法
+子组件方法：
+
+```vue
+<script setup>
+const  feachData=()=>{}
+defineExpose({
+    feachData
+});
+</script>
+```
+
+父
+
+```vue
+<Echart3D ref="Echatre3D" />
+  
+if (Echatre3D.value) {
+    Echatre3D.value.feachData(val);
+}
+```
+
