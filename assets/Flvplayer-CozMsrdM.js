@@ -1,1 +1,0 @@
-import{_ as r,o,j as s,a as t}from"./index-DLH0qVae.js";const a={},c={class:"content bg"};function l(n,e){return o(),s("section",c,e[0]||(e[0]=[t("h3",null,"FLV 在线播放器",-1),t("iframe",{src:"/public/html/flvPlayer.html",frameborder:"0"},null,-1)]))}const d=r(a,[["render",l],["__scopeId","data-v-8d880986"]]);export{d as default};
