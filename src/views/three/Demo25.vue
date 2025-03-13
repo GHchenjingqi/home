@@ -108,13 +108,13 @@ onBeforeUnmount(() => {
     <div class="oper">
         <div class="row">JS与3D元素交互</div>
         <div class="item zan" :class="{'active': zan}" @click="zanHandle">
-            <img v-show="!zan" src="/public/hart.svg" alt="">
-            <img v-show="zan" src="/public/heart.svg" alt="">
+            <img v-show="!zan" src="/public/svg/hart.svg" alt="">
+            <img v-show="zan" src="/public/svg/heart.svg" alt="">
             <span>{{zan?'已赞':'赞一下'}}</span>
         </div>
         <div class="item cang" :class="{'active': cang}" @click="cangHandle">
-            <img v-show="!cang" src="/public/cang.svg" alt="">
-            <img v-show="cang" src="/public/chang.svg" alt="">
+            <img v-show="!cang" src="/public/svg/cang.svg" alt="">
+            <img v-show="cang" src="/public/svg/chang.svg" alt="">
             <span>{{cang?'已收藏':'收藏'}}</span>
         </div>
     </div>

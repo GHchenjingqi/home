@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FLV直播流播放示例</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/flv.js/1.6.2/flv.min.js"></script>
+    <style>
+        .flex{
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin-top: 1rem;
+        }
+        input{
+            width: 450px;
+            height: 36px;
+        }
+        button{
+            width: 180px;
+            height: 36px;
+            margin: 0 10px;
+            line-height: 30px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <video id="videoElement" controls muted style="width: 800px; height: 450px;"></video>
+    <div class="flex">
+        <input type="text" id="videoUrl" value="https://axtc.gzbjtjc.cn:8443/streamService/HZ000005-SX000005.live.flv?auth_key=0-fc7ba2b4d54c2d99dc85b4cb98d352c2" style="width: 800px;">
+        <button onclick="startPlay()">播放</button>
+        <button onclick="pausePlay()">暂停</button>
+    </div>
+    <script>
+        let flvPlayer;
+
+        function startPlay() {
+            const videoElement = document.getElementById('videoElement');
+            const videoUrl = document.getElementById('videoUrl').value; // 获取输入框中的URL
+            if (flvjs.isSupported()) {
+                flvPlayer = flvjs.createPlayer({
+                    type: 'flv',
+                    url: videoUrl, // 使用输入框中的URL
+                    isLive: true
+                });
+                flvPlayer.attachMediaElement(videoElement);
+                flvPlayer.load();
+                flvPlayer.play();
+            }
+        }
+
+        function pausePlay() {
+            if (flvPlayer) flvPlayer.pause();
+        }
+
+        // 页面关闭时销毁资源
+        window.addEventListener('beforeunload', () => {
+            if (flvPlayer) {
+                flvPlayer.destroy();
+                flvPlayer = null;
+            }
+        });
+    </script>
+</body>
+</html>

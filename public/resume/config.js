@@ -1,15 +1,15 @@
 export const resumeConfig = {
     baseinfo:{
-        name: '陈大锤',
+        name: '陈敬起',
         birthday: '19930314',
         phone: '15093270173',
         email: 'cjq314@qq.com',
-        job: '高级前端开发工程师',
+        job: '高级前端工程师',
         workyear: '8年',
         degree: '全日制本科',
         address: '河南 · 郑州',
-        website: 'https://ghchenjingqi.github.io/home',
-        selfIntro: '拥有8年前端开发经验，擅长使用以下技术栈：HTML5、Vue.js、React.js、ThreeJS进行高性能、高可用性的前端应用开发。具备良好的团队协作能力和沟通能力，能够快速适应新环境和新技术，曾主导多个大型项目的前端开发工作，成功交付并获得客户高度认可。',
+        website: 'https://ghchenjingqi.github.io/home/',
+        selfIntro: '拥有8年前端开发经验，擅长使用以下技术栈：HTML5、Vue、React、ThreeJS进行高性能、高可用性的前端应用开发。具备良好的团队协作能力和沟通能力，能够快速适应新环境和新技术，曾主导多个大型项目的前端开发工作，成功交付并获得客户高度认可。',
     },
     edu:{
         school : '郑州科技学院',
@@ -25,17 +25,16 @@ export const resumeConfig = {
         '解决问题：具备较强的逻辑思维能力和问题解决能力，能够快速定位和解决开发过程中遇到的各种问题。'
     ],
     skills: [
-        {name: '编程语言', text: "精通HTML5、JavaScript（ES6+）、微信原生小程序开发、React、Vue等前端技术，熟悉Node.js、PHP等后端技术;"},
-        {name: '框架与库', text: "精通Vue.js、React.js及其生态系统（如Vuex、Redux、Vue Router、React Router等）；熟练使用ThreeJS、Bootstrap、Element、Ant Design等UI框架;"},
+        {name: '编程语言', text: "精通HTML5、JavaScript（ES6+）、微信原生小程序开发、React、Vue、ThreeJS等前端技术"},
+        {name: '框架与库', text: "精通Vue、React及其生态系统（如Vuex、Redux、Vue Router、React Router等）；熟练使用Bootstrap、Element、Ant Design、Vant等UI框架;"},
         {name: '构建工具', text: "熟练使用Vite、Webpack、Rollup、Babel、ESLint等进行项目构建和代码规范管理;"},
         {name: '版本控制', text: "熟练使用Git进行代码版本管理，熟悉分支管理策略和代码合并流程;"},
         {name: '浏览器兼容', text: "具备丰富的跨浏览器兼容性开发经验，能够确保应用在主流浏览器（如Chrome、Firefox、Safari、Edge等）中正常运行;"},
         {name: '其他技能', text: '', children: [
-            {text: "借助AI工具进行前端开发，能够快速完成功能开发和迭代产品，提升开发效率;"},
-            {text: "熟悉Node.js开发环境，能够使用Express等框架进行后端接口开发;"},
-            {text: "熟悉PHP、C#后端语言及Mysql数据库，能实现CMS二次开发工作;"},
+            {text: "熟悉Node开发环境，能够使用Express等框架进行后端接口开发;"},
+            {text: "熟悉Python、PHP、C#后端语言及Mysql数据库，能基于CMS实现二次开发;"},
             {text: "熟悉服务器相关知识，能够搭建服务器环境，实现各类网站部署工作;"},
-            {text: "拥有3年UI设计经验，熟悉流行设计规范，能完成平面设计、UI界面设计及交互设计工作。"},
+            {text: "拥有3年UI设计经验，熟悉流行设计规范，能完成平面设计、UI界面设计及交互设计工作；"},
             {text: "熟练使用Photoshop、CorelDraw、AI、Blender、剪影等软件进行图像处理、视频处理、三维模型等创作工作。"},
         ]},
     ],
@@ -43,8 +42,11 @@ export const resumeConfig = {
         { name: '东方世纪科技股份有限公司', job: '高级前端开发工程师', time: '202404-至今', des:[
             '负责公司核心产品（智慧地磅，智慧称重，智慧交通）的前端开发工作，主导多个大型项目的前端架构设计和技术选型，确保项目的高质量交付；',
             '负责公司老项目前端维护及新功能开发工作，优化旧代码结构和性能，提升项目整体质量和用户体验；',
-            '与产品、设计、后端等团队密切合作，参与项目需求分析、设计评审和上线部署等全流程工作，确保项目顺利推进和交付。',
-        ]},
+            '与产品、设计、后端等团队密切合作，参与项目需求分析、设计评审和上线部署等全流程工作，确保项目顺利推进和交付。'],
+            product:[
+                {name:"贵州磷化集团地磅计量系统",img:"/public/dfsj/db/"}
+            ]
+        },
         { name: '广电运通集团股份有限公司', job: '软件工程师', time: '202101-202404', des:[
             '负责公司银行机具（STM、ATM）业务功能开发，负责STM框架搭建、组件开发及部分功能模块（取款、转账、个人信息维护、存单业务及理财产品）开发；',
             '协助团队进行定制化组件、页面开发，优化图片加载，提高加载速度和用户体验；',
@@ -70,7 +72,7 @@ export const resumeConfig = {
     ],
     // 项目经验
     projects: [
-        {   name: '贵州磷化集团地磅计量系统',url:'http://124.70.13.57:15001/', 
+        {   name: '贵州磷化集团地磅计量系统',url:"http://58.42.224.140:16035/",urlbf:'http://124.70.13.57:15001/', 
             des: '该项目是一个面向贵州磷化集团子公司的智能地磅综合管理平台，通过平台提供的一站式的计量管理、运单管理、车辆管理、地磅管理及数据可视化分析服务功能，实现地磅无人或少人值守，提升客户的工作效率和管理效能。', 
             content: [
                 '负责该项目基础框架（若依）的搭建与整体UI改造，完成实时数据、计量查询、手动建单、车辆管理、地磅管理、报表导出及语言互联等功能模块的开发。',
@@ -150,7 +152,7 @@ export const resumeConfig = {
                 '网站前端性能提升作为优化：js/css压缩合并，图片优化，以及布局样式组件化提高代码复用率，减小代码量等。',
                 '配合后端紧密合作，完成代码调试，Bug修复及浏览器兼容问题的解决。',
             ],
-            skills:'HTML5、CSS3、js/JQuery、Swiper',
+            skills:'HTML5、CSS3、Javascript/JQuery、Swiper',
             garde:''
         },
         {   name: '北上教育官网项目',url:'https://bszxedu.com/', 
@@ -161,7 +163,7 @@ export const resumeConfig = {
                 '通过帝国cms和php，二次开发嵌套静态页面，将功能和页面实现；布置到linux服务器上',
                 '网站SEO优化，日常发布网站文章，提升网站自然流量；开发竞价落地页，对接竞价引流等工作。'
             ],
-            skills:'HTML5、CSS3、js/JQuery、Swiper、EmpireCMS、PHP',
+            skills:'HTML5、CSS3、Javascript/JQuery、Swiper、EmpireCMS、PHP',
             garde:''
         },
         {   name: '凯宾高端电视系统项目',url:'https://ghchenjingqi.github.io/qux/KaiBingTV/main.html', 
@@ -171,7 +173,7 @@ export const resumeConfig = {
                 '基于HTML5/CSS3搭建系统前端页面，运用JavaScript(Jquery)开发复杂交互动效；',
                 '与PHP后端团队实施API联调，修复异常测试问题，保障项目正常上线，参与设备应用安装与功能测试。',
             ],
-            skills:'HTML5、CSS3、js/JQuery、PHP',
+            skills:'HTML5、CSS3、Javascript/JQuery、PHP',
             garde:''
         },
         {   name: '悦目电视系统项目',url:'https://ghchenjingqi.github.io/qux/YueMuTV/index.html', 
@@ -181,7 +183,7 @@ export const resumeConfig = {
                 '依据设计稿完成项目前端页面的开发与测试工作；',
                 '与PHP后端团队实施API联调，修复异常测试问题，保障项目正常上线。'
             ],
-            skills:'HTML5、CSS3、js/JQuery、PHP',
+            skills:'HTML5、CSS3、Javascript/JQuery、PHP',
             garde:''
         },
     ],
