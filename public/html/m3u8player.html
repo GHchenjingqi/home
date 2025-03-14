@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 移动端适配 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>M3U8在线播放器</title>
+    <!-- 引入HLS.js库 -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 15px;
+        }
+        #video {
+            width: 100%;
+            height: 450px;
+            background: #000;
+        }
+        .input-group {
+            margin: 15px 0;
+            display: flex;
+            gap: 10px;
+        }
+        #m3u8Url {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 8px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-group">
+            <input type="url" id="m3u8Url" value="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" placeholder="输入M3U8地址">
+            <button onclick="loadVideo()">播放</button>
+        </div>
+        <video id="video" controls></video>
+    </div>
+    <script>
+let hls; // 全局HLS实例
+
+function loadVideo() {
+    const video = document.getElementById('video');
+    const m3u8Url = document.getElementById('m3u8Url').value;
+    
+    // 销毁旧实例
+    if (hls) {
+        hls.destroy();
+        video.removeAttribute('src');
+    }
+
+    if (Hls.isSupported()) {
+        hls = new Hls();
+        hls.loadSource(m3u8Url);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => video.play());
+        
+        // 错误处理（参考网页1）
+        hls.on(Hls.Events.ERROR, (event, data) => {
+            if (data.fatal) {
+                switch (data.type) {
+                    case Hls.ErrorTypes.NETWORK_ERROR:
+                        alert('网络错误，尝试重新加载');
+                        hls.startLoad();
+                        break;
+                    case Hls.ErrorTypes.MEDIA_ERROR:
+                        hls.recoverMediaError();
+                        break;
+                    default:
+                        hls.destroy();
+                        break;
+                }
+            }
+        });
+        
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        // Safari原生支持（参考网页1、4）
+        video.src = m3u8Url;
+        video.addEventListener('loadedmetadata', () => video.play());
+    } else {
+        alert('当前浏览器不支持HLS播放');
+    }
+}
+    </script>
+</body>
+</html>

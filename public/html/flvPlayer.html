@@ -27,9 +27,8 @@
 <body>
     <video id="videoElement" controls muted style="width: 800px; height: 450px;"></video>
     <div class="flex">
-        <input type="text" id="videoUrl" value="https://axtc.gzbjtjc.cn:8443/streamService/HZ000005-SX000005.live.flv?auth_key=0-fc7ba2b4d54c2d99dc85b4cb98d352c2" style="width: 800px;">
+        <input type="text" id="videoUrl" value="" style="width: 800px;">
         <button onclick="startPlay()">播放</button>
-        <button onclick="pausePlay()">暂停</button>
     </div>
     <script>
         let flvPlayer;
@@ -47,10 +46,6 @@
                 flvPlayer.load();
                 flvPlayer.play();
             }
-        }
-
-        function pausePlay() {
-            if (flvPlayer) flvPlayer.pause();
         }
 
         // 页面关闭时销毁资源
