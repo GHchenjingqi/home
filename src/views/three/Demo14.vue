@@ -108,18 +108,18 @@ const init = async ({ THREE, scene, controls, transControls, camera, renderer })
       mesh.position.set(Math.random() * 10 - 5,0, Math.random() * 10 - 5);
     })
   }
-  const onKeyDown = function (event) {
+ 
+  // 空格开灯
+  document.body.addEventListener('keydown', onKeyDown);
+}
+
+const onKeyDown = function (event) {
     switch (event.code) {
       case 'Space':
         spaceHandeler()
         break;
     }
   }
-  // 空格开灯
-  document.addEventListener('keydown', onKeyDown);
-}
-
-
 const animation = ({ THREE, scene, controls, transControls, camera, renderer, stats }) => {
   // 更新物理世界
   world.step(1 / 60);
@@ -147,6 +147,7 @@ const { loading, pregress } = useThree({
 
 onUnmounted(() => {
   world = null
+  document.body.removeEventListener('keydown', onKeyDown);
 })
 </script>
 <template>

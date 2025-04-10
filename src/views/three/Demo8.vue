@@ -62,7 +62,7 @@ const animation = ({ scene, camera, renderer, controls, stats,  }) => {
     boat.position.x = Math.sin(time) * 2
   }
 
-  controls.update();
+  controls?.update();
   renderer.render(scene, camera);
   stats?.update();
 }

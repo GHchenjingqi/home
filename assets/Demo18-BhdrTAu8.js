@@ -1,0 +1,20 @@
+import{u as F,L as W}from"./Loading-B68XFydp.js";import{_ as I,b as N,o as J,c as O,w as j,a as p,u as q}from"./index-C1ZX0F_p.js";import"./allscreen-D2wGQJ3Q.js";import"./loading-DdZOLSQu.js";const Q={__name:"Demo18",setup(X){let u=null,g=null,a=null,s=null,w=null,r,v=!1,y=!1,b=!1;const k=async({THREE:e,scene:t,controls:c,transControls:x,camera:L,renderer:h})=>{h.shadowMap.enabled=!0,h.shadowMap.type=e.PCFSoftShadowMap,u=new e.Group;let o=new e.Group,i=new e.Group;const n=new e.SphereGeometry(.2,36,18);s=new e.Mesh(n,new e.MeshBasicMaterial({color:16736767})),s.position.set(-15,0,0),o.add(s),o.position.y=.2,o.position.z=.4,t.add(o),w=new e.Mesh(n,new e.MeshBasicMaterial({color:25087})),w.position.set(-15,0,0),i.add(w),i.position.y=.2,i.position.z=-.4,t.add(i),r=s.position,a=new e.CatmullRomCurve3([new e.Vector3(-55,0,0),new e.Vector3(-15,0,0),new e.Vector3(-5,1,0),new e.Vector3(0,0,0),new e.Vector3(.5,.5,0),new e.Vector3(1,.5,0),new e.Vector3(2,1,0),new e.Vector3(3,1.5,0),new e.Vector3(5,0,0),new e.Vector3(6,1,0),new e.Vector3(10,2,0),new e.Vector3(15,2,5),new e.Vector3(8,2,5),new e.Vector3(4,1,6),new e.Vector3(0,0,5)]);const K=new e.PlaneGeometry(500,500),m=new e.TextureLoader().load("/home//public/images/grass.png");m.wrapS=e.RepeatWrapping,m.wrapT=e.RepeatWrapping,m.repeat.set(1e3,1e3);const P=new e.MeshBasicMaterial({color:65280,map:m}),d=new e.Mesh(K,P);d.quaternion.setFromAxisAngle(new e.Vector3(1,0,0),-Math.PI/2),d.castShadow=!0,d.receiveShadow=!0,d.position.y=-.5,t.add(d);const U=new e.TubeGeometry(a,120,.8,2,!1),B=new e.MeshBasicMaterial({color:5658198}),V=new e.Mesh(U,B);u.add(V),V.castShadow=!0,t.add(u);const C=new e.TubeGeometry(a,120,.2,2,!1),D=new e.ShaderMaterial({uniforms:{diffuse:{value:new e.Color(16777062)},dashLength:{value:.6},gapLength:{value:2.15}},vertexShader:`
+           varying vec2 vUv;
+           void main() {
+               vUv = uv;
+               gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+           }
+       `,fragmentShader:`
+           varying vec2 vUv;
+           uniform vec3 diffuse;
+           uniform float dashLength;
+           uniform float gapLength;
+           void main() {
+               float distance = mod(vUv.x * dashLength + vUv.y * gapLength, dashLength + gapLength);
+               if (distance < dashLength) {
+                   gl_FragColor = vec4(diffuse, 1.0);
+               } else {
+                   discard;
+               }
+           }
+       `}),M=new e.Mesh(C,D);M.position.y=.01,M.position.z=-.12,t.add(M),document.addEventListener("keydown",A),document.addEventListener("keyup",_)},A=function(e){switch(e.code){case"ArrowUp":case"KeyW":v=!0,l+=.01;break;case"ArrowLeft":case"KeyA":y=!0;break;case"ArrowDown":case"KeyS":break;case"ArrowRight":case"KeyD":b=!0;break;case"Space":S();break}},S=()=>{let e=document.getElementById("box");e.style.display="none"},_=function(e){switch(e.code){case"ArrowUp":case"KeyW":v=!1;break;case"ArrowLeft":case"KeyA":y=!1;break;case"ArrowDown":case"KeyS":break;case"ArrowRight":case"KeyD":b=!1;break}};let f=0,l=0;const G=({THREE:e,scene:t,camera:c,renderer:x,stats:L})=>{if(L.update(),x.render(t,c),f<1){const h=a.getPointAt(f);if(w.position.copy(h),l<1){r=a.getPointAt(l),a.getPoints(a.points.length);const i=.1,n=new e.Vector3;v&&(n.x+=1),y&&(n.z-=1),b&&(n.z+=1),r.x=r.x+n.x*i,r.z=r.z+n.z*i,s.position.copy(r)}else l=0;let o=JSON.parse(JSON.stringify(s.position));o.x>5?c.position.set(o.x+6,o.y+2,o.z-2):l==0?c.lookAt(0,0,0):(c.position.set(o.x-3,o.y+1,o.z),c.lookAt(s.position)),f+=.001}else f=0},{loading:z}=F({el:"#canvas",background:"#d3e3f3",cameraPosition:[-10,2,0],control:!1,controlAutoSpeed:!1,helper:!1,light:!0,creatMesh:k,animation:G});return N(()=>{g=u=null,g&&document.body.removeEventListener("click",g)}),(e,t)=>(J(),O(W,{loading:q(z)},{default:j(()=>t[0]||(t[0]=[p("canvas",{id:"canvas"},null,-1),p("div",{id:"box"},[p("div",{class:"box"},[p("p",null,"空格开始"),p("p",null,"w 控制小球前进")])],-1)])),_:1},8,["loading"]))}},H=I(Q,[["__scopeId","data-v-95ce96bd"]]);export{H as default};
