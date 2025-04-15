@@ -1,0 +1,1 @@
+import{_ as r,o as s,j as a,a as t}from"./index-BawrebKO.js";const l={class:"content bg"},c={__name:"Flvplayer",setup(n){const o="/home//public/html/flvPlayer.html";return(_,e)=>(s(),a("section",l,[e[0]||(e[0]=t("h3",null,"FLV 在线播放器",-1)),t("iframe",{src:o,frameborder:"0"})]))}},m=r(c,[["__scopeId","data-v-bc239f24"]]);export{m as default};
