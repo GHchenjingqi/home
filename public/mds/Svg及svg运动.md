@@ -1,12 +1,11 @@
 ## <font style="color:rgb(77, 77, 77);">一、svg基础知识</font>
-
 svg基础形状有6种：circle | rect | ellipse | line | polyline | path
 
 ```html
 <!-- svg 宽、高、viewbox可视窗口大小 -->
-<svg  width="200px" height="200px" viewbox="0 0 200 200"  version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<svg  width="200px" height="200px" viewbox="0 0 200 200"  version="1.1" xmlns="http://www.w3.org/2000/svg">
 		<!-- circle 圆形  圆心（cx,cy） 半径r  填充fill -->
-	<circle cx="150" cy="50" r="50" fill="#333"></circle>
+	  <circle cx="150" cy="50" r="50" fill="#333"></circle>
 		<!-- rect 矩形 起点（x,y）宽、高   stroke描边色 fill填充色 stroke-width描边线宽-->
 		<rect x="10" y="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="2"></rect>
 		<!-- rect 圆角矩形 起点（x,y） 圆角（rx,ry)  -->
@@ -29,27 +28,24 @@ svg基础形状有6种：circle | rect | ellipse | line | polyline | path
 				A = elliptical Arc(A RX,RY,XROTATION,FLAG1,FLAG2,X,Y)：弧线
 				Z = closepath()：关闭路径
 		-->
-	<path d="M20,130 Q40,15 50,130 T90,130" fill="none" stroke="blue" stroke-width="2"/>
-</svg>
+		<path d="M20,130 Q40,15 50,130 T90,130" fill="none" stroke="blue" stroke-width="2"/>
+	</svg>
 ```
 
 ![](https://cdn.nlark.com/yuque/0/2024/svg/1460947/1722839304679-03fb16eb-36fd-4661-aa66-4a711aa353c4.svg)
 
 ## <font style="color:rgb(77, 77, 77);">二、svg运动</font>
-
 <font style="color:rgb(77, 77, 77);">svg元素运动可以使用以下标签完成：</font>
 
-```text
-1. <set>
-2. <animate>
-3. <animateColor>
-4. <animateTransform>
-5. <animateMotion>
-```
+1. <font style="color:rgb(51, 51, 51);"><set></font>
+2. <font style="color:rgb(51, 51, 51);"><animate></font>
+3. <font style="color:rgb(51, 51, 51);"><animateColor></font>
+4. <font style="color:rgb(51, 51, 51);"><animateTransform></font>
+5. <font style="color:rgb(51, 51, 51);"><animateMotion></font>
 
+<font style="color:rgb(77, 77, 77);"></font>
 
 ### <font style="color:rgb(77, 77, 77);">1.利用</font><font style="color:rgb(77, 77, 77);">svg中的</font><font style="color:rgb(77, 77, 77);"> <set>标签实现</font>
-
 3秒后移动到x轴60px处
 
 ```html
@@ -71,7 +67,6 @@ svg基础形状有6种：circle | rect | ellipse | line | polyline | path
 ![](https://cdn.nlark.com/yuque/0/2024/svg/1460947/1722836251328-82d046dc-ae29-487d-9b81-789acec48273.svg)
 
 ### <font style="color:rgb(77, 77, 77);">2.利用</font><font style="color:rgb(77, 77, 77);">svg中的</font><font style="color:rgb(77, 77, 77);"> <</font><font style="color:rgb(51, 51, 51);">animate</font><font style="color:rgb(77, 77, 77);">>标签实现</font>
-
 无限循环运动，从右到左移动到60px处
 
 ```html
@@ -90,18 +85,16 @@ svg基础形状有6种：circle | rect | ellipse | line | polyline | path
 + to="60" 到指定位置
 + begin="0s" 开始时间
 + dur="3s" 动画时长
-+ repeatCount="indefinite"  无限循环
++  repeatCount="indefinite"  无限循环
 
 ![](https://cdn.nlark.com/yuque/0/2024/svg/1460947/1722836210452-b0eabe51-d434-4aaa-a84e-63f0df3b07a0.svg)
 
 ### <font style="color:rgb(77, 77, 77);">3.利用</font><font style="color:rgb(77, 77, 77);">svg中的</font><font style="color:rgb(77, 77, 77);"> <</font><font style="color:rgb(51, 51, 51);">animateColor</font><font style="color:rgb(77, 77, 77);">>标签实现</font>
-
 是颜色动画，目前已废弃，不支持使用。可以使用<font style="color:rgb(51, 51, 51);">animate代替。</font>
 
 <font style="color:rgb(51, 51, 51);"></font>
 
 ### <font style="color:rgb(77, 77, 77);">4.利用</font><font style="color:rgb(77, 77, 77);">svg中的</font><font style="color:rgb(77, 77, 77);"> <</font><font style="color:rgb(51, 51, 51);">animateTransform</font><font style="color:rgb(77, 77, 77);">>标签实现</font>
-
 效果等效于css3的<font style="color:rgb(51, 51, 51);">transform</font>
 
 ```html
@@ -124,7 +117,6 @@ svg基础形状有6种：circle | rect | ellipse | line | polyline | path
 ![](https://cdn.nlark.com/yuque/0/2024/svg/1460947/1722836541153-8c19f517-54fe-4cbd-843e-3134113a7665.svg)
 
 ### <font style="color:rgb(77, 77, 77);">5.利用svg中的</font>**<font style="color:rgb(77, 77, 77);"><animateMotion></font>**<font style="color:rgb(77, 77, 77);">标签实现</font>
-
 红点无限循环绕path运动
 
 ```html
@@ -138,7 +130,14 @@ svg基础形状有6种：circle | rect | ellipse | line | polyline | path
 </svg>
 ```
 
-+ dur 指定动画时长，repeatCount 重复次数  <animateMotion dur="3s"
++ dur 指定动画时长，repeatCount 重复次数  <animateMotion dur="3s"  
 + repeatCount="indefinite">mpath的 指定运动路径  <mpath href="#path1"/>
 
+
+
 ![](https://cdn.nlark.com/yuque/0/2024/svg/1460947/1722836938863-1854c63e-8d50-4cd2-83ea-83afe78aa53b.svg)
+
+
+
+
+

@@ -151,7 +151,10 @@ b = set('alacazam')
 print(a - b)     # a 和 b 的差集 {'r', 'b', 'd'}
 print(a | b)     # a 和 b 的并集 {'b', 'c', 'a', 'z', 'm', 'r', 'l', 'd'}
 print(a & b)     # a 和 b 的交集 {'c', 'a'}
-print(a ^ b)     # a 和 b 中不同时存在的元素  {'z', 'b', 'm', 'r', 'l', 'd'}   
+print(a ^ b)     # a 和 b 中不同时存在的元素  {'z', 'b', 'm', 'r', 'l', 'd'} 
+
+{ True : '123', 1:'abc'  }
+# Key值是布尔会被转数字类型，key值唯一处理后： { 1:'abc'  }
 ```
 
 + <font style="color:rgb(51, 51, 51);background-color:rgb(250, 252, 253);">Dictionary（字典）：字典是无序的对象集合，类似js的对象，通过key取值</font>
