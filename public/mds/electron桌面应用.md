@@ -466,6 +466,29 @@ onMounted(() => {
 });
 ```
 
+##### 渲染进程之间通信
+渲染页面1设置参数 通过send传递给main主进程，main主进程通过窗口 mainWindow.webContents.send 将数据传递出管道，渲染页面2通过on监听主进程管道事件，从而实现渲染进程之间通信。
+
+```javascript
+// set.vue 渲染页面1发送数据
+const save = async () => {
+  await api.send('set-menu-md', showMD )
+  sendMSG('保存成功', 'success')
+}
+
+// 主进程监听及传递管道数据  
+ipcMain.on('set-menu-md',async (_,flag) => {
+  mainWindow.webContents.send('set-menu-flag',flag)
+});
+
+// menu.vue 页面 获取主进程传递的数据
+window.api.on("set-menu-flag" ,async (_, flag) => {
+  console.log('set-menu-flag',flag)
+  status = flag
+  initMenus(status)
+})
+```
+
 ### 3.窗口设置
 ##### 常用属性
 通过BrowserWindow创建窗口的时候可以设置窗口的属性：
@@ -739,7 +762,36 @@ getPrimaryDisplay() 返回以下主屏信息
 }
 ```
 
+### 5.窗口缩小至托盘
+```javascript
+import { app, BrowserWindow ,ipcMain ,Tray , Menu } from 'electron'
+let mainWindow = null,  tray = null;
+app.whenReady().then(() => {
 
+   // 窗口操作
+  ipcMain.handle('oper', (event, type) => {
+    if (type == 'min') {
+      mainWindow.minimize()
+    }
+    if (type == 'close') {
+      // 窗口隐藏到托盘
+      mainWindow.hide();
+    }
+  });
+  
+  // 创建托盘图标
+  tray = new Tray(icon);
+  const contextMenu = Menu.buildFromTemplate([
+    { label: '显示窗口', click: () => mainWindow.show() },
+    { label: '退出', click: () => app.quit() }
+  ]);
+  tray.setToolTip('我的应用');
+  tray.setContextMenu(contextMenu);
+
+  // 监听托盘图标点击
+  tray.on('click', () => mainWindow.show());
+})
+```
 
 ## 小技巧
 #### 1.默认打开开发工具，主进程main.js添加
