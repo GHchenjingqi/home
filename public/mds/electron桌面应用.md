@@ -431,7 +431,7 @@ ipcMain.on('file-save', (event,data) => {
 ```
 
 ##### 主进程单向与渲染进程通信 send => on
-主进程加载注册监听事件
+主进程加载注册监听事件，注意一定要在did-finish-load回调里，不然渲染进程无法接受到。
 
 ```javascript
 // 主进程发消息，在加载页面前注册监听事件
@@ -950,6 +950,55 @@ getAssetURL(filePath){
   const processedPath = encodeURIComponent( filePath.replace(/\\/g, '/') )
   return `electron://${processedPath}`
 }
+```
+
+#### 6.快捷键监听
+下面是快捷键注册的三种场景，要根据实际情况选择。
+
+方法一：渲染进程页面注册监听事件，仅对**<font style="color:#117CEE;">当前页面</font>**生效
+
+方法二：中间件预加载里面添加，仅对当前应用**<font style="color:#117CEE;">窗口显示</font>**的时候生效，**<font style="color:#DF2A3F;">最小化或窗口隐藏不生效</font>**！
+
+```javascript
+let keys = {};
+document.addEventListener('keydown', function(event) {
+    // 记录按键状态
+    keys[event.key] = true;
+
+    // 检查是否同时按下了Ctrl和S键
+    if(keys['Control'] && keys['s']) {
+        event.preventDefault(); // 阻止默认行为
+        console.log('Ctrl + S 被按下了');
+        // 在这里执行你想要的操作
+    }
+});
+
+document.addEventListener('keyup', function(event) {
+    // 更新按键状态
+    delete keys[event.key];
+});
+```
+
+方法三：在主进程里注册全局监听事件，只要应用没关闭都可以监听到。
+
+```javascript
+import { app,  BrowserWindow,  globalShortcut } from 'electron'
+
+app.whenReady().then(()=>{
+  // 注册全局快捷键
+  globalShortcut.register('CommandOrControl+Shift+S', () => {
+    console.log('Ctrl + Shift + S 被按下了');
+    // 在这里执行截图逻辑，例如调用desktop-screenshot库进行截图
+  });
+});
+
+
+// 即将关闭应用程序时
+app.on('will-quit', () => {
+  // 清理所有已注册的全局快捷键
+  globalShortcut.unregisterAll();
+});
+
 ```
 
 ## 异常问题

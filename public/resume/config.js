@@ -73,7 +73,8 @@ export const resumeConfig = {
     ],
     // 项目经验
     projects: [
-        {   name: '贵州磷化集团地磅计量系统',url:"http://58.42.224.140:16035/",urlbf:'http://124.70.13.57:15001/', 
+        {   id:"101",
+            name: '贵州磷化集团地磅计量系统',url:"http://58.42.224.140:16035/",urlbf:'http://124.70.13.57:15001/', 
             des: '该项目是一个面向贵州磷化集团子公司的智能地磅综合管理平台，通过平台提供的一站式的计量管理、运单管理、车辆管理、地磅管理及数据可视化分析服务功能，实现地磅无人或少人值守，提升客户的工作效率和管理效能。', 
             content: [
                 '负责该项目基础框架（若依）的搭建与整体UI改造，完成实时数据、计量查询、手动建单、车辆管理、地磅管理、报表导出及语言互联等功能模块的开发。',
@@ -84,7 +85,8 @@ export const resumeConfig = {
             skills:'Vue3、Pinia、Vue Router、Element UI、Vite、Echart、Amap',
             garde:'项目上线后，减少了地磅现场工作人员，提高了称重数据采集、管理、分析的效率，获得了客户的高度评价和认可。'
         },
-        {   name: '非现场执法管理平台+治超小程序+安卓APK',url:'http://222.141.201.244:8088/', 
+        {   id:"201",
+            name: '非现场执法管理平台+治超小程序+安卓APK',url:'http://222.141.201.244:8088/', 
             des: ' 该项目是一个面向多个交通局（漯河，内乡，新野，淮滨等）执法办案人员治理超限的管理平台，通过平台提供的一站式的综合查询、执法办案、企业管理、公众信息管理及数据分析服务等功能，实现非现场执法线上实时监测预警，与线下执法业务高效协同。', 
             content: [
                 '根据产品设计稿，负责该项目前端页面的开发及新需求改造工作。',
@@ -95,7 +97,8 @@ export const resumeConfig = {
             skills:'Vue2、Vuex、Vue Router、Element UI、Webpack、Amap',
             garde:'项目上线后，经常与客户面对面沟通，挖掘客户真实需求，优化代码逻辑和平台功能，提高了平台办案效率，获得了客户认可的同时，也为公司创造了更多的商业价值。'
         },
-        {   name: '人工智能技术在高速公路场景研究及应用（科研项目）',url:'', 
+        {   id:"301",
+            name: '人工智能技术在高速公路场景研究及应用（科研项目）',url:'', 
             black:{key:'des',line:2, top:8},
             des: '该项目是一个山东葛洲坝集团的科研项目，项目分为三大场景（三个项目）：收费站（超限检测告警应用）、高速（事件告警平台）、服务区（安心停车），通过AI算法识别高速道路的异常事件（超限，车辆自燃，交通拥堵等类型），或AI算法识别服务区车辆有异常人员靠近后发出告警信息，实现远程实时监控各大场景，提高的道路通行效率和服务区停车安全。', 
             content: [
@@ -107,7 +110,9 @@ export const resumeConfig = {
             skills:'Vue3、Pinia、Vue Router、Element UI、Vite、Amap、canvas、小程序',
             garde:'项目上线后，根据客户需求，多次修改代码，软著及手册文档，最终得到客户满意和赞赏。'
         },
-        {   name: '中原银行ATM/STM机柜国产化应用项目',url:'', 
+        {  
+            id:"401",
+            name: '中原银行ATM/STM机柜国产化应用项目',url:'', 
             des: '该项目是中原银行STM机柜应用国产化开发和改造项目，项目主要借助开源技术，实现从底层到前端页面的定制化开发，主要功能包括：存取款、转账及撤销、信用卡申请、信息维护、存折业务、存单业务、无卡取款、特色储蓄和基金业务、我的主页等等，极大了节省了柜面交易次数，提高了客户办事效率。', 
             content: [
                 '根据业务人员需求文档，编写业务评审文档及绘制业务程图，组织参与业务评审工作。',
@@ -118,7 +123,9 @@ export const resumeConfig = {
             skills:'Vue2、Vuex、Vue Router、Element UI、Webpack',
             garde:'完成了我的主页、特色储蓄、基金购买、信用卡申请、跨行转账及个人信息维护等功能，过硬的专业知识得到了甲方（中原银行）赞赏，获得公司（广电运通）2023年优秀员工称号。'
         },
-        {   name: '廊坊银行智能机柜应用项目',url:'', 
+        {   
+            id:"501",
+            name: '廊坊银行智能机柜应用项目',url:'', 
             black:{key:'content',line:4, top:8},
             des: '该项目是廊坊银行机柜应用国产化开发项目，项目主要借助开源技术，实现从底层到前端页面的定制化开发，主要功能包括：存取款、转账及撤销、信用卡申请、信息维护、存折业务、存单业务、无卡取款、特色储蓄和基金业务、我的主页等等，极大了节省了柜面交易次数，提高了客户办事效率。', 
             content: [
@@ -128,7 +135,9 @@ export const resumeConfig = {
             skills:'Vue2、Vuex、Vue Router、Element UI、Webpack',
             garde:'完成了存折存取款、存单购买/支取/销户等功能，得到甲方客户的表扬，提高了项目团队的信任和好评。'
         },
-        {   name: '会计宝自适应网站+小程序',url:'http://www.kjb100.com/', 
+        {   
+            id:"601",
+            name: '会计宝自适应网站+小程序',url:'http://www.kjb100.com/', 
             des: '该项目是针对会计从业者的一个在线会计相关知识问答平台。专门解决不同行业，不同领域各类会计在工作中遇到的疑难杂症。主要包括：会计问题答疑、用户提问及悬赏、老师答疑、专题模块、圈子中心等功能，开发工作涉及到Web+多端小程序（微信、头条、抖音）等。', 
             content: [
                 '参与团队原型图和UI设计，独立完成注册登录、PC端页面设计及教师端后台设计；',
@@ -139,7 +148,9 @@ export const resumeConfig = {
             skills:'HTML5、CSS3、ES6、Jquery、Bootstrop、小程序',
             garde:'快速完成项目搭建及开发等工作，专业能力得到了项目经理及领导认可。'
         },
-        {   name: '会计教练自适应网站项目',url:'https://www.kjjl100.com/', 
+        {   
+            id:"701",
+            name: '会计教练自适应网站项目',url:'https://www.kjjl100.com/', 
             des: '该项目旨在专注于会计实操、初级、中级、注会职称培训的会计培训网校。主要包括：会计课程直播录播、会计题库、课程商城、专题模块、会计答疑及资讯中心等功能，主要完成自适应网站的开发工作。', 
             content: [
                 '根据设计稿，完成自适应前端页面开发及JS逻辑交互工作；',
@@ -148,7 +159,9 @@ export const resumeConfig = {
             skills:'HTML5、CSS3、Vue、ES6、Swiper、Bootstrop',
             garde:''
         },
-        {   name: '领远教育营销网站项目',url:'http://lingyuan100.com/', 
+        {   
+            id:"801",
+            name: '领远教育营销网站项目',url:'http://lingyuan100.com/', 
             black:{key:'des',line:7, top:6},
             des: '该项目为会计教练子品牌领远教育营销网站，用于展示会计教育优势及提升品牌影响力。主要痛点是为会计初学者、从业者提供不同级别的会计教育培训、会计网课。', 
             content: [
@@ -159,7 +172,9 @@ export const resumeConfig = {
             skills:'HTML5、CSS3、Javascript/JQuery、Swiper',
             garde:''
         },
-        {   name: '北上教育官网项目',url:'https://bszxedu.com/', 
+        {   
+            id:"901",
+            name: '北上教育官网项目',url:'https://bszxedu.com/', 
             des: '北上教育官网项目技术采用EmpireCMS+php二次开发实现的图文资讯网站。主要业务：成人教育，教师资格证，一建、二建、消防工程师培训，会计培训，特种工证及各种证书等。', 
             content: [
                 '头脑风暴，根据业务与经理沟通需求，绘制草图和低保真UI设计稿；',
@@ -170,7 +185,9 @@ export const resumeConfig = {
             skills:'HTML5、CSS3、Javascript/JQuery、Swiper、EmpireCMS、PHP',
             garde:''
         },
-        {   name: '凯宾高端电视系统项目',url:'https://ghchenjingqi.github.io/qux/KaiBingTV/main.html', 
+        {   
+            id:"1001",
+            name: '凯宾高端电视系统项目',url:'https://ghchenjingqi.github.io/qux/KaiBingTV/main.html', 
             des: '凯宾项目是针对智能电视大屏设计的电视系统，通过原生JS+PHP开发，实现遥控器和电视的交互，设计风格采用新颖扁平化（2016年）、卡片化，交互方式以十字交互为主，配合遥控器KEY值监听实现电视动效交互。', 
             content: [
                 '主导产品需求分析全流程，参与精品分析，使用Axure独立完成低保真原型设计工作，最后PS完成设计图；',
@@ -180,7 +197,9 @@ export const resumeConfig = {
             skills:'HTML5、CSS3、Javascript/JQuery、PHP',
             garde:''
         },
-        {   name: '悦目电视系统项目',url:'https://ghchenjingqi.github.io/qux/YueMuTV/index.html', 
+        {   
+            id:"1004",
+            name: '悦目电视系统项目',url:'https://ghchenjingqi.github.io/qux/YueMuTV/index.html', 
             black:{key:'des',line:10, top:6},
             des: '悦目电视系统旨在改变传统电视交互风格，增加电视系统的类目功能，如：影视点播、卫视直播、旅游推荐、睡眠音乐等功能', 
             content: [
