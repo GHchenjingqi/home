@@ -1,0 +1,1 @@
+import{y as a}from"./index-BeSPUq1p.js";const o=a("loading",{state:()=>({loadingStatus:!1}),getters:{getLoadingStatus:t=>t.loadingStatus},actions:{setLoadingStatus(t){this.loadingStatus=t}}});export{o as u};
