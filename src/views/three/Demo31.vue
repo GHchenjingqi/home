@@ -12,14 +12,15 @@ let pointGui = {
   glass: '0xcccccc'
 }
 
-const wheels = [], carBody = null
+const wheels = []
+let carBody = null
 const init = async ({ THREE, scene, camera , axesHelper}) => {
   axesHelper.visible = false
 	scene.fog = new THREE.Fog( 0x333333, 10, 15 );
         
   const car = findMesh(scene.children, 'ferrari')
   const carModels = car?.children[0].children
-  const carBody = findMesh(carModels, 'body')
+  carBody = findMesh(carModels, 'body')
   carBody.material = new THREE.MeshPhysicalMaterial({
     color: 0xffffff, metalness: 1.0, roughness: 0.5, clearcoat: 1.0, clearcoatRoughness: 0.03
   });

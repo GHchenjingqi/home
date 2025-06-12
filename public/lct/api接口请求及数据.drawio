@@ -1,0 +1,144 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36" version="26.2.15">
+  <diagram name="第 1 页" id="G-X33XaxtebP354dpJIr">
+    <mxGraphModel dx="1240" dy="683" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pOQVVS4byggbrVLedw2q-1" value="API发送请求" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="292.5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pOQVVS4byggbrVLedw2q-2" target="pOQVVS4byggbrVLedw2q-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-2" value="GET" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pOQVVS4byggbrVLedw2q-4" target="pOQVVS4byggbrVLedw2q-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-4" value="PUT" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="380" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pOQVVS4byggbrVLedw2q-6" target="pOQVVS4byggbrVLedw2q-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-6" value="POST" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="450" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pOQVVS4byggbrVLedw2q-8" target="pOQVVS4byggbrVLedw2q-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-8" value="DELETE" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-11" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="210" y="100" width="20" height="445" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-12" value="获取资源，参数在 URL 中，如：获取用户列表" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="310" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-14" value="更新替换全量数据，如：更新用户信息" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="380" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-16" value="&lt;div style=&quot;text-align: start;&quot;&gt;创建新资源，数据在请求体中，如：创建新用户/文件上传&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="450" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-18" value="删除指定资源，参数在url中，如：删除用户" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="520" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-20" value="核&lt;div&gt;心&lt;/div&gt;&lt;div&gt;方&lt;/div&gt;&lt;div&gt;法&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="210" y="390" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pOQVVS4byggbrVLedw2q-21" target="pOQVVS4byggbrVLedw2q-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-21" value="HEAD" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pOQVVS4byggbrVLedw2q-23" target="pOQVVS4byggbrVLedw2q-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-23" value="PATCH" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pOQVVS4byggbrVLedw2q-26" target="pOQVVS4byggbrVLedw2q-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-26" value="OPTIONS" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-28" value="扩&lt;div&gt;展&lt;div&gt;方&lt;/div&gt;&lt;div&gt;法&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="210" y="130" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-29" value="获取元数据，不返回响应体，如：用户是否存在" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="80" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-31" value="部分更新资源，比put更高效，如：只更新用户邮箱" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="150" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-33" value="&lt;div style=&quot;text-align: start;&quot;&gt;用于 CORS 预检请求，如：跨域权限检测&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="220" width="340" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="pOQVVS4byggbrVLedw2q-37">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="640" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-40" value="API参数传递" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="760" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-50" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pOQVVS4byggbrVLedw2q-41" target="pOQVVS4byggbrVLedw2q-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-41" value="&lt;div style=&quot;text-align: start;&quot;&gt;&lt;span style=&quot;font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, &amp;quot;Noto Sans&amp;quot;, Ubuntu, Cantarell, &amp;quot;Helvetica Neue&amp;quot;, Oxygen, &amp;quot;Open Sans&amp;quot;, sans-serif; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;color: rgb(22, 22, 22);&quot;&gt;路径参数Path&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="640" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-42" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="220" y="670" width="20" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-52" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pOQVVS4byggbrVLedw2q-43" target="pOQVVS4byggbrVLedw2q-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-43" value="&lt;span style=&quot;font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, &amp;quot;Noto Sans&amp;quot;, Ubuntu, Cantarell, &amp;quot;Helvetica Neue&amp;quot;, Oxygen, &amp;quot;Open Sans&amp;quot;, sans-serif; text-align: start; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;color: rgb(27, 27, 27);&quot;&gt;查询参数Query&lt;/font&gt;&lt;/span&gt;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="720" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-54" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pOQVVS4byggbrVLedw2q-45" target="pOQVVS4byggbrVLedw2q-53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-45" value="请求头Header" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="800" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-56" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pOQVVS4byggbrVLedw2q-47" target="pOQVVS4byggbrVLedw2q-55">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-47" value="请求头Body" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="880" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-49" value="/users/{id}/posts/{postId}" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="640" width="320" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-51" value="?page=2&amp;amp;size=20&amp;amp;sort=name" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="720" width="320" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-53" value="Authorization认证" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="800" width="320" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-55" value="JSON/x-www-form-urlencoded&amp;nbsp;/Form-Data" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="880" width="320" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-57" value="application/json支持数组/对象，用户API数据交换" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="880" width="320" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-59" value="x-www-form-urlencoded将表单数据编码为键值对字符串，如：`key1=value1&amp;amp;key2=value2`，用于表单" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="810" width="320" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-60" value="form-data数据不编码，直接以二进制传输，&lt;div&gt;传输大文件比较高效！用于文件上传&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="790" y="950" width="320" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pOQVVS4byggbrVLedw2q-61" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="760" y="835" width="20" height="150" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

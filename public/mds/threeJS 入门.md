@@ -608,6 +608,294 @@ const home = scene.children.find(item => item.name === 'home')
 
 <font style="color:rgb(89, 89, 89);"></font>
 
+### <font style="color:#000000;">14.Mesh原型方法</font>
+![](https://cdn.nlark.com/yuque/0/2025/png/1460947/1749707636063-a4fe9f16-d89a-404f-9db3-2651904321ac.png)
+
+#### applyMatrix4
+applyMatrix4() 是 Three.js 中 Object3D 类的一个重要方法，用于将 4x4 变换矩阵应用于几何体顶点或整个物体。这个方法对于实现复杂变换、坐标系转换和矩阵级联操作非常有用。
+
+```javascript
+const obstacleGeometry = new THREE.BoxGeometry(1, 1, 1);
+const obstacleMaterial = new THREE.MeshStandardMaterial({ color: 0xaa0000 });
+obstacle = new THREE.Mesh(obstacleGeometry, obstacleMaterial);
+scene.add(obstacle);
+// 缩放
+scaleBTN.onclick = () => {
+  const translationMatrix = new THREEObject.Matrix4().makeScale(1.2, 2.5, 0.3);
+  obstacle.applyMatrix4(translationMatrix);
+}
+// 旋转
+rotateBTN.onclick = () => {
+  const angle = Math.PI / 4; // 45度
+  const axis = new THREEObject.Vector3(0, 1, 0); // 绕Y轴旋转
+  const translationMatrix = new THREEObject.Matrix4().makeRotationAxis(axis, angle);
+  obstacle.applyMatrix4(translationMatrix);
+}
+// 平移
+translateBTN.onclick = () => {
+  const translationMatrix = new THREEObject.Matrix4().makeTranslation(0, 2.5, 0);
+  obstacle.applyMatrix4(translationMatrix);
+}
+// 组合
+combineBTN.onclick = () => {
+  // 创建组合矩阵：缩放、旋转然后平移
+  const scale = new THREEObject.Matrix4().makeScale(0.8, 1.5, 1.2);
+  const rotation = new THREEObject.Matrix4().makeRotationX(Math.PI / 3);
+  const translation = new THREEObject.Matrix4().makeTranslation(0, 3, 1);
+
+  // 组合矩阵：缩放 -> 旋转 -> 平移
+  const matrix = new THREEObject.Matrix4();
+  matrix.multiply(translation);  // 最后应用平移
+  matrix.multiply(rotation);      // 然后旋转
+  matrix.multiply(scale);         // 先应用缩放
+
+  obstacle.applyMatrix4(matrix);
+}
+```
+
+#### applyQuaternion
+applyQuaternion 是Three.js中用于**<font style="color:#7E45E8;">应用旋转</font>**的一个高效方法，使用四元数（quaternion）来表示3D旋转。四元数相比欧拉角具有多项优势：避免万向节锁、插值更平滑、运算更高效。
+
+```javascript
+obstacle = new THREE.Mesh(obstacleGeometry, obstacleMaterial);
+// 创建一个表示绕Y轴旋转90度的四元数
+const quaternion = new THREE.Quaternion();
+quaternion.setFromAxisAngle(new THREE.Vector3(0, 2, 0), Math.PI / 2);
+
+// 应用四元数旋转到对象 等同于 obstacle.quaternion.multiply(quaternion);
+obstacle.applyQuaternion(quaternion);
+```
+
+#### attach 
+attach 方法可以让你改变对象的父级，但是对象在世界空间中的变换保持不变。
+
+```javascript
+// 创建父级对象
+const parent1 = new THREE.Group();
+const parent2 = new THREE.Group();
+scene.add(parent1);
+scene.add(parent2);
+
+// 创建子对象并添加到 parent1
+const child = new THREE.Mesh(geometry, material);
+parent1.add(child);
+
+// 使用 attach 方法将子对象转移到 parent2
+parent2.attach(child); // 子对象现在在 parent2 下
+```
+
+#### clear
+clear 是 Object3D 类的方法（Mesh 继承自它），用于移除对象的所有子对象。
+
+```javascript
+// 移除所有子对象,不删除对象本身,高效清空
+Object3D.clear()
+// 注意清除后仍需手动释放资源防止内存泄漏，常配合dispose使用
+// 处置几何体
+geometry.dispose();
+// 处置材质
+material.dispose();
+```
+
+#### remove
+remove移除子对象不会触发子对象的`dispose`方法，因此需要手动管理资源（如几何体、材质）的释放。
+
+```javascript
+// 语法：parent.remove(child1, child2, ...); 
+scene.remove(cube);
+
+// 彻底清除物体
+// 释放资源（几何体和材质）
+cube.geometry.dispose();
+if (Array.isArray(cube.material)) {
+  cube.material.forEach(mat => mat.dispose());
+} else {
+  cube.material.dispose();
+}
+// 清除选中
+cube = null;
+```
+
+#### clone
+clone一个新的对象，几何体属性材质与源对象一样（位置随机），需要手动添加到场景中。<font style="color:rgba(0, 0, 0, 0.6);background-color:rgb(252, 252, 252);"></font>
+
+```javascript
+const clone = originalCube.clone();
+// 随机位置
+clone.position.x = Math.random() * 8 - 4;
+clone.position.y = Math.random() * 6 - 3;
+// 添加到场景
+scene.add(clone);
+```
+
+#### copy
+copy后者会完全将前者覆盖，包括形状，材质，位置。不会创建新对象。
+
+```javascript
+ //复制原始蓝色立方体的属性（几何体、材质等）到红色立方体,注意redCube位置同样被蓝色立方体覆盖
+ redCube.copy(originalCube);
+```
+
+
+
+#### 选择物体
+```javascript
+// 创建一个立方体
+const cube = new THREE.Mesh(
+  new THREE.BoxGeometry(),
+  new THREE.MeshBasicMaterial({ color: 0xff0000 })
+);
+cube.name = "myCube";
+scene.add(cube);
+```
+
++ getObjectById
+
+每个Object3D实例都有一个唯一的id属性（自动生成）。getObjectById方法通过指定的id来查找对象。
+
+```javascript
+// 通过id查找
+const foundById = scene.getObjectById(cube.id);
+console.log(foundById === cube); // true
+```
+
++ getObjectByName
+
+可以通过对象的name属性来查找。可以给对象设置一个字符串名称，然后使用此方法查找。
+
+```javascript
+const foundByName = scene.getObjectByName("myCube");
+console.log(foundByName === cube); // true
+```
+
++ getObjectByProperty
+
+通过任意属性和值来查找第一个匹配的对象。
+
+```javascript
+// object.getObjectByProperty( name, value )
+const foundByType = scene.getObjectByProperty('type', 'Mesh'); // {}
+```
+
++ getObjectsByProperty
+
+与getObjectByProperty类似，但是返回所有匹配的对象（数组）。
+
+```javascript
+// object.getObjectsByProperty( name, value )
+const cubes = scene.getObjectsByProperty('name', 'cube'); // []
+```
+
+#### <font style="color:rgba(0, 0, 0, 0.9);background-color:rgb(252, 252, 252);">getWorld*</font>
+在 Three.js 中，getWorld* 方法系列用于获取对象在世界坐标系中的状态，而非局部坐标系。
+
++ <font style="color:rgba(0, 0, 0, 0.9);">getWorldPosition  获取对象在世界坐标系中的位置</font>
++ <font style="color:rgba(0, 0, 0, 0.9);">getWorldDirection 获取对象在正前方向上的世界空间方向向量。</font>
++ <font style="color:rgba(0, 0, 0, 0.9);">getWorldQuaternion 获取表示对象在世界坐标系中旋转的四元数。</font>
++ <font style="color:rgba(0, 0, 0, 0.9);">getWorldScale 获取对象在世界坐标系中的缩放向量。</font>
+
+```javascript
+const worldPosition = new THREE.Vector3();
+selectedObject.getWorldPosition(worldPosition);
+
+const worldDirection = new THREE.Vector3();
+selectedObject.getWorldDirection(worldDirection);
+
+const worldQuaternion = new THREE.Quaternion();
+selectedObject.getWorldQuaternion(worldQuaternion);
+
+const worldScale = new THREE.Vector3();
+selectedObject.getWorldScale(worldScale);
+```
+
+#### 坐标系转换
++ localToWorld  <font style="color:rgba(0, 0, 0, 0.9);background-color:rgb(252, 252, 252);">对象的局部坐标系 => 场景的世界坐标系</font>
++ worldToLocal <font style="color:rgba(0, 0, 0, 0.9);background-color:rgb(252, 252, 252);"> 场景的世界坐标系=> 对象的局部坐标系 </font>
+
+```javascript
+cube.localToWorld(localPoint.clone(), worldPoint);
+const refLocalPoint = cube.worldToLocal(referencePoint.clone());
+```
+
+#### onBeforeRender
+在对象被渲染之前调用
+
+```javascript
+object.onBeforeRender = function(renderer, scene, camera) {
+  // 添加渲染前效果（线框）
+  this.material.wireframe = true;
+  this.material.wireframeLinewidth = 1;
+};
+```
+
+#### onAfterRender 
+在对象被渲染之后调用。
+
+```javascript
+// 渲染后回调
+object.onAfterRender = function(renderer, scene, camera) {
+  // 清除线框效果
+  this.material.wireframe = false;
+};
+```
+
+#### traverse 遍历
++ traverse(callback) 递归地遍历对象及其所有后代（子对象、子对象的子对象等），并对每个对象执行回调函数。用于修改多个对象的属性或查找指定对象。
+
+```javascript
+let count = 0;
+scene.traverse(function(object) {
+  // 只计算网格（Mesh）对象
+  if (object.isMesh) {
+    count++;
+  }
+});
+```
+
++ traverseVisible(callback) 仅遍历可见的子树（visible为true的节点才遍历），如果父级不可见，整个子树都不会遍历，用法同traverse。
++ traverseAncestors(callback) 从直接父级向上遍历祖先节点（父级、祖父级...直到根节点）。
+
+#### toJSON
+用于将网格对象转换为 JSON 格式，便于序列化或存储。
+
+```javascript
+const json = mesh.toJSON();
+```
+
+#### rotateOnAxis
+<font style="color:rgba(0, 0, 0, 0.9);background-color:rgb(252, 252, 252);">对象围绕局部坐标系的特定轴旋转指定角度</font>
+
+```javascript
+const axis = new THREE.Vector3(0, 1, 0); // Y轴
+cube.rotateOnAxis(axis, Math.PI / 4); // 旋转π/4弧度(45度)
+
+// 绕自定义轴旋转
+const customAxis = new THREE.Vector3(1, 1, 0).normalize();
+cube.rotateOnAxis(customAxis, Math.PI / 3);
+```
+
+#### rotateOnWorldAxis
+<font style="color:rgba(0, 0, 0, 0.9);background-color:rgb(252, 252, 252);">对象围绕世界坐标系中的指定轴旋转。</font>
+
+```javascript
+// 在世界坐标系中绕Y轴旋转
+const worldYAxis = new THREE.Vector3(0, 1, 0);
+cube.rotateOnWorldAxis(worldYAxis, Math.PI/4);
+```
+
+#### translateOnAxis
+<font style="color:rgba(0, 0, 0, 0.9);background-color:rgb(252, 252, 252);">对象沿局部坐标系中的特定轴移动指定距离。</font>
+
+```javascript
+// 沿X轴移动1个单位
+const xAxis = new THREE.Vector3(1, 0, 0); // X轴
+cube.translateOnAxis(xAxis, 1);
+
+// 沿对角线方向移动
+const diagonal = new THREE.Vector3(1, 1, 0).normalize();
+cube.translateOnAxis(diagonal, 2);
+```
+
 ## 三.光源
 ### 1.光源
 是threejs照亮场景的重要元素。

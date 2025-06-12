@@ -2,8 +2,6 @@
 import { onBeforeUnmount, ref } from 'vue'
 import { useThree } from '../../mixin/useThree.js';
 import Loading from '../../components/Loading.vue';
-import { creatPointsMesh, lon2xyz, createSpriteText } from '../../utils/creatMesh.js'
-import gsap from "gsap";
 
 // 顶点着色器
 // projectionMatrix: 投影矩阵   modelViewMatrix: 模型视图矩阵  position: 顶点位置
