@@ -2,17 +2,17 @@
 import { onUnmounted, ref, computed } from 'vue'
 import { useThree } from '../../mixin/useThree';
 import Loading from '../../components/Loading.vue';
-import CANNON from 'cannon';
+import * as CANNON from 'cannon-es';
 
-let world, sphereMesh, sphereBody, meshBody, meshList = []
+let world, sphereMesh, sphereBody, meshBody,onKeyDown, meshList = []
 const init = async ({ THREE, scene, controls, transControls, camera, renderer }) => {
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap; // 默认的是，没有设置的这个清晰 THREE.PCFShadowMap
   // 创建 Three.js 几何体和材质
   const sphereGeometry = new THREE.SphereGeometry(1);
   const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load(import.meta.env.VITE_BASE_URL+"/public/images/lq.gif");
-  const sphereMaterial = new THREE.MeshPhongMaterial({ color: 0xc96802, map: texture});
+  const texture = textureLoader.load(import.meta.env.VITE_BASE_URL + "/public/images/lq.gif");
+  const sphereMaterial = new THREE.MeshPhongMaterial({ color: 0xc96802, map: texture });
   sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
   sphereMesh.position.y = 15;
   sphereMesh.castShadow = true;
@@ -105,21 +105,21 @@ const init = async ({ THREE, scene, controls, transControls, camera, renderer })
 
     // 物体随机及刚体位置
     meshList.forEach((mesh) => {
-      mesh.position.set(Math.random() * 10 - 5,0, Math.random() * 10 - 5);
+      mesh.position.set(Math.random() * 10 - 5, 0, Math.random() * 10 - 5);
     })
   }
- 
-  // 空格开灯
-  document.body.addEventListener('keydown', onKeyDown);
-}
-
-const onKeyDown = function (event) {
+   onKeyDown = function (event) {
     switch (event.code) {
       case 'Space':
         spaceHandeler()
         break;
     }
   }
+  // 空格开灯
+  document.body.addEventListener('keydown', onKeyDown);
+}
+
+
 const animation = ({ THREE, scene, controls, transControls, camera, renderer, stats }) => {
   // 更新物理世界
   world.step(1 / 60);
