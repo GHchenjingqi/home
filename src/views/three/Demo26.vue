@@ -146,7 +146,7 @@ const animation = ({ THREE, scene, camera, renderer, controls,clock})=>{
 
 const { loading } = useThree({
   el: '#canvas', // 元素
-  background: '#fff', // 背景色
+  background: '#555', // 背景色
   cameraPosition: [0, 8,10], // 摄像机位置
   control: true, // 是否开启控制器
   controlAutoSpeed: false, // 是否开启自动旋转

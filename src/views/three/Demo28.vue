@@ -150,10 +150,11 @@ onUnmounted(() => {
 }
 
 .btns {
-  padding: 1rem 8rem;
+  padding-left: 8rem;
   z-index: 6;
   position: absolute;
   left: 0;
   top: 0;
+  pointer-events: none;
 }
 </style>

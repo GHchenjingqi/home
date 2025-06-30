@@ -1,1 +1,0 @@
-import{_ as s,b as o,k as a,d as t}from"./index-BLTPNdxz.js";const l={class:"content bg"},c={__name:"Flvplayer",setup(n){const r="/home//public/html/flvPlayer.html";return(_,e)=>(o(),a("section",l,[e[0]||(e[0]=t("h3",null,"FLV 在线播放器",-1)),t("iframe",{src:r,frameborder:"0"})]))}},m=s(c,[["__scopeId","data-v-bc239f24"]]);export{m as default};

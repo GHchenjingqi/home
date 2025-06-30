@@ -4,6 +4,9 @@ import { useThree } from '@/mixin/useThree.js';
 import Loading from '@/components/Loading.vue';
 import { findMesh } from '@/utils/creatMesh.js'
 import GUI from 'three/examples/jsm/libs/lil-gui.module.min.js'
+import { useMobileDeviceStore } from '@/store/mobileDevice'
+const mobileDeviceStore = useMobileDeviceStore()
+
 // gui 控制参数
 let gui = null
 // 控制参数
@@ -80,9 +83,13 @@ const { loading } = useThree({
 
 onMounted(() => {
   gui = new GUI()
-  gui.domElement.style.top = '6rem'
-  gui.domElement.style.right = '100px'
-
+  if (mobileDeviceStore.isMobile) {
+    gui.domElement.style.top = '1rem'
+    gui.domElement.style.right = '20px'
+  }else{
+    gui.domElement.style.top = '6rem'
+    gui.domElement.style.right = '100px'
+  }
 })
 onUnmounted(() => {
   gui.destroy()
