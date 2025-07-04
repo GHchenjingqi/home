@@ -91,3 +91,16 @@ body{
 document.body.style.setProperty('--color', "blue")
 ```
 
+### CSS 毛玻璃
+```css
+.glass-card{
+  background: rgba(255, 255, 255, 0.5); /* 半透明背景 */
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px); /* 毛玻璃核心 */
+  -webkit-backdrop-filter: blur(10px); /* Safari 兼容 */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
+}
+```
+

@@ -1,5 +1,4 @@
-### WebSocket是什么？
-
+### 一、WebSocket是什么？
 WebSocket是一种协议，用于提供低延迟/全双工/长连接的客户端与服务器通信方式。
 
 **半双工：**通信双方不能同时发消息，只能等待一方发完，另一方才能发送消息。
@@ -8,16 +7,15 @@ WebSocket是一种协议，用于提供低延迟/全双工/长连接的客户端
 
 应用场景：
 
-- 即时通讯
-- 游戏
++ 即时通讯
++ 游戏
 
-### 客户端网络信息
-
+#### 1.客户端网络信息
 **响应码：101**
 
 **响应头：**
 
-```
+```plain
 // Upgrade连接
 Connection:Upgrade
 // 提供基础的防护，减少恶意连接
@@ -28,45 +26,41 @@ Upgrade:websocket
 
 **响应体**：
 
-- 显示客户端和服务器发送的消息记录
++ 显示客户端和服务器发送的消息记录
 
-### 对比传统方法
-
+#### 2.对比传统方法
 **传统实现即时通讯的方法**：
 
-- **轮询**：定期向服务器发送请求，频繁请求服务器；
-- **长轮询**：客户端发送请求后，保持连接打开，等待新数据相应后再关闭连接；请求还是比较频繁。
-- **comet**：保持长连接，在往返请求后继续保持连接打开，它是基于http模型，模拟的长连接；
++ **轮询**：定期向服务器发送请求，频繁请求服务器；
++ **长轮询**：客户端发送请求后，保持连接打开，等待新数据相应后再关闭连接；请求还是比较频繁。
++ **comet**：保持长连接，在往返请求后继续保持连接打开，它是基于http模型，模拟的长连接；
 
 **传统实现双向通信的方法缺点：**
 
 用的轮询长轮询，缺点会产生大量的请求和响应，造成不必要的网络开销和延迟
 
-### WebSocket的缺点
+#### 3.WebSocket的缺点
++ 不提供加密功能。如需保证数据安全，需要设置白名单或SSL协议。
++ 不支持IE10以前浏览器。采用ajax替代。
++ 需要不断的维护优化长连接，不然会过度消耗服务器资源。
 
-- 不提供加密功能。如需保证数据安全，需要设置白名单或SSL协议。
-- 不支持IE10以前浏览器。采用ajax替代。
-- 需要不断的维护优化长连接，不然会过度消耗服务器资源。
+### 二、websocket如何用？
+#### 1.WebSocket事件方法有：
++ onopen  开启通信
++ onmessage 接收消息
++ onerror 发生错误时触发
++ onclose  连接关闭时触发
 
-### WebSocket事件方法有：
+#### 2.WebSocket方法
++ send  发送消息
++ close 关闭连接
 
-- onopen  开启通信
-- onmessage 接收消息
-- onerror 发生错误时触发
-- onclose  连接关闭时触发
-
-**WebSocket方法**
-
-- send  发送消息
-- close 关闭连接
-
-### 客户端与服务器使用WebSocket通信案例
-
+#### 3.案例
 WebSocket通信的最小单位是：帧。
 
 服务端采用nodejs：
 
-```js
+```javascript
 const express = require('express');
 const WebSocket = require('ws');
 
@@ -88,7 +82,7 @@ app.listen(3000, () => console.log('Example app listening on port 3000!'))
 
 客户端使用js接收消息：
 
-```js
+```javascript
 // 客户端需要通过 WebSocket 创建连接，连接开头是ws+服务端的地址
 let ws = new WebSocket('ws://localhost:8080');
 // 开启通信
@@ -104,15 +98,150 @@ ws.onmessage = function (e) {
 };
 ```
 
-### WebSocket的心跳机制：为什么WebSocket需要心跳机制？
+#### 4.单例模式
+```javascript
+class WebSocketManager {
+    constructor(url) {
+        if (WebSocketManager.instance) {
+            return WebSocketManager.instance;
+        }
 
+        this.url = url;
+        this.socket = null;
+        this.reconnectAttempts = 0;
+        this.maxReconnectAttempts = 5;
+        this.reconnectInterval = 3000; // 毫秒
+        this.messageListeners = [];
+        this.readyState = WebSocket.CLOSED;
+
+        this.connect();
+
+        WebSocketManager.instance = this;
+    }
+
+    connect() {
+        if (!this.url) {
+            console.error("WebSocket URL is not defined.");
+            return;
+        }
+
+        this.socket = new WebSocket(this.url);
+        this.readyState = this.socket.readyState;
+
+        this.socket.onopen = () => {
+            console.log("WebSocket connected.");
+            this.reconnectAttempts = 0; // 重置重连计数器
+            this.readyState = WebSocket.OPEN;
+        };
+
+        this.socket.onmessage = (event) => {
+            // 分发消息给所有监听者
+            this.messageListeners.forEach((listener) => {
+                listener(event);
+            });
+        };
+
+        this.socket.onclose = (event) => {
+            console.log(`WebSocket closed: ${event.reason}`);
+            this.readyState = WebSocket.CLOSED;
+            this.attemptReconnect();
+        };
+
+        this.socket.onerror = (error) => {
+            console.error("WebSocket error:", error);
+            this.socket.close();
+        };
+    }
+
+    attemptReconnect() {
+        if (this.reconnectAttempts < this.maxReconnectAttempts) {
+            setTimeout(() => {
+                console.log(`Reconnecting WebSocket... Attempt ${this.reconnectAttempts + 1}`);
+                this.reconnectAttempts++;
+                this.connect();
+            }, this.reconnectInterval);
+        } else {
+            console.warn("Maximum reconnect attempts reached. Giving up.");
+        }
+    }
+
+    sendMessage(message) {
+        if (this.socket && this.socket.readyState === WebSocket.OPEN) {
+            this.socket.send(message);
+        } else {
+            console.warn("WebSocket not open. Message not sent.");
+        }
+    }
+
+    addMessageListener(callback) {
+        if (typeof callback === 'function') {
+            this.messageListeners.push(callback);
+        }
+    }
+
+    removeMessageListener(callback) {
+        const index = this.messageListeners.indexOf(callback);
+        if (index > -1) {
+            this.messageListeners.splice(index, 1);
+        }
+    }
+
+    close() {
+        if (this.socket) {
+            this.socket.close();
+            this.readyState = WebSocket.CLOSED;
+        }
+    }
+
+    // 获取当前连接状态
+    getSocketState() {
+        return this.socket ? this.socket.readyState : WebSocket.CLOSED;
+    }
+
+    // 静态方法获取实例
+    static getInstance(url) {
+        if (!WebSocketManager.instance) {
+            WebSocketManager.instance = new WebSocketManager(url);
+        }
+        return WebSocketManager.instance;
+    }
+}
+
+// 导出单例（如果使用模块系统）
+export default WebSocketManager;
+```
+
+前端使用单例模式：
+
+```javascript
+import WebSocketManager from '@/utils/websocket'
+// 初始化并获取单例实例
+const wsManager = WebSocketManager.getInstance('wss://your-websocket-url');
+// 添加消息监听器
+wsManager.addMessageListener((event) => {
+    console.log('Received message:', event.data);
+});
+// 发送消息
+wsManager.sendMessage(JSON.stringify({ type: 'hello', content: 'Hello Server!' }));
+// 关闭连接（可选）
+
+// 销毁
+wsManager.close()
+wsManager.removeMessageListener()
+wsManager = null
+```
+
+
+
+### 三、常见问题
+#### 1.WebSocket的心跳机制：为什么WebSocket需要心跳机制？
 为了保持WebSocket稳定的长连接，服务器和客户端之间通过心跳包来保持连接状态。以房子长时间没有数据传输而被切断。
 
-**心跳包：**一种特殊的数据帧包（空数据），定期发送，确保连接有效不中断！
+**心跳包**：一种特殊的数据帧包（空数据），定期发送，确保**连接有效不中断**！
 
 改造客户端代码：
 
-```js
+```javascript
 const socket = new WebSocket('ws://localhost:8080'); // WebSocket 建立连接
 const heartCheck = initHeartCheck()；// 初始化心跳检测对象
 
@@ -163,3 +292,4 @@ function initHeartCheck() {
         }
     }
 ```
+
