@@ -104,3 +104,10 @@ document.body.style.setProperty('--color', "blue")
 }
 ```
 
+### CSS鼠标指针样式修改
+```css
+#app{
+  cursor: url('@/assets/icons/cursor.svg'), pointer;
+}
+```
+

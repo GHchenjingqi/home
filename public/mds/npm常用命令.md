@@ -125,3 +125,50 @@ npm config set registry=https://registry.npmmirror.com/
 
 
 
+### CMD 命令
+```bash
+# 进入
+cd  [路径]
+
+# 显示计算机信息
+systeminfo
+
+# 清屏
+cls
+
+# 显示目录文件
+dir [路径]
+
+# 新建文件夹
+mkdir [文件夹名]
+
+# 删除文件夹
+rmdir [文件夹名]
+
+# 删除文件
+del [文件名]
+
+# 复制文件
+copy [源路径] [目标路径]
+
+# 移动文件或重命名文件/文件夹
+move [源路径] [目标路径]
+
+# 开启/关闭命令回显
+echo [信息]
+
+# 查看网络信息
+ipconfig
+
+# 网速测试
+ping [目标IP地址或域名]
+
+# 列出正在运行的任务
+tasklist 
+
+# 结束进程
+taskkill /PID [进程ID] /F
+```
+
+
+

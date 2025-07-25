@@ -306,3 +306,88 @@ if (Echatre3D.value) {
 }
 ```
 
+
+
+### 12.v-memo 指令
+<font style="color:rgb(17, 17, 17);"> v-memo 指令用于缓存一个模板的子树DOM，只有依赖值变化，才能更新缓存DOM区域。</font>
+
+<font style="color:rgb(17, 17, 17);">应用场景如下：</font>
+
++ **<font style="color:rgb(44, 44, 54);">静态内容优化</font>**
++ **<font style="color:rgb(44, 44, 54);">列表优化</font>**
++ **<font style="color:rgb(44, 44, 54);">高成本计算的结果缓存</font>**
+
+```javascript
+<div v-for="item in list" :key="item.id" v-memo="(item.id === selected)">
+  <p>ID: {{item.id}} - selected: {{item.id === selected}}</p>
+  <p>...more child nodes</p>
+</div>
+```
+
+### 13.路由传参
++ **Query传参** - 会显示在地址栏
+
+query 传参需要配合path属性。router 传值，route接收。
+
+```javascript
+// 传递
+import { useRouter } from 'vue-router';
+const router = useRouter();
+const toDetail = (id) => {
+  router.push({
+    path: '/info',
+    query: {
+      id
+    }
+  });
+};
+
+// 接收
+import { useRoute } from 'vue-router';
+const route = useRoute();
+console.log(route.query.id);
+```
+
++ **Params传参**
+
+params传参需要配合name属性。router 传值，route接收。
+
+```javascript
+// 传递
+import { useRouter } from 'vue-router';
+const router = useRouter();
+const toDetail = (id) => {
+  router.push({
+    name: 'Info',
+    params: {
+      id
+    }
+  });
+};
+
+// 接收
+import { useRoute } from 'vue-router';
+const route = useRoute();
+console.log(route.params.id); 
+```
+
++ **动态路由传参**
+
+动态路由需要在配置路由参数，如下：
+
+```javascript
+// 配置
+const routes = [
+  {
+    path: '/info/:id',
+    name: 'Info',
+    component: () => import('@/view/Table/info.vue')
+  }
+]
+
+// 接收
+import { useRoute } from 'vue-router';
+const route = useRoute();
+console.log(route.params.id); 
+```
+
