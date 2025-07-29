@@ -34,7 +34,7 @@ export const resumeConfig = {
             {text: "熟悉Python、PHP、C#后端语言及Mysql数据库，能基于CMS实现二次开发;"},
             {text: "熟悉服务器相关知识，能够搭建服务器环境，实现各类网站部署工作;"},
             {text: "拥有3年UI设计经验，熟悉流行设计规范，能完成平面设计、UI界面设计及交互设计工作；"},
-            {text: "熟练使用Photoshop、CorelDraw、AI、Blender、剪影等软件进行图像处理、视频处理、三维模型等创作工作。"},
+            {text: "熟练使用Photoshop、AI等软件进行图像处理。"},
         ]},
     ],
     works:[
