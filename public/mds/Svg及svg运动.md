@@ -37,15 +37,15 @@ svg基础形状有6种：circle | rect | ellipse | line | polyline | path
 ## <font style="color:rgb(77, 77, 77);">二、svg运动</font>
 <font style="color:rgb(77, 77, 77);">svg元素运动可以使用以下标签完成：</font>
 
-1. <font style="color:rgb(51, 51, 51);"><set></font>
-2. <font style="color:rgb(51, 51, 51);"><animate></font>
-3. <font style="color:rgb(51, 51, 51);"><animateColor></font>
-4. <font style="color:rgb(51, 51, 51);"><animateTransform></font>
-5. <font style="color:rgb(51, 51, 51);"><animateMotion></font>
+```markdown
+<set />
+<animate />
+<animateColor />
+<animateTransform />
+<animateMotion />
+```
 
-<font style="color:rgb(77, 77, 77);"></font>
-
-### <font style="color:rgb(77, 77, 77);">1.利用</font><font style="color:rgb(77, 77, 77);">svg中的</font><font style="color:rgb(77, 77, 77);"> <set>标签实现</font>
+### <font style="color:rgb(77, 77, 77);">1.利用</font><font style="color:rgb(77, 77, 77);">svg中的</font><font style="color:rgb(77, 77, 77);"> <set/>标签实现</font>
 3秒后移动到x轴60px处
 
 ```html
@@ -66,7 +66,7 @@ svg基础形状有6种：circle | rect | ellipse | line | polyline | path
 
 ![](https://cdn.nlark.com/yuque/0/2024/svg/1460947/1722836251328-82d046dc-ae29-487d-9b81-789acec48273.svg)
 
-### <font style="color:rgb(77, 77, 77);">2.利用</font><font style="color:rgb(77, 77, 77);">svg中的</font><font style="color:rgb(77, 77, 77);"> <</font><font style="color:rgb(51, 51, 51);">animate</font><font style="color:rgb(77, 77, 77);">>标签实现</font>
+### <font style="color:rgb(77, 77, 77);">2.利用</font><font style="color:rgb(77, 77, 77);">svg中的</font><font style="color:rgb(77, 77, 77);"> <</font><font style="color:rgb(51, 51, 51);">animate/</font><font style="color:rgb(77, 77, 77);">>标签实现</font>
 无限循环运动，从右到左移动到60px处
 
 ```html
@@ -89,12 +89,12 @@ svg基础形状有6种：circle | rect | ellipse | line | polyline | path
 
 ![](https://cdn.nlark.com/yuque/0/2024/svg/1460947/1722836210452-b0eabe51-d434-4aaa-a84e-63f0df3b07a0.svg)
 
-### <font style="color:rgb(77, 77, 77);">3.利用</font><font style="color:rgb(77, 77, 77);">svg中的</font><font style="color:rgb(77, 77, 77);"> <</font><font style="color:rgb(51, 51, 51);">animateColor</font><font style="color:rgb(77, 77, 77);">>标签实现</font>
+### <font style="color:rgb(77, 77, 77);">3.利用</font><font style="color:rgb(77, 77, 77);">svg中的</font><font style="color:rgb(77, 77, 77);"> <</font><font style="color:rgb(51, 51, 51);">animateColor/</font><font style="color:rgb(77, 77, 77);">>标签实现</font>
 是颜色动画，目前已废弃，不支持使用。可以使用<font style="color:rgb(51, 51, 51);">animate代替。</font>
 
 <font style="color:rgb(51, 51, 51);"></font>
 
-### <font style="color:rgb(77, 77, 77);">4.利用</font><font style="color:rgb(77, 77, 77);">svg中的</font><font style="color:rgb(77, 77, 77);"> <</font><font style="color:rgb(51, 51, 51);">animateTransform</font><font style="color:rgb(77, 77, 77);">>标签实现</font>
+### <font style="color:rgb(77, 77, 77);">4.利用</font><font style="color:rgb(77, 77, 77);">svg中的</font><font style="color:rgb(77, 77, 77);"> <</font><font style="color:rgb(51, 51, 51);">animateTransform/</font><font style="color:rgb(77, 77, 77);">>标签实现</font>
 效果等效于css3的<font style="color:rgb(51, 51, 51);">transform</font>
 
 ```html
@@ -116,7 +116,7 @@ svg基础形状有6种：circle | rect | ellipse | line | polyline | path
 
 ![](https://cdn.nlark.com/yuque/0/2024/svg/1460947/1722836541153-8c19f517-54fe-4cbd-843e-3134113a7665.svg)
 
-### <font style="color:rgb(77, 77, 77);">5.利用svg中的</font>**<font style="color:rgb(77, 77, 77);"><animateMotion></font>**<font style="color:rgb(77, 77, 77);">标签实现</font>
+### <font style="color:rgb(77, 77, 77);">5.利用svg中的</font>**<font style="color:rgb(77, 77, 77);"><animateMotion/></font>**<font style="color:rgb(77, 77, 77);">标签实现</font>
 红点无限循环绕path运动
 
 ```html

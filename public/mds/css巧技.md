@@ -1,4 +1,4 @@
-### CSS 单位
+### CSS 元素单位
 1. PX 像素，绝对单位，浏览器物理像素单位
 2. %  相对单位，默认相对父元素;如果父级没有设置，就相对根子号，甚至浏览器的默认大小
 3. rem  相对单位，相对于根字号，默认 1rem = 16px，假如修改了根字号 1rem = 根字号
@@ -104,10 +104,153 @@ document.body.style.setProperty('--color', "blue")
 }
 ```
 
-### CSS鼠标指针样式修改
+### CSS 鼠标指针样式修改
 ```css
 #app{
   cursor: url('@/assets/icons/cursor.svg'), pointer;
+}
+```
+
+### CSS 实现交融动画
++ 通过**<font style="color:#DF2A3F;">颜色滤镜</font>**实现： 子元素开启模糊，让边缘处于灰色，父盒子必须是白色或黑色，才能与子元素做对比计算，这样就将低于对比度的改为白色，高于的改为黑色，从而实现交融融合效果。
+
+![](https://cdn.nlark.com/yuque/0/2025/png/1460947/1753427937330-112f6f40-082b-4605-9d6f-6374800574eb.png)
+
+缺点：不能用其他颜色，会产生颜色差异！
+
+```html
+<style>
+  .group {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+
+    filter: contrast(10);
+    background-color: #fff;
+  }
+  .cicle{
+    width: 100px;
+    height: 100px;
+    background-color: #000;
+    border-radius: 100px;
+    position: absolute;
+    left: 300px;
+    bottom: 500px;
+    filter: blur(10px);
+  }
+  .ani {
+    animation: move 2s linear infinite;
+  }
+  @keyframes move {
+    0%{  bottom: 300px }
+    100%{ bottom:500px }
+  }
+</style>
+<div class="group">
+  <div class="cicle ani"></div>
+  <div class="cicle"></div>
+</div>
+```
+
++ 通过透明滤镜实现：创建子元素svg，通过svg滤镜算法实现，原理和颜色滤镜一样，但是效果高于颜色滤镜。
+
+只需要父级使用svg滤镜就行 filter: url(#goo)。
+
+```html
+<style>
+  .group {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    filter: url(#goo);
+  }
+  .cicle{
+    width: 100px;
+    height: 100px;
+    background-color: #111;
+    border-radius: 100px;
+    position: absolute;
+    left: 300px;
+    bottom: 500px;
+  }
+  .ani {
+    animation: move 2s linear infinite;
+  }
+  @keyframes move {
+    0%{  bottom: 300px }
+    100%{ bottom:500px }
+  }
+</style>
+<div class="group">
+  <div class="cicle ani"></div>
+  <div class="cicle"></div>
+</div>
+<svg style="display: none;">
+  <defs>
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+      <feColorMatrix in="blur" mode="matrix" values="
+        1 0 0 0 0  
+        0 1 0 0 0  
+        0 0 1 0 0  
+        0 0 0 20 -10" result="goo"></feColorMatrix>
+    </filter>
+  </defs>
+</svg>
+```
+
+
+
++ 文字交融效果
+
+![](https://cdn.nlark.com/yuque/0/2025/png/1460947/1753429654370-8fcf0c53-ff41-45cc-884a-76a2824ea892.png)
+
+原理同上。
+
+```html
+<style>
+  .group {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    filter: contrast(10);
+  }
+  .text{
+    text-align: center;
+    font-weight: 600;
+    font-size: 50px;
+    letter-spacing: -50px;
+    filter: blur(2px);
+  }
+  .ani {
+    animation: move 2s linear infinite;
+  }
+  @keyframes move {
+    0%{  letter-spacing: -30px }
+    100%{  letter-spacing: 10px  }
+  }
+</style>
+<div class="group">
+  <div class="text ani">Hello World!</div>
+</div>
+```
+
+### CSS <font style="color:rgb(64, 64, 64);">硬件加速</font>
+will-change 是一个用于性能优化的 CSS 属性，它提前告知浏览器元素可能发生的变化，让浏览器提前准备优化资源。
+
+#### <font style="color:rgb(64, 64, 64);">核心作用：</font>
+1. **<font style="color:rgb(64, 64, 64);">性能优化</font>**<font style="color:rgb(64, 64, 64);">：提示浏览器该元素即将进行变换（transform/opacity/color等）</font>
+2. **<font style="color:rgb(64, 64, 64);">创建独立图层</font>**<font style="color:rgb(64, 64, 64);">：将元素提升到单独的合成层，避免重绘时影响整个页面</font>
+3. **<font style="color:rgb(64, 64, 64);">减少渲染卡顿</font>**<font style="color:rgb(64, 64, 64);">：提前分配 GPU 资源，使动画更流畅</font>
+
+```css
+.element {
+  will-change: transform; /* 只声明实际会变化的属性 */
+  transition: transform 0.3s ease;
+}
+
+.element:hover {
+  transform: scale(1.05);
 }
 ```
 
