@@ -1,13 +1,15 @@
 ### CSS 元素单位
-1. PX 像素，绝对单位，浏览器物理像素单位
-2. %  相对单位，默认相对父元素;如果父级没有设置，就相对根子号，甚至浏览器的默认大小
-3. rem  相对单位，相对于根字号，默认 1rem = 16px，假如修改了根字号 1rem = 根字号
-4. em 相对单位，默认相对父元素的font-size，1em = 父元素的字号
-5. vw  将视口宽度分成了100份  1vw = 视宽 / 100
-6. vh  将视口高度分层了100份 1vh = 视高 / 100
-7. vmin 视口最短边的长度
-8. vmax 视口最长边的长度
-9. rpx 是小程序常用的相对单位(小程序规定屏幕宽度 750rpx)，默认屏宽按照iPhone6( 物理宽度375px)，dpr:2   100vw = 750rpx = 375px   , 相当于 1rpx = 0.5px
+```markdown
+PX 像素，绝对单位，浏览器物理像素单位
+%  相对单位，默认相对父元素;如果父级没有设置，就相对根子号，甚至浏览器的默认大小
+rem  相对单位，相对于根字号，默认 1rem = 16px，假如修改了根字号 1rem = 根字号
+em 相对单位，默认相对父元素的font-size，1em = 父元素的字号
+vw  将视口宽度分成了100份  1vw = 视宽 / 100
+vh  将视口高度分层了100份 1vh = 视高 / 100
+vmin 视口最短边的长度
+vmax 视口最长边的长度
+rpx 是小程序常用的相对单位(小程序规定屏幕宽度 750rpx)，默认屏宽按照iPhone6( 物理宽度375px)，dpr:2   100vw = 750rpx = 375px   , 相当于 1rpx = 0.5px
+```
 
 ### CSS 溢出隐藏
 ```css
@@ -238,7 +240,8 @@ document.body.style.setProperty('--color', "blue")
 ### CSS <font style="color:rgb(64, 64, 64);">硬件加速</font>
 will-change 是一个用于性能优化的 CSS 属性，它提前告知浏览器元素可能发生的变化，让浏览器提前准备优化资源。
 
-#### <font style="color:rgb(64, 64, 64);">核心作用：</font>
+**<font style="color:rgb(64, 64, 64);">核心作用：</font>**
+
 1. **<font style="color:rgb(64, 64, 64);">性能优化</font>**<font style="color:rgb(64, 64, 64);">：提示浏览器该元素即将进行变换（transform/opacity/color等）</font>
 2. **<font style="color:rgb(64, 64, 64);">创建独立图层</font>**<font style="color:rgb(64, 64, 64);">：将元素提升到单独的合成层，避免重绘时影响整个页面</font>
 3. **<font style="color:rgb(64, 64, 64);">减少渲染卡顿</font>**<font style="color:rgb(64, 64, 64);">：提前分配 GPU 资源，使动画更流畅</font>
@@ -251,6 +254,24 @@ will-change 是一个用于性能优化的 CSS 属性，它提前告知浏览器
 
 .element:hover {
   transform: scale(1.05);
+}
+```
+
+### CSS 盒子内部四周阴影
+```css
+ box-shadow:  inset 0 0 10px 5px (235, 10, 10, 0.6);
+```
+
+### CSS 文字渐变色
+```css
+.liner-text{
+  background-image: linear-gradient(45deg, #8fcdff, #fdebf4);
+  /* 将背景应用到文字上 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* 兼容性写法（非WebKit内核浏览器） */
+  background-clip: text;
+  color: transparent;
 }
 ```
 
