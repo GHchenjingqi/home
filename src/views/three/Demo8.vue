@@ -3,7 +3,7 @@ import { onUnmounted } from 'vue'
 import { useThree } from '../../mixin/useThree.js';
 import Loading from '../../components/Loading.vue';
 import { creatLightMesh,findMesh } from '../../utils/creatMesh.js'
-import { Water } from 'three/addons/objects/Water.js';
+import { Water } from 'three/examples/jsm/objects/Water.js';
 
 let water = null, boat = null;
 const meshfn = ({ THREE, scene, renderer}) => {

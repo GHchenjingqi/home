@@ -17,9 +17,10 @@ let moveRight = false;
 // 飞线
 let index = 0; //取索引值的点的位置
 let num = 20; //从曲线上获取的数量
-let bufferGeometry1, points1, bufferGeometry2, points2, bufferGeometry3, points3, bufferGeometry4, points4;
 
 let circleMesh = null, circleScale = 1;
+
+let lineList = [], flyLines = [], bufferGeometries =[]
 
 const init = ({ THREE, scene, camera, renderer }) => {
   // 创建一个原形平面
@@ -43,9 +44,10 @@ const init = ({ THREE, scene, camera, renderer }) => {
   })
   scene.add(group);
 
-
+  let flyLine1 = null, flyLine2 = null, flyLine3 = null, flyLine4 = null;
+  let bufferGeometry1 = null, bufferGeometry2 = null, bufferGeometry3 = null, bufferGeometry4 = null;
   // 创建飞线
-  const lineList = [
+  lineList = [
     { lineArr: [new THREE.Vector3(0, 0, 0), new THREE.Vector3(3, 5, 0), new THREE.Vector3(6, 0, 0)], startColor: 0xff0000, endColor: 0x00ff00 },
     { lineArr: [new THREE.Vector3(0, 0, 0), new THREE.Vector3(-3, 5, 0), new THREE.Vector3(-6, 0, 0)], startColor: 0xff0000, endColor: 0x00ffff },
     { lineArr: [new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 5, 3), new THREE.Vector3(0, 0, 6)], startColor: 0xff0000, endColor: 0xffff11 },
@@ -54,31 +56,30 @@ const init = ({ THREE, scene, camera, renderer }) => {
   // 创建飞线
   lineList.forEach((item, idx) => {
     let index = idx + 1
-    const { line, points, bufferGeometry } = creatFlyLine(item)
-    //加入场景
+    const { line,  bufferGeometry } = creatFlyLine(item)
     scene.add(line);
-
-    // 创建虚线路径
     const dsline = creatDashLine({ lineArr: item.lineArr, color: item.endColor, dashSize: 0.5, gapSize: 0.2 })
     scene.add(dsline);
-
+    // 保存飞线对象
     if (index == 1) {
       bufferGeometry1 = bufferGeometry
-      points1 = points
+      flyLine1 = line; // 保存飞线对象
     }
     if (index == 2) {
       bufferGeometry2 = bufferGeometry
-      points2 = points
+      flyLine2 = line; // 保存飞线对象
     }
     if (index == 3) {
       bufferGeometry3 = bufferGeometry
-      points3 = points
+      flyLine3 = line; // 保存飞线对象
     }
     if (index == 4) {
       bufferGeometry4 = bufferGeometry
-      points4 = points
+      flyLine4 = line; // 保存飞线对象
     }
   })
+  flyLines = [flyLine1, flyLine2, flyLine3, flyLine4];
+  bufferGeometries = [bufferGeometry1, bufferGeometry2, bufferGeometry3, bufferGeometry4];
 
   // 创建原点
   const pointCenter = creatCircleMesh({ r: 0.5, size: 20, color: 0xff0000, side: THREE.DoubleSide })
@@ -87,12 +88,12 @@ const init = ({ THREE, scene, camera, renderer }) => {
 
   // 扩散圈
   circleMesh = new THREE.Group()
-  const circleList =[
-    { r: 2, circle: 12 ,color: '#ff0000', position:[0, -0.4, 0] },
-    { r: 2, circle: 12 ,color: '#00ff00', position:[6, -0.4, 0] },
-    { r: 2, circle: 12 ,color: '#00ffff', position:[-6, -0.4, 0] },
-    { r: 2, circle: 12 ,color: '#ffff11', position:[0, -0.4, 6] },
-    { r: 2, circle: 12 ,color: '#ff00ff', position:[0, -0.4, -6] },
+  const circleList = [
+    { r: 2, circle: 12, color: '#ff0000', position: [0, -0.4, 0] },
+    { r: 2, circle: 12, color: '#00ff00', position: [6, -0.4, 0] },
+    { r: 2, circle: 12, color: '#00ffff', position: [-6, -0.4, 0] },
+    { r: 2, circle: 12, color: '#ffff11', position: [0, -0.4, 6] },
+    { r: 2, circle: 12, color: '#ff00ff', position: [0, -0.4, -6] },
   ]
   circleList.forEach((item) => {
     let circle = creatCircleSpread(item);
@@ -124,7 +125,7 @@ const init = ({ THREE, scene, camera, renderer }) => {
   });
   cameraControls.addEventListener('lock', function () {
     blocker.style.display = 'none';
-    blocker.removeEventListener('click',clickHandle)
+    blocker.removeEventListener('click', clickHandle)
   });
 
   cameraControls.addEventListener('unlock', function () {
@@ -181,7 +182,7 @@ const onKeyUp = function (event) {
 
 
 // 回调动画
-const animation = ({ THREE, scene, camera, renderer , stats, }) => {
+const animation = ({ THREE, scene, camera, renderer, stats, }) => {
   // 控制相机移动
   const speed = 0.1;
   if (cameraControls.isLocked) {
@@ -205,33 +206,26 @@ const animation = ({ THREE, scene, camera, renderer , stats, }) => {
     cameraControls.moveRight(speed * direction.x);
   }
 
+
   // 飞线运动
+  // 飞线运动 - 修复部分
   if (index <= 99) {
     index += 1
-      if (bufferGeometry1) {
-          bufferGeometry1.dispose();
-      }
-      if (bufferGeometry2) {
-          bufferGeometry2.dispose();
-      }
-      if (bufferGeometry3) {
-          bufferGeometry3.dispose();
-      }
-      if (bufferGeometry4) {
-          bufferGeometry4.dispose();
-      }
 
-      // 创建新的几何图形对象并设置数据点
-      bufferGeometry1 = new THREE.BufferGeometry();
-      bufferGeometry2 = new THREE.BufferGeometry();
-      bufferGeometry3 = new THREE.BufferGeometry();
-      bufferGeometry4 = new THREE.BufferGeometry();
-    bufferGeometry1.setFromPoints(new THREE.CatmullRomCurve3(points1.slice(index, index + num)).getSpacedPoints(100));
-    bufferGeometry2.setFromPoints(new THREE.CatmullRomCurve3(points2.slice(index, index + num)).getSpacedPoints(100));
-    bufferGeometry3.setFromPoints(new THREE.CatmullRomCurve3(points3.slice(index, index + num)).getSpacedPoints(100));
-    bufferGeometry4.setFromPoints(new THREE.CatmullRomCurve3(points4.slice(index, index + num)).getSpacedPoints(100));
+    lineList.forEach((item, idx) => {
+      const { bufferGeometry: newGeo } = creatFlyLine({...item, index, num})
+      if (flyLines[idx]) {
+        // 释放旧几何体
+        bufferGeometries[idx]?.dispose();
+        // 更新新几何体
+        flyLines[idx].geometry = newGeo;
+        // 更新引用
+        bufferGeometries[idx] = newGeo;
+      }
+    });
+
   } else {
-    index = 0
+    index = 0;
   }
 
   // 扩散圈动画
@@ -258,7 +252,7 @@ const { loading, pregress } = useThree({
   el: '#canvas', // 元素
   background: '#333333',
   cameraPosition: [0, 4, 10], // 摄像机位置
-  control:false, // 关闭OrbitControls
+  control: false, // 关闭OrbitControls
   helper: false, // 辅佐线
   light: true, // 灯光
   creatMesh: init,  // 回调
@@ -268,11 +262,13 @@ const { loading, pregress } = useThree({
 
 onUnmounted(() => {
   cameraControls = null
-  bufferGeometry1.dispose()
-  bufferGeometry2.dispose()
-  bufferGeometry3.dispose()
-  bufferGeometry4.dispose()
-  bufferGeometry1 = points1 = bufferGeometry2 = points2 = bufferGeometry3 = points3 = bufferGeometry4 = points4 = null
+  lineList = [], flyLines = []
+  if( bufferGeometries.length > 0){
+    bufferGeometries.forEach(item => {
+      item.dispose()
+    })
+  }
+  bufferGeometries = null
   document.removeEventListener('keydown', onKeyDown);
   document.removeEventListener('keyup', onKeyUp);
 })

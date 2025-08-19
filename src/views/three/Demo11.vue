@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, onUnmounted } from 'vue'
 import { useThree } from '../../mixin/useThree';
 import Loading from '../../components/Loading.vue';
 import { creatCircleSpread, creatFlyLine, creatDashLine } from '../../utils/creatMesh.js'
@@ -9,9 +9,11 @@ import { useMap } from '../../mixin/useMap'
 import { useRay } from '../../mixin/useRay'
 
 // 初始化
-let labelRender = null, circleGroup = null, circleScale = 1, lineGroup = null, dslineGroup = null,mmp = null;
+let labelRender = null, circleGroup = null, circleScale = 1, lineGroup = null, dslineGroup = null, mmp = null;
 let rayObject = null
 let flyLines = [];
+let index = 0; //取索引值的点的位置
+let num = 20; //从曲线上获取的数量
 const mapInOut = {
   "郑州市": "13000",
   "开封市": "10000",
@@ -39,8 +41,8 @@ const centerPoints = {
   "z": 8
 }
 
-const canvasbox= computed(() => {
-    return document.querySelector('#canvas').getBoundingClientRect()
+const canvasbox = computed(() => {
+  return document.querySelector('#canvas').getBoundingClientRect()
 })
 
 const init = async ({ THREE, scene, renderer, camera, control }) => {
@@ -66,7 +68,7 @@ const init = async ({ THREE, scene, renderer, camera, control }) => {
 
   labelRender = labelRenderer
   // 鼠标交互
-  mouseHoverHandler(THREE, camera, scene,renderer)
+  mouseHoverHandler(THREE, camera, scene, renderer)
 }
 
 // 根据坐标中心计算位置,并创建飞线，显示扩散圈
@@ -100,16 +102,16 @@ const inoutHanel = async (mapMesh, scene, THREE) => {
   scene.add(circleGroup)
 
   // 创建飞线
-  listline.forEach((item) => {
-    const { line, points, bufferGeometry } = creatFlyLine(item)
+  listline.forEach((item, index) => {
+    const { line, bufferGeometry } = creatFlyLine(item)
     //加入场景
     lineGroup.add(line);
 
     // 创建虚线路径
     const dsline = creatDashLine({ lineArr: item.lineArr, color: item.endColor, dashSize: 0.5, gapSize: 0.2 })
     dslineGroup.add(dsline);
-    // 飞线对象集合
-    flyLines.push({ points, bufferGeometry, flyindex: 0, flynum: 20 })
+
+    flyLines.push({ bufferGeometry, line, obj: item })
   })
   lineGroup.position.set(-8, 0, -2)
   lineGroup.scale.set(0.1, 0.1, 0.1)
@@ -133,13 +135,14 @@ const creatLineHandler = (center, positions, THREE) => {
   return { lineArr: [start, mindle, end], startColor: 0x00ff00, endColor: 0x009fff }
 }
 
+let onPointerMove = null
 // 鼠标放上去 改变颜色 显示地区名字
-const mouseHoverHandler = (THREE, camera, scene,renderer) => {
+const mouseHoverHandler = (camera, renderer) => {
   const tip = document.getElementById('tip')
   //鼠标放上去 改变颜色 显示地区名字
   let activeIntersects = []; //鼠标滑过数据
 
-  const onPointerMove = async (event) => {
+  onPointerMove = async (event) => {
     // 判断数组是否有数据，有数据全部设置为原始数据
     if (activeIntersects.length) {
       for (let i = 0; i < activeIntersects.length; i++) {
@@ -148,7 +151,7 @@ const mouseHoverHandler = (THREE, camera, scene,renderer) => {
     }
     activeIntersects = []
     // 获取鼠标选中元素
-    rayObject  = await useRay({ el: "#canvas", camera, group:mmp, event })
+    rayObject = await useRay({ el: "#canvas", camera, group: mmp, event })
     if (rayObject?.object) {
       if (rayObject.object.type === 'Mesh') {
         if (!rayObject.object.material.hasOwnProperty('oldcolor')) {
@@ -163,7 +166,7 @@ const mouseHoverHandler = (THREE, camera, scene,renderer) => {
         tip.style.top = event.clientY - canvasbox.value.top + 'px'
         showTip(tip, rayObject.object)
       }
-    }else{
+    } else {
       tip.style.visibility = 'hidden'
     }
 
@@ -172,8 +175,9 @@ const mouseHoverHandler = (THREE, camera, scene,renderer) => {
       tip.style.visibility = 'hidden'
     }
   }
-
-  renderer.domElement.addEventListener('pointermove', onPointerMove);
+  if (onPointerMove) {
+    renderer.domElement?.addEventListener('pointermove', onPointerMove);
+  }
 }
 
 const showTip = (tip, object) => {
@@ -201,22 +205,27 @@ const animation = ({ scene, camera, renderer, controls, stats, THREE }) => {
       elmt.scale.y = circleScale;
     });
   }
-  // 飞线动画 flyindex
-  if (flyLines?.length > 0) {
-    flyLines.forEach((item) => {
-      // 飞线运动
-      if (item.flyindex <= 99) {
-        item.flyindex += 1 + Math.random() * 0.5;
-        if(item.bufferGeometry){
-          item.bufferGeometry.dispose();
-          item.bufferGeometry = new THREE.BufferGeometry();
-        }
-        item.bufferGeometry.setFromPoints(new THREE.CatmullRomCurve3(item.points.slice(item.flyindex, item.flyindex + item.flynum)).getSpacedPoints(100));
-      } else {
-        item.flyindex = 0
+
+
+  if (index <= 99) {
+    index += 1
+
+    flyLines.forEach(({ obj, line, bufferGeometry }, idx) => {
+      const { bufferGeometry: newGeo } = creatFlyLine({ ...obj, index, num })
+      if (flyLines[idx]) {
+        // 释放旧几何体
+        bufferGeometry?.dispose();
+        // 更新新几何体
+        line.geometry = newGeo;
+        // 更新引用
+        bufferGeometry = newGeo;
       }
-    })
+    });
+
+  } else {
+    index = 0;
   }
+
 
   controls.update();
   renderer.render(scene, camera);
@@ -234,6 +243,22 @@ const { loading, pregress } = useThree({
   light: true, // 灯光
   creatMesh: init,
   animation: animation
+})
+
+
+onUnmounted(() => {
+  if (flyLines.length > 0) {
+    flyLines.forEach(item => {
+      item.bufferGeometry.dispose?.()
+      item.bufferGeometry = null
+    })
+  }
+  if (labelRender) {
+    labelRender.dispose?.()
+    labelRender = null
+  }
+  flyLines = null
+  circleGroup = null, circleScale = 1, lineGroup = null, dslineGroup = null, mmp = null;
 })
 </script>
 <template>

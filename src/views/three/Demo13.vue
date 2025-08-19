@@ -2,7 +2,7 @@
 import { onUnmounted, ref, computed } from 'vue'
 import { useThree } from '../../mixin/useThree';
 import Loading from '../../components/Loading.vue';
-import { JoltPhysics } from 'three/addons/physics/JoltPhysics.js';
+import { JoltPhysics } from 'three/examples/jsm/physics/JoltPhysics.js';
 
 
 let physics, position,timer

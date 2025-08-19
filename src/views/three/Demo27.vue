@@ -9,7 +9,7 @@ import {useKey} from '@/mixin/useKey.js';
 import {KEYCODE} from '@/utils/keyCodes.js'
 import CameraControls from "camera-controls";
 import Zoomtastic from 'zoomtastic';
-import {Water} from "three/addons/objects/Water.js";
+import {Water} from "three/examples/jsm/objects/Water.js";
 
 let cameraControls = null
 // 调试模式
