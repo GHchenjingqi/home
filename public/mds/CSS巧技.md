@@ -275,3 +275,44 @@ will-change 是一个用于性能优化的 CSS 属性，它提前告知浏览器
 }
 ```
 
+### CSS 颜色模式切换
+需要配合meta元素，定义深色、浅色模式样色。
+
+```html
+<!-- 支持浅色模式（默认） -->
+<meta name="color-scheme" content="light">
+
+<!-- 支持深色模式 -->
+<meta name="color-scheme" content="dark">
+
+<!-- 同时支持浅色和深色模式（推荐） -->
+<meta name="color-scheme" content="light dark">
+```
+
+通过prefers-color-scheme指定深色模式的CSS预设：
+
+```css
+/* 定义浅色模式变量 */
+:root {
+  --bg-color: #f5f5f5;
+  --text-color: #333333;
+  --primary-color: #4a90e2;
+}
+
+/* 深色模式变量（覆盖浅色模式） */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --primary-color: #6ab0f3;
+  }
+}
+```
+
+### CSS 倒影效果
+box-reflect在谷歌浏览器完全支持，在IE/火狐不兼容。
+
+```css
+-webkit-box-reflect:below 15px -webkit-linear-gradient(transparent,transparent 30%,rgba(255,255,255,.3));
+```
+

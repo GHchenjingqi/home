@@ -1,0 +1,1 @@
+import{q as a}from"./index-D5TM5yV4.js";const o=a("loading",{state:()=>({loadingStatus:!1}),getters:{getLoadingStatus:t=>t.loadingStatus},actions:{setLoadingStatus(t){this.loadingStatus=t}}});export{o as u};
