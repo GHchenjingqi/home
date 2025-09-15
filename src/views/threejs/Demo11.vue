@@ -1,13 +1,14 @@
 <script setup>
-import { computed, onUnmounted } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useThree } from '../../mixin/useThree';
 import Loading from '../../components/Loading.vue';
 import { creatCircleSpread, creatFlyLine, creatDashLine } from '../../utils/creatMesh.js'
 // mapJson数据 需要自己准备 https://datav.aliyun.com/portal/school/atlas/area_selector
-import map from '/public/json/henan.json'
 import { useMap } from '../../mixin/useMap'
 import { useRay } from '../../mixin/useRay'
 
+
+let map = null
 // 初始化
 let labelRender = null, circleGroup = null, circleScale = 1, lineGroup = null, dslineGroup = null, mmp = null;
 let rayObject = null
@@ -46,6 +47,9 @@ const canvasbox = computed(() => {
 })
 
 const init = async ({ THREE, scene, renderer, camera, control }) => {
+  let res = await fetch('https://ghchenjingqi.github.io/resources/json/henan.json')
+  map = await res.json()
+  if (!map) return
   mmp = new THREE.Group()
   const mapData = {
     mapJson: map, // 地图json数据
@@ -54,7 +58,6 @@ const init = async ({ THREE, scene, renderer, camera, control }) => {
     color: "#13407d", // 地区颜色
     pointColor: "#009fff",
   }
-
   // 异步加载地图
   let { mapMesh, labelRenderer } = await useMap(mapData)
   mapMesh.rotation.x = -Math.PI / 2
@@ -190,6 +193,7 @@ const showTip = (tip, object) => {
 }
 
 const animation = ({ scene, camera, renderer, controls, stats, THREE }) => {
+  if (!map) return
   // 扩散圈动画
   if (circleGroup?.children?.length > 0) {
     circleGroup.children.forEach((elmt) => {
@@ -228,10 +232,11 @@ const animation = ({ scene, camera, renderer, controls, stats, THREE }) => {
 
 
   controls.update();
+
   renderer.render(scene, camera);
   stats.update();
   // label更新
-  labelRender.render(scene, camera);
+  if (labelRender) labelRender.render(scene, camera);
 }
 
 const { loading, pregress } = useThree({
@@ -244,7 +249,6 @@ const { loading, pregress } = useThree({
   creatMesh: init,
   animation: animation
 })
-
 
 onUnmounted(() => {
   if (flyLines.length > 0) {

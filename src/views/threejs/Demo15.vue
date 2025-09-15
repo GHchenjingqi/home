@@ -10,7 +10,7 @@ const stop = ref(false);
 const init = async ({ THREE, scene, controls, transControls, camera, renderer }) => {
   let list = "君不见黄河之水天上来奔流到海不复回君不见高堂明镜悲白发朝如青丝暮成雪人生得意须尽欢莫使金樽空对月天生我材必有用千金散尽还复来烹羊宰牛且为乐会须一饮三百杯岑夫子丹丘生将进酒杯莫停与君歌一曲请君为我倾耳听钟鼓馔玉不足贵但愿长醉不复醒古来圣贤皆寂寞唯有饮者留其名陈王昔时宴平乐斗酒十千恣欢谑主人何为言少钱径须沽取对君酌五花马千金裘呼儿将出换美酒与尔同销万古愁";
   textGroup = await creatTextList({
-    font: import.meta.env.VITE_BASE_URL+'/public/fonts/KaiTi_Regular.json',
+    font: 'https://ghchenjingqi.github.io/resources/fonts/KaiTi_Regular.json',
     text: list,
     fontSize: 1,
     depth: 0.1,
