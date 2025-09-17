@@ -3,12 +3,9 @@ import { onMounted, onUnmounted } from 'vue';
 import { useThree } from '@/mixin/useThree.js';
 import Loading from '@/components/Loading.vue';
 const init = async ({ THREE, scene, camera , axesHelper}) => {
-
 }
 
 const animation = ({ controls, scene, camera, renderer, stats ,gridHelper}) => {
-
- 
   stats?.update();
   controls?.update();
   renderer?.render(scene, camera);
