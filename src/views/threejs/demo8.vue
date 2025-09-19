@@ -19,7 +19,7 @@ const meshfn = ({ THREE, scene, renderer}) => {
           {
               textureWidth: 512,
               textureHeight: 512,
-              waterNormals: new THREE.TextureLoader().load( import.meta.env.VITE_BASE_URL+'/public/images/waternormals.jpg', function ( texture ) {
+              waterNormals: new THREE.TextureLoader().load( import.meta.env.VITE_BASE_URL+'https://ghchenjingqi.github.io/resources/images/waternormals.jpg', function ( texture ) {
                   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
               } ),
               sunDirection: new THREE.Vector3(),

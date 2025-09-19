@@ -6,9 +6,9 @@ const option1 = {
   // 球
   globe: {
     // 地球贴图
-    baseTexture:  import.meta.env.VITE_BASE_URL + '/public/images/world.jpg',
+    baseTexture:  import.meta.env.VITE_BASE_URL + 'https://ghchenjingqi.github.io/resources/images/world.jpg',
     // 环境贴图
-    environment: import.meta.env.VITE_BASE_URL + "/public/images/sky.png",
+    environment: import.meta.env.VITE_BASE_URL + "https://ghchenjingqi.github.io/resources/images/sky.png",
     // 兰伯特投影： 等角圆锥投影
     shading: 'lambert',
     // 开启大气层
@@ -41,9 +41,9 @@ const option2 = {
     top:'center',
     left:'center',
     // 地球贴图
-    baseTexture: import.meta.env.VITE_BASE_URL +  '/public/images/world.jpg',
+    baseTexture: import.meta.env.VITE_BASE_URL +  'https://ghchenjingqi.github.io/resources/images/world.jpg',
     // 凹凸
-    heightTexture:import.meta.env.VITE_BASE_URL + '/public/images/world.jpg',
+    heightTexture:import.meta.env.VITE_BASE_URL + 'https://ghchenjingqi.github.io/resources/images/world.jpg',
     // 置换比例，凹凸大小
     displacementScale: 0.04,
     displacementQuality: 'medium',
@@ -90,9 +90,9 @@ const option3 = {
     top:'center',
     left:'center',
     // 地球贴图
-    baseTexture: import.meta.env.VITE_BASE_URL + '/public/images/world.jpg',
+    baseTexture: import.meta.env.VITE_BASE_URL + 'https://ghchenjingqi.github.io/resources/images/world.jpg',
     // 凹凸
-    heightTexture: import.meta.env.VITE_BASE_URL +'/public/images/world.jpg',
+    heightTexture: import.meta.env.VITE_BASE_URL +'https://ghchenjingqi.github.io/resources/images/world.jpg',
     // 置换比例，凹凸大小
     displacementScale: 0.02,
     displacementQuality: 'medium',
@@ -107,11 +107,11 @@ const option3 = {
       {
         type: 'blend',
         blendTo: 'emission',
-        texture: import.meta.env.VITE_BASE_URL+ '/public/images/earth2.jpg',
+        texture: import.meta.env.VITE_BASE_URL+ 'https://ghchenjingqi.github.io/resources/images/earth2.jpg',
       },
       {
         type: 'overlay',
-        texture:import.meta.env.VITE_BASE_URL+ '/public/images/clouds.png',
+        texture:import.meta.env.VITE_BASE_URL+ 'https://ghchenjingqi.github.io/resources/images/clouds.png',
         shading: 'lambert',
         distance: 5
       }
@@ -143,7 +143,7 @@ const option4 = {
     top:'center',
     left:'center',
     // 地球贴图
-    baseTexture: import.meta.env.VITE_BASE_URL + '/public/images/world.jpg',
+    baseTexture: import.meta.env.VITE_BASE_URL + 'https://ghchenjingqi.github.io/resources/images/world.jpg',
     // 兰伯特投影： 等角圆锥投影
     shading: 'lambert',
     viewControl: {
