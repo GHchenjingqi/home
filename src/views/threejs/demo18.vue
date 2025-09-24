@@ -60,7 +60,7 @@ const init = async ({ THREE, scene, controls, transControls, camera, renderer })
 
   const planeGeometry = new THREE.PlaneGeometry(500, 500);
   const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load(import.meta.env.VITE_BASE_URL+"https://ghchenjingqi.github.io/resources/images/grass.png");
+  const texture = textureLoader.load(import.meta.env.VITE_BASE_URL+"https://fastly.jsdelivr.net/gh/GHchenjingqi/resources/images/grass.png");
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set(1000, 1000)

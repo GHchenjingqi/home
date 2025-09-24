@@ -47,7 +47,7 @@ const canvasbox = computed(() => {
 })
 
 const init = async ({ THREE, scene, renderer, camera, control }) => {
-  let res = await fetch('https://ghchenjingqi.github.io/resources/json/henan.json')
+  let res = await fetch('https://fastly.jsdelivr.net/gh/GHchenjingqi/resources/json/henan.json')
   map = await res.json()
   if (!map) return
   mmp = new THREE.Group()

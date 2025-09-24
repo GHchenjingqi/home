@@ -91,8 +91,8 @@ const init = async ({ THREE, scene, controls, canvas, camera, renderer, clock })
 
   // 加载贴图
   const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load(import.meta.env.VITE_BASE_URL+'https://ghchenjingqi.github.io/resources/images/earth2.jpg');
-  const glowTexture = textureLoader.load(import.meta.env.VITE_BASE_URL+'https://ghchenjingqi.github.io/resources/images/glow.png'); // 加载大气层纹理
+  const texture = textureLoader.load(import.meta.env.VITE_BASE_URL+'https://fastly.jsdelivr.net/gh/GHchenjingqi/resources/images/earth2.jpg');
+  const glowTexture = textureLoader.load(import.meta.env.VITE_BASE_URL+'https://fastly.jsdelivr.net/gh/GHchenjingqi/resources/images/glow.png'); // 加载大气层纹理
 
   // 创建地球几何体
   const earth_geometry = new THREE.SphereGeometry(4, 50, 50);
