@@ -103,7 +103,7 @@ const init = async ({THREE, scene, transControls, renderer, camera, gridHelper, 
       {
         textureWidth: 512,
         textureHeight: 512,
-        waterNormals: new THREE.TextureLoader().load( import.meta.env.VITE_BASE_URL+'https://fastly.jsdelivr.net/gh/GHchenjingqi/resources/images/waternormals.jpg', function ( texture ) {
+        waterNormals: new THREE.TextureLoader().load( import.meta.env.VITE_BASE_URL+'http://115.190.117.177:10086/images/waternormals.jpg', function ( texture ) {
           texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
         } ),
         sunDirection: new THREE.Vector3(),

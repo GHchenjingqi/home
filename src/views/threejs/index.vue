@@ -29,7 +29,7 @@ onMounted(() => {
 <template>
     <div class="content">
         <div class="file-title">
-            <img src="https://fastly.jsdelivr.net/gh/GHchenjingqi/resources/images/threejs.jpg" alt="">
+            <img src="http://115.190.117.177:10086/images/threejs.jpg" alt="">
             <div class="file-content">
                 <h1>ThreeJS <a href="https://threejs.org/docs/index.html" target="_blank"
                         rel="noopener noreferrer">官方文档</a></h1>

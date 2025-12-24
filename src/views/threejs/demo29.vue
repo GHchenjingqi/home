@@ -50,7 +50,7 @@ const init = ({ THREE, scene, camera, }) => {
   const fog = new THREE.Fog('#1e4877', 1, 1000);
   const geometry = new THREE.PlaneGeometry(64, 64);
   const geometries = [];
-  const texture = new THREE.TextureLoader().load(import.meta.env.VITE_BASE_URL+'https://fastly.jsdelivr.net/gh/GHchenjingqi/resources/images/cloud.png');
+  const texture = new THREE.TextureLoader().load(import.meta.env.VITE_BASE_URL+'http://115.190.117.177:10086/images/cloud.png');
 
   // 贴图材质
   const material = new THREE.ShaderMaterial({

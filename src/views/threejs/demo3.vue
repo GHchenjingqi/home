@@ -1,6 +1,6 @@
 <script setup>
-import { useThree } from '../../mixin/useThree';
-import Loading from '../../components/Loading.vue';
+import { useThree } from '@/mixin/useThree';
+import Loading from '@/components/Loading.vue';
 
 const {loading, pregress} = useThree({
     el: '#canvas', // 元素

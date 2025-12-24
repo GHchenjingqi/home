@@ -1,8 +1,8 @@
 <script setup>
 import { onBeforeUnmount, ref } from 'vue'
-import { useThree } from '../../mixin/useThree.js';
-import Loading from '../../components/Loading.vue';
-import { creatPointsMesh, lon2xyz, createSpriteText } from '../../utils/creatMesh.js'
+import { useThree } from '@/mixin/useThree.js';
+import Loading from '@/components/Loading.vue';
+import { creatPointsMesh, lon2xyz, createSpriteText } from '@/utils/creatMesh.js'
 import gsap from "gsap";
 
 // 着色器
@@ -91,8 +91,8 @@ const init = async ({ THREE, scene, controls, canvas, camera, renderer, clock })
 
   // 加载贴图
   const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load(import.meta.env.VITE_BASE_URL+'https://fastly.jsdelivr.net/gh/GHchenjingqi/resources/images/earth2.jpg');
-  const glowTexture = textureLoader.load(import.meta.env.VITE_BASE_URL+'https://fastly.jsdelivr.net/gh/GHchenjingqi/resources/images/glow.png'); // 加载大气层纹理
+  const texture = textureLoader.load(import.meta.env.VITE_BASE_URL+'http://115.190.117.177:10086/images/earth2.jpg');
+  const glowTexture = textureLoader.load(import.meta.env.VITE_BASE_URL+'http://115.190.117.177:10086/images/glow.png'); // 加载大气层纹理
 
   // 创建地球几何体
   const earth_geometry = new THREE.SphereGeometry(4, 50, 50);

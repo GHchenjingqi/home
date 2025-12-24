@@ -36,7 +36,7 @@ onMounted(() => {
 <template>
   <div class="content">
     <div class="file-title">
-      <img src="https://fastly.jsdelivr.net/gh/GHchenjingqi/resources/images/echart.jpg" alt="">
+      <img src="http://115.190.117.177:10086/images/echart.jpg" alt="">
       <div class="file-content">
         <h1>Echarts <a href="https://echarts.apache.org/zh/index.html" target="_blank" rel="noopener noreferrer">官方案例</a></h1>
         <p>基于JavaScript 的开源可视化图表库</p>

@@ -4,12 +4,12 @@ import Loading from '../../components/Loading.vue';
 
 const meshfn = ({ THREE, scene, cube })=>{
     // 环境贴图：左右、上下、前后
-    const cubeTexture = new THREE.CubeTextureLoader().setPath( import.meta.env.VITE_BASE_URL+"https://fastly.jsdelivr.net/gh/GHchenjingqi/resources/images/").load(["1.jpg", "2.jpg", "3.jpg", "4.jpg", "6.jpg", "5.jpg"]);
+    const cubeTexture = new THREE.CubeTextureLoader().setPath( import.meta.env.VITE_BASE_URL+"http://115.190.117.177:10086/images/").load(["1.jpg", "2.jpg", "3.jpg", "4.jpg", "6.jpg", "5.jpg"]);
     scene.background = cubeTexture;
 
     // 贴图
     const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load(import.meta.env.VITE_BASE_URL+"https://fastly.jsdelivr.net/gh/GHchenjingqi/resources/images/all.jpg");
+    const texture = textureLoader.load(import.meta.env.VITE_BASE_URL+"http://115.190.117.177:10086/images/all.jpg");
     const geometry2 = new THREE.SphereGeometry(0.5, 36, 18);
     // 材质
     const material2 = new THREE.MeshBasicMaterial({

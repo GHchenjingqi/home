@@ -12,7 +12,7 @@ const init = async ({ THREE, scene, camera }) => {
   camera.rotation.x = 1.16;
   // 加载环境贴图
   const loader = new THREE.TextureLoader();
-  const envMapTexture = await loader.load(import.meta.env.VITE_BASE_URL + 'https://fastly.jsdelivr.net/gh/GHchenjingqi/resources/images/sky.webp');
+  const envMapTexture = await loader.load(import.meta.env.VITE_BASE_URL + 'http://115.190.117.177:10086/images/sky.webp');
 
   // 球体
   const sphere = new THREE.SphereGeometry(10, 32, 32);
@@ -37,7 +37,7 @@ const init = async ({ THREE, scene, camera }) => {
 
 
   // 加载云彩贴图
-  const texture = await loader.load(import.meta.env.VITE_BASE_URL + 'https://fastly.jsdelivr.net/gh/GHchenjingqi/resources/images/cloud.png');
+  const texture = await loader.load(import.meta.env.VITE_BASE_URL + 'http://115.190.117.177:10086/images/cloud.png');
   const cloudGeo = new THREE.PlaneGeometry(5, 3);
 
   const cloudMaterial = new THREE.MeshStandardMaterial({
